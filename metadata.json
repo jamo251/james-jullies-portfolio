@@ -1,0 +1,7 @@
+{
+  "name": "AI-Powered Professional Portfolio",
+  "description": "A high-end, interactive developer portfolio featuring an integrated Gemini AI assistant to showcase projects and skills, optimized for the GCC and EMEA tech markets.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
