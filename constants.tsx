@@ -8,15 +8,15 @@ export const PROJECTS: Project[] = [
     description: 'End-to-end data application built on Domo, managing complete pipelines from acquisition to interactive dashboards.',
     longDescription: 'This comprehensive Olympics tracking application was architected to demonstrate the power of real-time data orchestration across the GCC and EMEA regions.\n\nI managed the entire data lifecycle: from the acquisition of raw historical and real-time athletic data to the sophisticated cleansing and transformation logic required for cross-discipline comparisons. \n\nThe final solution features interactive Domo "cards" and stories that allow users to drill down into athlete performance, national medal counts, and historical trends. Key features include:\n\n• **Real-time Heatmaps**: Visualizing global medal distribution and historical performance trends.\n• **Athlete Intelligence**: Deep dives into specific athlete rituals, philosophies, and performance metrics.\n• **Regional Snapshots**: Specialized views for localized insights (e.g., Bahrain, South Africa).\n• **Predictive Trends**: Analyzing participation growth across genders and nations since 1896.',
     tags: ['Domo', 'Data Engineering', 'BI', 'Analytics'],
-    imageUrl: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'assets/images/olympic-page-1.png', 
     category: 'Data',
     link: 'https://www.youknow.co.za/interactive-content/olympic-data-visualisation',
     galleryImages: [
-      'https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1504868584819-f8eec242350e?auto=format&fit=crop&q=80&w=1200'
+      'assets/images/olympic-page-1.png', 
+      'assets/images/olympic-page-2.png', 
+      'assets/images/olympic-page-3.png', 
+      'assets/images/olympic-page-4.png', 
+      'assets/images/olympic-page-5.png'
     ]
   },
   {
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     description: 'Scaled user engagement for West African and GCC fintechs like Paysika and Wonga using Braze and OneSignal.',
     longDescription: 'Architected push notification and email infrastructure that scaled Paysika from thousands to over 100k users. Implemented Braze for OM Bank, designing complex webhook solutions.',
     tags: ['Braze', 'OneSignal', 'API', 'Webhooks'],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800',
     category: 'Martech',
     link: '#'
   },
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     description: 'Automated workflow integrating HubSpot and Amplitude via JavaScript and Make.com.',
     longDescription: 'Built a custom event tracking pipeline that increased sales efficiency by 50%. Used JavaScript to bridge HubSpot form submissions with Amplitude for seamless lead tracking.',
     tags: ['JavaScript', 'Make.com', 'Amplitude', 'HubSpot'],
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800',
     category: 'AI',
     link: '#'
   },

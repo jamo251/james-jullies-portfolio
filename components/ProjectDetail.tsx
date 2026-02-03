@@ -10,6 +10,7 @@ interface ProjectDetailProps {
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [loadingError, setLoadingError] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +34,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   const prevImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     setActiveImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleImageError = (index: number, source: string) => {
+    console.error(`ProjectDetail: Error loading asset: ${source} (Base: ${window.location.href})`);
+    setLoadingError(prev => ({ ...prev, [index]: true }));
   };
 
   return (
@@ -67,29 +73,44 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <button onClick={prevImage} className="absolute left-0 z-10 p-4 glass rounded-full hover:bg-white/10 text-white">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <img 
-              src={gallery[activeImage]} 
-              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in duration-500" 
-              onClick={(e) => e.stopPropagation()}
-              alt="Dashboard Preview"
-            />
+            <div className="w-full h-full flex items-center justify-center">
+              {!loadingError[activeImage] ? (
+                <img 
+                  src={gallery[activeImage]} 
+                  className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in duration-500" 
+                  onClick={(e) => e.stopPropagation()}
+                  alt="Dashboard Preview"
+                  onError={() => handleImageError(activeImage, gallery[activeImage])}
+                />
+              ) : (
+                <div className="text-gray-500 font-mono text-center p-12 glass rounded-3xl">
+                  <div className="text-4xl mb-4">⚠️</div>
+                  <div className="text-sm tracking-widest uppercase mb-2">Image Not Found</div>
+                  <span className="text-[10px] opacity-30 break-all">{gallery[activeImage]}</span>
+                </div>
+              )}
+            </div>
             <button onClick={nextImage} className="absolute right-0 z-10 p-4 glass rounded-full hover:bg-white/10 text-white">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
           
-          <div className="absolute bottom-8 text-white/50 font-mono tracking-tighter">
-            FRAME {activeImage + 1} / {gallery.length}
+          <div className="absolute bottom-8 text-white/50 font-mono tracking-tighter uppercase text-xs">
+            {gallery[activeImage].split('/').pop()} • {activeImage + 1} / {gallery.length}
           </div>
         </div>
       )}
 
       {/* Hero Content */}
-      <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <div className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-gray-950 flex items-center justify-center">
         <img 
           src={project.imageUrl} 
           alt={project.title} 
           className="w-full h-full object-cover"
+          onError={(e) => {
+            console.error(`Hero: Failed to load ${project.imageUrl}`);
+            e.currentTarget.style.opacity = '0.2';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
@@ -101,7 +122,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 </span>
               ))}
             </div>
-            <h1 className="text-5xl md:text-8xl font-black mb-6 text-offwhite leading-none">{project.title}</h1>
+            <h1 className="text-5xl md:text-8xl font-black mb-6 text-offwhite leading-none tracking-tighter">{project.title}</h1>
           </div>
         </div>
       </div>
@@ -113,7 +134,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             
             {/* Overview Section */}
             <section className="animate-in slide-in-from-bottom-8 duration-700">
-              <h2 className="text-3xl font-bold mb-8 text-[#0F4C81] flex items-center gap-3">
+              <h2 className="text-3xl font-bold mb-8 text-[#0F4C81] flex items-center gap-3 uppercase tracking-widest text-sm">
                 <span className="w-8 h-1 bg-[#0F4C81]"></span>
                 Project Context
               </h2>
@@ -127,7 +148,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <section className="space-y-8 animate-in slide-in-from-bottom-12 duration-1000">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0F4C81]">Dashboard Architecture</h2>
+                    <h2 className="text-3xl font-bold text-[#0F4C81] tracking-tight">Dashboard Architecture</h2>
                     <p className="text-gray-500 text-sm mt-1">Interactive visualization layer built on enterprise data streams.</p>
                   </div>
                   <div className="flex gap-3">
@@ -147,19 +168,28 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 </div>
 
                 <div 
-                  className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden glass border border-white/10 shadow-3xl bg-black/40 cursor-zoom-in"
+                  className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden glass border border-white/10 shadow-3xl bg-gray-950 cursor-zoom-in min-h-[500px] flex items-center justify-center"
                   onClick={() => setIsFullscreen(true)}
                 >
-                  <div className="aspect-video relative overflow-hidden group">
-                    <img 
-                      key={activeImage}
-                      src={gallery[activeImage]} 
-                      alt={`Dashboard frame ${activeImage + 1}`} 
-                      className="w-full h-full object-contain animate-in fade-in zoom-in duration-1000"
-                    />
+                  <div className="aspect-video relative overflow-hidden group w-full flex items-center justify-center">
+                    {!loadingError[activeImage] ? (
+                      <img 
+                        key={activeImage}
+                        src={gallery[activeImage]} 
+                        alt={`Dashboard frame ${activeImage + 1}`} 
+                        className="w-full h-full object-contain animate-in fade-in zoom-in duration-1000"
+                        onError={() => handleImageError(activeImage, gallery[activeImage])}
+                      />
+                    ) : (
+                      <div className="text-gray-700 font-mono text-center flex flex-col items-center">
+                        <svg className="w-24 h-24 opacity-10 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <div className="text-[10px] tracking-[0.4em] uppercase opacity-40">Static_Asset_Error</div>
+                        <div className="text-[8px] mt-4 opacity-20 break-all px-12">{gallery[activeImage]}</div>
+                      </div>
+                    )}
                     
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-[#0F4C81]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#0F4C81]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <div className="bg-white/10 backdrop-blur-xl p-4 rounded-full border border-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500">
                         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                       </div>
@@ -191,9 +221,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     <button 
                       key={idx}
                       onClick={() => setActiveImage(idx)}
-                      className={`relative shrink-0 w-32 md:w-48 aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-300 ${idx === activeImage ? 'border-[#2B9B78] scale-105 ring-8 ring-[#2B9B78]/10' : 'border-transparent opacity-40 hover:opacity-100'}`}
+                      className={`relative shrink-0 w-32 md:w-48 aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-gray-900 ${idx === activeImage ? 'border-[#2B9B78] scale-105 ring-8 ring-[#2B9B78]/10' : 'border-transparent opacity-40 hover:opacity-100'}`}
                     >
-                      <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
+                      <img 
+                        src={img} 
+                        alt="Thumbnail" 
+                        className="w-full h-full object-cover" 
+                        onError={(e) => {
+                          e.currentTarget.style.opacity = '0.1';
+                        }}
+                      />
                       {idx === activeImage && (
                         <div className="absolute inset-0 bg-[#2B9B78]/10"></div>
                       )}
@@ -205,30 +242,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             
             {/* Deep Dive Narrative */}
             <section className="prose prose-invert max-w-none">
-              <h2 className="text-3xl font-bold mb-10 text-[#0F4C81] flex items-center gap-3">
+              <h2 className="text-3xl font-bold mb-10 text-[#0F4C81] flex items-center gap-3 uppercase tracking-widest text-sm">
                 <span className="w-8 h-1 bg-[#0F4C81]"></span>
                 Implementation Deep Dive
               </h2>
               <div className="text-gray-400 text-lg leading-relaxed space-y-8 font-light whitespace-pre-wrap">
                 {project.longDescription}
-              </div>
-            </section>
-
-            {/* Metrics & Impact Cards */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
-              <div className="glass p-10 rounded-[2.5rem] border-[#0F4C81]/20 group hover:border-[#0F4C81]/50 transition-all duration-500">
-                <div className="w-16 h-16 bg-[#0F4C81]/10 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:bg-[#0F4C81]/20 group-hover:rotate-12 transition-all">
-                  <svg className="w-8 h-8 text-[#0F4C81]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <h4 className="text-[#0F4C81] font-bold mb-4 uppercase tracking-[0.2em] text-xs">Strategic Vision</h4>
-                <p className="text-gray-400 leading-relaxed">Faced with a highly fragmented data landscape, the core challenge was creating a unified source of truth that could provide real-time competitive intelligence at a global scale.</p>
-              </div>
-              <div className="glass p-10 rounded-[2.5rem] border-[#2B9B78]/20 group hover:border-[#2B9B78]/50 transition-all duration-500">
-                <div className="w-16 h-16 bg-[#2B9B78]/10 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:bg-[#2B9B78]/20 group-hover:-rotate-12 transition-all">
-                  <svg className="w-8 h-8 text-[#2B9B78]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h4 className="text-[#2B9B78] font-bold mb-4 uppercase tracking-[0.2em] text-xs">Measurable Success</h4>
-                <p className="text-gray-400 leading-relaxed">The resulting ecosystem became the benchmark for large-scale event reporting, providing stakeholders with instantaneous access to over 100 years of performance data.</p>
               </div>
             </section>
           </div>
@@ -249,10 +268,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                        project.category === 'Martech' ? 'Martech Orchestration' : 
                        project.category === 'AI' ? 'Applied Generative AI' : 'Web Architecture'}
                     </span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Deployment Regions</span>
-                    <span className="text-gray-200 font-medium">GCC, South Africa, EMEA</span>
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Primary Stack</span>
@@ -285,21 +300,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           </div>
         </div>
       </div>
-
-      <section className="bg-gradient-to-b from-transparent to-[#2B9B78]/10 py-32 border-t border-white/5">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-5xl md:text-7xl font-black mb-12 text-offwhite leading-tight">
-            Inspired by this <br /> 
-            <span className="gradient-text">implementation?</span>
-          </h2>
-          <button 
-            onClick={onBack}
-            className="bg-[#2B9B78] px-16 py-5 rounded-full font-bold text-white hover:bg-[#025147] transition-all transform hover:-translate-y-1 shadow-2xl shadow-[#2B9B78]/40 text-lg"
-          >
-            Let's Discuss Your Vision
-          </button>
-        </div>
-      </section>
     </div>
   );
 };
