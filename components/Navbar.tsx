@@ -7,6 +7,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -15,6 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
   }, []);
 
   const handleClick = () => {
+    setMenuOpen(false);
     if (onNavClick) onNavClick();
   };
 
@@ -28,12 +30,32 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
           <a href="#experience" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors cursor-pointer">Timeline</a>
           <a href="#contact" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors cursor-pointer">Contact</a>
         </div>
-        <button className="md:hidden text-white focus:outline-none">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
+        <button
+          onClick={() => setMenuOpen(prev => !prev)}
+          className="md:hidden text-white focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          )}
         </button>
       </div>
+      {menuOpen && (
+        <div className="md:hidden glass border-t border-white/10 mt-1">
+          <div className="container mx-auto px-6 py-4 flex flex-col space-y-4 text-sm font-medium">
+            <a href="#projects" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors">Achievements</a>
+            <a href="#skills" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors">Expertise</a>
+            <a href="#experience" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors">Timeline</a>
+            <a href="#contact" onClick={handleClick} className="text-gray-300 hover:text-[#2B9B78] transition-colors">Contact</a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
