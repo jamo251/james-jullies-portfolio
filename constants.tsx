@@ -8,15 +8,15 @@ export const PROJECTS: Project[] = [
     description: 'End-to-end data application built on Domo, managing complete pipelines from acquisition to interactive dashboards.',
     longDescription: 'This comprehensive Olympics tracking application was architected to demonstrate the power of real-time data orchestration across the GCC and EMEA regions.\n\nI managed the entire data lifecycle: from the acquisition of raw historical and real-time athletic data to the sophisticated cleansing and transformation logic required for cross-discipline comparisons. \n\nThe final solution features interactive Domo "cards" and stories that allow users to drill down into athlete performance, national medal counts, and historical trends. Key features include:\n\n• **Real-time Heatmaps**: Visualizing global medal distribution and historical performance trends.\n• **Athlete Intelligence**: Deep dives into specific athlete rituals, philosophies, and performance metrics.\n• **Regional Snapshots**: Specialized views for localized insights (e.g., Bahrain, South Africa).\n• **Predictive Trends**: Analyzing participation growth across genders and nations since 1896.',
     tags: ['Domo', 'Data Engineering', 'BI', 'Analytics'],
-    imageUrl: '/assets/images/olympic-page-1.png',
+    imageUrl: './assets/images/olympic-page-1.png',
     category: 'Data',
     link: 'https://www.youknow.co.za/interactive-content/olympic-data-visualisation',
     galleryImages: [
-      '/assets/images/olympic-page-1.png',
-      '/assets/images/olympic-page-2.png',
-      '/assets/images/olympic-page-3.png',
-      '/assets/images/olympic-page-4.png',
-      '/assets/images/olympic-page-5.png'
+      './assets/images/olympic-page-1.png',
+      './assets/images/olympic-page-2.png',
+      './assets/images/olympic-page-3.png',
+      './assets/images/olympic-page-4.png',
+      './assets/images/olympic-page-5.png'
     ]
   },
   {
