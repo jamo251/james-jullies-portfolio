@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Project } from '../types';
+import { MarkdownText } from './MarkdownText';
 
 interface ProjectDetailProps {
   project: Project;
@@ -30,7 +31,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
     e?.stopPropagation();
     setActiveImage((prev) => (prev + 1) % gallery.length);
   };
-  
+
   const prevImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     setActiveImage((prev) => (prev - 1 + gallery.length) % gallery.length);
@@ -46,7 +47,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
       {/* Navbar */}
       <nav className="sticky top-0 z-30 glass border-b border-[#025147]/30 py-4">
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <button 
+          <button
             onClick={onBack}
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
           >
@@ -61,23 +62,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
       {/* Fullscreen Overlay */}
       {isFullscreen && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 md:p-12 animate-in fade-in duration-300"
           onClick={() => setIsFullscreen(false)}
         >
           <button className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
-          
+
           <div className="relative w-full max-w-6xl flex items-center justify-center h-full">
             <button onClick={prevImage} className="absolute left-0 z-10 p-4 glass rounded-full hover:bg-white/10 text-white">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
             <div className="w-full h-full flex items-center justify-center">
               {!loadingError[activeImage] ? (
-                <img 
-                  src={gallery[activeImage]} 
-                  className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in duration-500" 
+                <img
+                  src={gallery[activeImage]}
+                  className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in duration-500"
                   onClick={(e) => e.stopPropagation()}
                   alt="Dashboard Preview"
                   onError={() => handleImageError(activeImage, gallery[activeImage])}
@@ -94,7 +95,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
-          
+
           <div className="absolute bottom-8 text-white/50 font-mono tracking-tighter uppercase text-xs">
             {gallery[activeImage].split('/').pop()} • {activeImage + 1} / {gallery.length}
           </div>
@@ -103,9 +104,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
       {/* Hero Content */}
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-gray-950 flex items-center justify-center">
-        <img 
-          src={project.imageUrl} 
-          alt={project.title} 
+        <img
+          src={project.imageUrl}
+          alt={project.title}
           className="w-full h-full object-cover"
           onError={(e) => {
             console.error(`Hero: Failed to load ${project.imageUrl}`);
@@ -129,17 +130,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
+
           <div className="lg:col-span-8 space-y-24">
-            
+
             {/* Overview Section */}
             <section className="animate-in slide-in-from-bottom-8 duration-700">
               <h2 className="text-3xl font-bold mb-8 text-[#0F4C81] flex items-center gap-3 uppercase tracking-widest text-sm">
                 <span className="w-8 h-1 bg-[#0F4C81]"></span>
                 Project Context
               </h2>
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
-                {project.description}
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light whitespace-pre-wrap">
+                <MarkdownText text={project.description} />
               </p>
             </section>
 
@@ -152,13 +153,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     <p className="text-gray-500 text-sm mt-1">Interactive visualization layer built on enterprise data streams.</p>
                   </div>
                   <div className="flex gap-3">
-                    <button 
+                    <button
                       onClick={prevImage}
                       className="w-12 h-12 flex items-center justify-center glass rounded-full hover:bg-white/5 transition-all border border-white/10 text-white"
                     >
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <button 
+                    <button
                       onClick={nextImage}
                       className="w-12 h-12 flex items-center justify-center glass rounded-full hover:bg-white/5 transition-all border border-white/10 text-white"
                     >
@@ -167,16 +168,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   </div>
                 </div>
 
-                <div 
+                <div
                   className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden glass border border-white/10 shadow-3xl bg-gray-950 cursor-zoom-in min-h-[500px] flex items-center justify-center"
                   onClick={() => setIsFullscreen(true)}
                 >
                   <div className="aspect-video relative overflow-hidden group w-full flex items-center justify-center">
                     {!loadingError[activeImage] ? (
-                      <img 
+                      <img
                         key={activeImage}
-                        src={gallery[activeImage]} 
-                        alt={`Dashboard frame ${activeImage + 1}`} 
+                        src={gallery[activeImage]}
+                        alt={`Dashboard frame ${activeImage + 1}`}
                         className="w-full h-full object-contain animate-in fade-in zoom-in duration-1000"
                         onError={() => handleImageError(activeImage, gallery[activeImage])}
                       />
@@ -187,7 +188,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                         <div className="text-[8px] mt-4 opacity-20 break-all px-12">{gallery[activeImage]}</div>
                       </div>
                     )}
-                    
+
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-[#0F4C81]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <div className="bg-white/10 backdrop-blur-xl p-4 rounded-full border border-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500">
@@ -195,7 +196,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Gallery Overlays */}
                   <div className="absolute top-8 left-8">
                     <span className="px-4 py-1.5 bg-black/40 backdrop-blur-xl rounded-full text-[10px] font-bold text-[#2B9B78] border border-[#2B9B78]/40 tracking-widest uppercase">
@@ -206,7 +207,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   {/* Indicators */}
                   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                     {gallery.map((_, idx) => (
-                      <button 
+                      <button
                         key={idx}
                         onClick={(e) => { e.stopPropagation(); setActiveImage(idx); }}
                         className={`h-1 rounded-full transition-all duration-500 ${idx === activeImage ? 'w-12 bg-[#2B9B78]' : 'w-4 bg-white/10 hover:bg-white/30'}`}
@@ -218,15 +219,15 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 {/* Enhanced Thumbnails Row */}
                 <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
                   {gallery.map((img, idx) => (
-                    <button 
+                    <button
                       key={idx}
                       onClick={() => setActiveImage(idx)}
                       className={`relative shrink-0 w-32 md:w-48 aspect-video rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-gray-900 ${idx === activeImage ? 'border-[#2B9B78] scale-105 ring-8 ring-[#2B9B78]/10' : 'border-transparent opacity-40 hover:opacity-100'}`}
                     >
-                      <img 
-                        src={img} 
-                        alt="Thumbnail" 
-                        className="w-full h-full object-cover" 
+                      <img
+                        src={img}
+                        alt="Thumbnail"
+                        className="w-full h-full object-cover"
                         onError={(e) => {
                           e.currentTarget.style.opacity = '0.1';
                         }}
@@ -239,7 +240,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 </div>
               </section>
             )}
-            
+
             {/* Deep Dive Narrative */}
             <section className="prose prose-invert max-w-none">
               <h2 className="text-3xl font-bold mb-10 text-[#0F4C81] flex items-center gap-3 uppercase tracking-widest text-sm">
@@ -247,7 +248,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 Implementation Deep Dive
               </h2>
               <div className="text-gray-400 text-lg leading-relaxed space-y-8 font-light whitespace-pre-wrap">
-                {project.longDescription}
+                <MarkdownText text={project.longDescription} />
               </div>
             </section>
           </div>
@@ -264,9 +265,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Category</span>
                     <span className="text-gray-200 font-medium">
-                      {project.category === 'Data' ? 'Business Intelligence & Data Eng' : 
-                       project.category === 'Martech' ? 'Martech Orchestration' : 
-                       project.category === 'AI' ? 'Applied Generative AI' : 'Web Architecture'}
+                      {project.category === 'Data' ? 'Business Intelligence & Data Eng' :
+                        project.category === 'Martech' ? 'Martech Orchestration' :
+                          project.category === 'AI' ? 'Applied Generative AI' : 'Web Architecture'}
                     </span>
                   </div>
                   <div className="flex flex-col gap-1">
@@ -275,20 +276,20 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full bg-[#0F4C81] text-white py-5 rounded-[1.5rem] font-bold hover:bg-[#025147] transition-all transform hover:-translate-y-1 shadow-lg shadow-[#0F4C81]/20 group"
                   >
                     View Live Dashboard
                     <svg className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                   </a>
                 )}
-                <button 
+                <button
                   onClick={() => setIsFullscreen(true)}
                   className="flex items-center justify-center gap-3 w-full glass py-5 rounded-[1.5rem] font-bold text-offwhite hover:bg-white/10 transition-all transform hover:-translate-y-1"
                 >
