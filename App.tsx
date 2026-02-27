@@ -21,30 +21,30 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen relative selection:bg-[#2B9B78]/30">
       <Navbar onNavClick={resetSelection} />
-      
+
       {selectedProject ? (
-        <ProjectDetail 
-          project={selectedProject} 
-          onBack={resetSelection} 
+        <ProjectDetail
+          project={selectedProject}
+          onBack={resetSelection}
         />
       ) : (
         <main className="animate-in fade-in duration-500">
           <Hero />
-          
+
           {/* Project Section */}
-          <section id="projects" className="py-24 container mx-auto px-6">
+          <section id="projects" className="py-24 container mx-auto px-6 scroll-mt-24">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-offwhite">Core <span className="gradient-text">Impact</span></h2>
                 <p className="text-gray-400 max-w-xl">Proven expertise in architecting and implementing enterprise-scale customer engagement platforms.</p>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {PROJECTS.map((project) => (
-                <ProjectCard 
-                  key={project.id} 
-                  project={project} 
+                <ProjectCard
+                  key={project.id}
+                  project={project}
                   onSelect={setSelectedProject}
                 />
               ))}
@@ -61,7 +61,7 @@ const App: React.FC = () => {
                 {CERTIFICATIONS.map((cert, idx) => (
                   <div key={idx} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2B9B78]/30 transition-all text-center">
                     <p className="text-[#2B9B78] text-[10px] font-bold uppercase mb-2 tracking-tighter">{cert.issuer}</p>
-                    <h4 className="text-sm font-semibold text-offwhite">{cert.name}</h4>
+                    <h4 className="text-[11px] sm:text-sm font-semibold text-offwhite leading-tight break-words">{cert.name}</h4>
                   </div>
                 ))}
               </div>
@@ -72,7 +72,7 @@ const App: React.FC = () => {
           <ContactForm />
         </main>
       )}
-      
+
       {!selectedProject && (
         <footer className="py-12 border-t border-white/5 bg-[#030712]">
           <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">

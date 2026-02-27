@@ -82,7 +82,7 @@ const SkillsSection: React.FC = () => {
   const categories = Array.from(new Set(SKILLS.map(s => s.category)));
 
   return (
-    <section id="skills" className="py-24 bg-[#030712]">
+    <section id="skills" className="py-24 bg-[#030712] scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-offwhite">Mastering the <span className="gradient-text">Stack</span></h2>
@@ -92,7 +92,7 @@ const SkillsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="h-[400px] glass rounded-3xl p-6">
             <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
+              <RadarChart cx="50%" cy="50%" outerRadius="65%" data={radarData}>
                 <PolarGrid stroke="#025147" />
                 <PolarAngleAxis dataKey="subject" tick={{ fill: '#9ca3af', fontSize: 10 }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
@@ -126,8 +126,8 @@ const SkillsSection: React.FC = () => {
                       </div>
                       <div className="flex flex-col items-end gap-1">
                         <div className="w-12 h-1 bg-gray-800 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-[#0F4C81] rounded-full group-hover:bg-[#2B9B78] transition-all duration-1000" 
+                          <div
+                            className="h-full bg-[#0F4C81] rounded-full group-hover:bg-[#2B9B78] transition-all duration-1000"
                             style={{ width: `${skill.level}%` }}
                           ></div>
                         </div>

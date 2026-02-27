@@ -43,7 +43,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[60] bg-[#030712] overflow-y-auto scroll-smooth">
+    <div className="fixed inset-0 z-[110] bg-[#030712] overflow-y-auto scroll-smooth">
       {/* Navbar */}
       <nav className="sticky top-0 z-30 glass border-b border-[#025147]/30 py-4">
         <div className="container mx-auto px-6 flex justify-between items-center">
@@ -63,7 +63,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
       {/* Fullscreen Overlay */}
       {isFullscreen && (
         <div
-          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 md:p-12 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[120] bg-black/95 flex flex-col items-center justify-center p-4 md:p-12 animate-in fade-in duration-300"
           onClick={() => setIsFullscreen(false)}
         >
           <button className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
@@ -123,7 +123,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 </span>
               ))}
             </div>
-            <h1 className="text-5xl md:text-8xl font-black mb-6 text-offwhite leading-none tracking-tighter">{project.title}</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-offwhite leading-none tracking-tighter break-words">{project.title}</h1>
           </div>
         </div>
       </div>
