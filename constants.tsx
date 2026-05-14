@@ -35,9 +35,13 @@ export const PROJECTS: Project[] = [
     description: 'Upload a gameboard screenshot and AI predicts the next tile — built for loyalty apps like Discovery Vitality and Starbucks Rewards.',
     longDescription: 'Tile Predictor Pro uses Google AI to analyse gameboard screenshots from loyalty and rewards apps, then predicts the most likely next tile placement.\n\nDesigned for games like Discovery Vitality\'s activity board and Starbucks Rewards, the app learns the pattern logic from past plays visible in a screenshot and surfaces the optimal next move. Built with a lean, fast local stack — no CDN dependencies, no bloat.\n\nKey features:\n\n• **Image Analysis**: Uploads and processes gameboard screenshots to map tile positions and patterns.\n• **AI Prediction Engine**: Google AI Studio model interprets game state and outputs the highest-probability next tile.\n• **Loyalty App Focus**: Tuned for the tile mechanics common in health and rewards gamification platforms.\n• **Optional Analytics**: Amplitude instrumentation available for tracking prediction usage and accuracy.\n• **Simple Interface**: Upload a screenshot, get a prediction — no game knowledge required.',
     tags: ['React 19', 'TypeScript', 'Vite 6', 'Google AI Studio', 'Tailwind'],
-    imageUrl: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&q=80&w=800',
+    imageUrl: './assets/images/tile-predictor-pro-home.png',
     category: 'AI',
-    link: 'https://tile-predictor-pro.vercel.app/'
+    link: 'https://tile-predictor-pro.vercel.app/',
+    galleryImages: [
+      './assets/images/tile-predictor-pro-home.png',
+      './assets/images/tile-predictor-pro-board.png'
+    ]
   },
   {
     id: '4',
