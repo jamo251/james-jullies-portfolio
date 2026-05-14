@@ -40,6 +40,26 @@ export const PROJECTS: Project[] = [
     link: '#'
   },
   {
+    id: '5',
+    title: 'Run DNA Cards',
+    description: 'Strava GPX files meet Pokémon — upload a run and generate a shareable collectible card from your workout data.',
+    longDescription: 'Run DNA Cards is a full-stack product built end-to-end as a demonstration of product mindset and practical craft across geospatial processing, stats, algorithms, and UX — think Pokémon meets running performance.\n\nUpload any GPX file and the app parses your route, pace, elevation, and splits to generate a unique collectible card you can share or keep. Route geometry is rendered as a custom SVG path (no D3), and cards are exported as server-side PNGs via Satori + resvg-js — sub-3 second generation, fully serverless.\n\nKey features:\n\n• **GPX → GeoJSON Pipeline**: `@tmcw/togeojson` extracts distance, splits, elevation, and coordinates with full fidelity.\n• **Custom SVG Route Rendering**: Pure math-based path logic — no D3 bundle, pixel-perfect route art on every card.\n• **Server-Side Card Generation**: Satori + `@resvg/resvg-js` produce PNGs on Vercel serverless functions with fast cold starts (<3s).\n• **Local Card Collection**: IndexedDB stores your cards client-side with a custom async wrapper — no backend required.\n• **Native Sharing**: Web Share API for one-click posting to X and Instagram, with clipboard fallback.\n• **Route Fingerprinting**: djb2 hashing on downsampled coordinates for collision-resistant card IDs.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind v4', 'Satori', 'SVG', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?auto=format&fit=crop&q=80&w=800',
+    category: 'AI',
+    link: 'https://run-dna-cards.vercel.app/'
+  },
+  {
+    id: '6',
+    title: 'Tile Predictor Pro',
+    description: 'Upload a gameboard screenshot and AI predicts the next tile — built for loyalty apps like Discovery Vitality and Starbucks Rewards.',
+    longDescription: 'Tile Predictor Pro uses Google AI to analyse gameboard screenshots from loyalty and rewards apps, then predicts the most likely next tile placement.\n\nDesigned for games like Discovery Vitality\'s activity board and Starbucks Rewards, the app learns the pattern logic from past plays visible in a screenshot and surfaces the optimal next move. Built with a lean, fast local stack — no CDN dependencies, no bloat.\n\nKey features:\n\n• **Image Analysis**: Uploads and processes gameboard screenshots to map tile positions and patterns.\n• **AI Prediction Engine**: Google AI Studio model interprets game state and outputs the highest-probability next tile.\n• **Loyalty App Focus**: Tuned for the tile mechanics common in health and rewards gamification platforms.\n• **Optional Analytics**: Amplitude instrumentation available for tracking prediction usage and accuracy.\n• **Simple Interface**: Upload a screenshot, get a prediction — no game knowledge required.',
+    tags: ['React 19', 'TypeScript', 'Vite 6', 'Google AI Studio', 'Tailwind'],
+    imageUrl: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&q=80&w=800',
+    category: 'AI',
+    link: 'https://tile-predictor-pro.vercel.app/'
+  },
+  {
     id: '4',
     title: 'Retail Analytics Ecosystem',
     description: 'Data collection framework for major retail groups including Cape Union Mart and Old Khaki.',
@@ -130,6 +150,7 @@ Core Information:
 - Expertise: Braze, DOMO, Amplitude, OneSignal, AI/ML Applications.
 - Education: PG Dip in Business Admin (GIBS), B.Comm in IT Management (UJ).
 - Projects: ${JSON.stringify(PROJECTS)}
+- GitHub Projects: Run DNA Cards (https://run-dna-cards.vercel.app/) — GPX-to-collectible-card app built with Claude AI and TypeScript. Tile Predictor Pro (https://tile-predictor-pro.vercel.app/) — AI gameboard tile predictor for loyalty apps built with Google AI Studio and TypeScript.
 - Experience: ${JSON.stringify(EXPERIENCE)}
 - Certifications: ${JSON.stringify(CERTIFICATIONS)}
 
