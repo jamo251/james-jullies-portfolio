@@ -20,26 +20,6 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: '2',
-    title: 'Fintech Growth Infrastructure',
-    description: 'Scaled user engagement for West African and GCC fintechs like Paysika and Wonga using Braze and OneSignal.',
-    longDescription: 'Architected push notification and email infrastructure that scaled Paysika from thousands to over 100k users. Implemented Braze for OM Bank, designing complex webhook solutions.',
-    tags: ['Braze', 'OneSignal', 'API', 'Webhooks'],
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800',
-    category: 'Martech',
-    link: '#'
-  },
-  {
-    id: '3',
-    title: 'AI-Driven Lead Attribution',
-    description: 'Automated workflow integrating HubSpot and Amplitude via JavaScript and Make.com.',
-    longDescription: 'Built a custom event tracking pipeline that increased sales efficiency by 50%. Used JavaScript to bridge HubSpot form submissions with Amplitude for seamless lead tracking.',
-    tags: ['JavaScript', 'Make.com', 'Amplitude', 'HubSpot'],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800',
-    category: 'AI',
-    link: '#'
-  },
-  {
     id: '5',
     title: 'Run DNA Cards',
     description: 'Strava GPX files meet Pokémon — upload a run and generate a shareable collectible card from your workout data.',
