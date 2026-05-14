@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     description: 'Strava GPX files meet Pokémon — upload a run and generate a shareable collectible card from your workout data.',
     longDescription: 'Run DNA Cards is a full-stack product built end-to-end as a demonstration of product mindset and practical craft across geospatial processing, stats, algorithms, and UX — think Pokémon meets running performance.\n\nUpload any GPX file and the app parses your route, pace, elevation, and splits to generate a unique collectible card you can share or keep. Route geometry is rendered as a custom SVG path (no D3), and cards are exported as server-side PNGs via Satori + resvg-js — sub-3 second generation, fully serverless.\n\nKey features:\n\n• **GPX → GeoJSON Pipeline**: `@tmcw/togeojson` extracts distance, splits, elevation, and coordinates with full fidelity.\n• **Custom SVG Route Rendering**: Pure math-based path logic — no D3 bundle, pixel-perfect route art on every card.\n• **Server-Side Card Generation**: Satori + `@resvg/resvg-js` produce PNGs on Vercel serverless functions with fast cold starts (<3s).\n• **Local Card Collection**: IndexedDB stores your cards client-side with a custom async wrapper — no backend required.\n• **Native Sharing**: Web Share API for one-click posting to X and Instagram, with clipboard fallback.\n• **Route Fingerprinting**: djb2 hashing on downsampled coordinates for collision-resistant card IDs.',
     tags: ['Next.js', 'TypeScript', 'Tailwind v4', 'Satori', 'SVG', 'Vercel'],
-    imageUrl: 'https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?auto=format&fit=crop&q=80&w=800',
+    imageUrl: './assets/images/run-dna-cards-home.png',
     category: 'AI',
     link: 'https://run-dna-cards.vercel.app/'
   },
