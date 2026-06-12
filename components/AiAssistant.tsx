@@ -1,7 +1,7 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { chatWithPortfolioAI } from '../services/geminiService';
 import { ChatMessage } from '../types';
+import { gsap, prefersReducedMotion } from '../lib/gsap';
 
 const AiAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +15,12 @@ const AiAssistant: React.FC = () => {
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      if (!prefersReducedMotion()) {
+        const last = scrollRef.current.lastElementChild;
+        if (last) {
+          gsap.from(last, { opacity: 0, y: 12, duration: 0.4, ease: 'power2.out' });
+        }
+      }
     }
   }, [messages]);
 
@@ -40,62 +46,80 @@ const AiAssistant: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[70] flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-[96] flex flex-col items-end">
       {isOpen && (
-        <div className="w-80 md:w-96 glass rounded-2xl shadow-2xl overflow-hidden mb-4 border border-[#2B9B78]/30 flex flex-col h-[500px]">
-          <div className="p-4 bg-[#0F4C81] flex justify-between items-center">
-            <h3 className="font-semibold flex items-center gap-2 text-white">
-              <span className="w-2 h-2 bg-[#2B9B78] rounded-full animate-pulse"></span>
+        <div
+          data-lenis-prevent
+          className="w-80 md:w-96 bg-surface border border-line shadow-2xl overflow-hidden mb-4 flex flex-col h-[500px]"
+        >
+          <div className="p-4 border-b border-line flex justify-between items-center bg-ink">
+            <h3 className="mono-label text-paper flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-accent animate-pulse" aria-hidden="true"></span>
               Expert AI Guide
             </h3>
-            <button onClick={() => setIsOpen(false)} className="text-white hover:text-gray-300">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="mono-label text-muted hover:text-accent transition-colors"
+              aria-label="Close chat"
+            >
+              ✕
             </button>
           </div>
-          
+
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm ${msg.role === 'user' ? 'bg-[#0F4C81] text-white rounded-tr-none' : 'bg-gray-800 text-gray-200 rounded-tl-none border border-[#2B9B78]/10'}`}>
+                <div
+                  className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed ${
+                    msg.role === 'user'
+                      ? 'bg-accent text-ink'
+                      : 'bg-ink text-paper border border-line'
+                  }`}
+                >
                   {msg.content}
                 </div>
               </div>
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gray-800 text-gray-400 px-4 py-2 rounded-2xl rounded-tl-none text-xs italic">
+                <div className="bg-ink text-muted border border-line px-4 py-3 font-mono text-[11px] uppercase tracking-[0.15em]">
                   Analyzing profile...
                 </div>
               </div>
             )}
           </div>
 
-          <div className="p-4 border-t border-white/10 flex gap-2">
-            <input 
-              type="text" 
+          <div className="p-4 border-t border-line flex gap-2">
+            <input
+              type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask about James's stack..." 
-              className="flex-1 bg-gray-900 border border-[#2B9B78]/20 rounded-full px-4 py-2 text-sm text-offwhite focus:outline-none focus:border-[#2B9B78]"
+              placeholder="Ask about James's stack..."
+              className="flex-1 bg-ink border border-line px-4 py-2.5 text-sm text-paper placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
             />
-            <button 
+            <button
               onClick={handleSend}
-              className="bg-[#2B9B78] p-2 rounded-full hover:bg-[#025147] transition-colors"
+              className="bg-accent text-ink px-4 font-mono text-xs uppercase tracking-[0.1em] hover:bg-paper transition-colors"
+              aria-label="Send message"
             >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+              Send
             </button>
           </div>
         </div>
       )}
 
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-[#0F4C81] rounded-full flex items-center justify-center shadow-lg hover:bg-[#025147] hover:scale-105 transition-all group border border-[#2B9B78]/20"
+        className={`h-12 px-5 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] border transition-colors ${
+          isOpen
+            ? 'bg-ink text-paper border-line hover:border-accent'
+            : 'bg-accent text-ink border-accent hover:bg-paper hover:border-paper'
+        }`}
+        aria-label="Toggle AI assistant"
       >
-        <svg className="w-7 h-7 text-white group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-        </svg>
+        <span className={`w-1.5 h-1.5 ${isOpen ? 'bg-accent' : 'bg-ink'} animate-pulse`} aria-hidden="true"></span>
+        Ask AI
       </button>
     </div>
   );
