@@ -113,27 +113,18 @@ button {
   }
 }
 
-/* Platform logo strip — mono by default, brand colour on hover */
-.logo-item {
-  color: rgb(242 241 237 / 0.6);
-  transition: color 0.45s ease;
+/* Platform logo strip — actual brand logos, slightly dimmed until hover */
+.logo-img {
+  display: inline-block;
+  opacity: 0.85;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .logo-item:hover {
-    color: var(--brand, var(--color-accent));
+  .logo-item:hover .logo-img {
+    opacity: 1;
+    transform: scale(1.04);
   }
-}
-
-.logo-mark {
-  display: inline-block;
-  background-color: currentColor;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
 }
 
 .scrollbar-hide {
