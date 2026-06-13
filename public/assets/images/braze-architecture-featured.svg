@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">TECHNICAL ARCHITECTURE / BRAZE</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Braze Implementation Architecture</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: two anonymized clients -->
+  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">FINANCIAL-SERVICES CLIENTS — TECHNICAL ARCHITECT</text>
+  <g>
+    <rect x="64" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Greenfield Digital Bank</text>
+    <text x="84" y="250" fill="#86868B" font-size="12">Inception phase · Braze + mParticle in parallel</text>
+
+    <rect x="660" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Consumer-Lending Fintech</text>
+    <text x="680" y="250" fill="#86868B" font-size="12">Full lifecycle · SDK, API, webhooks, data exports</text>
+  </g>
+
+  <line x1="342" y1="272" x2="500" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="938" y1="272" x2="780" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Braze platform with four pillars -->
+  <rect x="64" y="336" width="1152" height="172" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="372" fill="#D9FF4B" font-size="18" font-weight="600">Braze</text>
+  <text x="84" y="396" fill="#86868B" font-size="12">Architecture authored and led across the full Braze surface</text>
+  <g font-size="14">
+    <rect x="84" y="418" width="262" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="452" fill="#F2F1ED" font-weight="600">SDK</text>
+    <text x="104" y="476" fill="#86868B" font-size="12">Web · iOS · Android</text>
+
+    <rect x="362" y="418" width="262" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="382" y="452" fill="#F2F1ED" font-weight="600">REST API</text>
+    <text x="382" y="476" fill="#86868B" font-size="12">Users · events · messaging</text>
+
+    <rect x="640" y="418" width="262" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="660" y="452" fill="#F2F1ED" font-weight="600">Webhooks</text>
+    <text x="660" y="476" fill="#86868B" font-size="12">External triggers · SMS</text>
+
+    <rect x="918" y="418" width="298" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="938" y="452" fill="#F2F1ED" font-weight="600">Data Exports</text>
+    <text x="938" y="476" fill="#86868B" font-size="12">Currents · downstream sinks</text>
+  </g>
+
+  <line x1="295" y1="508" x2="295" y2="556" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="985" y1="508" x2="985" y2="556" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: congruency + outcome -->
+  <rect x="64" y="560" width="462" height="92" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="594" fill="#F2F1ED" font-size="16" font-weight="600">Braze &#8644; mParticle Congruency</text>
+  <text x="84" y="618" fill="#86868B" font-size="12">Aligned identity &amp; event flow —</text>
+  <text x="84" y="636" fill="#86868B" font-size="12">no double-instrumentation</text>
+
+  <rect x="754" y="560" width="462" height="92" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="774" y="594" fill="#D9FF4B" font-size="16" font-weight="600">Held Through Rapid Scale</text>
+  <text x="774" y="618" fill="#86868B" font-size="12">Bank scaled past ~470k customers</text>
+  <text x="774" y="636" fill="#86868B" font-size="12">(~2,100/day) within ~a year of launch</text>
+
+  <text x="64" y="694" fill="#86868B" font-size="12">Ran the technical sessions and advised client engineering teams across the full Braze stack.</text>
+</svg>

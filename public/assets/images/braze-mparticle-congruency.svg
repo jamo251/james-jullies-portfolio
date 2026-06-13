@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">SDK CONGRUENCY / BRAZE &#8644; mPARTICLE</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">One Identity, One Event Shape</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Source of truth -->
+  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">SINGLE INSTRUMENTATION LAYER</text>
+  <rect x="64" y="186" width="1152" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="222" fill="#F2F1ED" font-size="18" font-weight="600">App Data Layer — Governed Event Spec</text>
+  <text x="84" y="248" fill="#86868B" font-size="12">Shared identity keys (customer_id / external_id) · canonical event names &amp; properties captured once</text>
+
+  <!-- split arrows -->
+  <line x1="400" y1="272" x2="320" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="272" x2="960" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- two SDKs -->
+  <rect x="64" y="336" width="512" height="150" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="372" fill="#D9FF4B" font-size="18" font-weight="600">Braze SDK</text>
+  <text x="84" y="396" fill="#86868B" font-size="12">Engagement &amp; messaging</text>
+  <g font-size="13">
+    <rect x="84" y="412" width="472" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="100" y="431" fill="#F2F1ED">changeUser(external_id) — same key as mParticle</text>
+    <rect x="84" y="448" width="472" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="100" y="467" fill="#F2F1ED">custom events mirror the canonical spec</text>
+  </g>
+
+  <rect x="704" y="336" width="512" height="150" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.25"/>
+  <text x="724" y="372" fill="#F2F1ED" font-size="18" font-weight="600">mParticle SDK</text>
+  <text x="724" y="396" fill="#86868B" font-size="12">CDP · identity &amp; routing</text>
+  <g font-size="13">
+    <rect x="724" y="412" width="472" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="740" y="431" fill="#F2F1ED">identify(customer_id) — same key as Braze</text>
+    <rect x="724" y="448" width="472" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="740" y="467" fill="#F2F1ED">forwards matching events downstream</text>
+  </g>
+
+  <line x1="320" y1="486" x2="600" y2="552" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="960" y1="486" x2="680" y2="552" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- reconciled profile -->
+  <rect x="320" y="556" width="640" height="80" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="340" y="590" fill="#D9FF4B" font-size="16" font-weight="600">Congruent User Profile</text>
+  <text x="340" y="614" fill="#86868B" font-size="12">One user reconciled across both SDKs — no double-counting, no identity drift</text>
+
+  <text x="64" y="690" fill="#86868B" font-size="12">Advised the bank on SDK congruency so Braze and mParticle, implemented in parallel, stayed in lockstep.</text>
+</svg>

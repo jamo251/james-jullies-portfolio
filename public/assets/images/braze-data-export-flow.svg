@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">DATA EXPORTS / CURRENTS</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Streaming Engagement Data Out</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Source -->
+  <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">SOURCE</text>
+  <rect x="64" y="196" width="280" height="160" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="234" fill="#D9FF4B" font-size="18" font-weight="600">Braze</text>
+  <text x="84" y="258" fill="#86868B" font-size="12">Message engagement &amp;</text>
+  <text x="84" y="276" fill="#86868B" font-size="12">behavioural events</text>
+  <g font-size="12">
+    <rect x="84" y="292" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="98" y="308" fill="#F2F1ED">sends · opens · clicks</text>
+    <rect x="84" y="320" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="98" y="336" fill="#F2F1ED">custom &amp; purchase events</text>
+  </g>
+
+  <line x1="344" y1="276" x2="476" y2="276" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <text x="356" y="266" fill="#86868B" font-size="11">Currents</text>
+
+  <!-- Currents -->
+  <text x="484" y="180" fill="#86868B" font-size="13" letter-spacing="2">EXPORT</text>
+  <rect x="484" y="196" width="280" height="160" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="504" y="234" fill="#F2F1ED" font-size="18" font-weight="600">Braze Currents</text>
+  <text x="504" y="258" fill="#86868B" font-size="12">Near real-time event</text>
+  <text x="504" y="276" fill="#86868B" font-size="12">stream · partitioned</text>
+  <g font-size="12">
+    <rect x="504" y="292" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="518" y="308" fill="#F2F1ED">stable Avro/JSON schema</text>
+    <rect x="504" y="320" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="518" y="336" fill="#F2F1ED">event-type contracts</text>
+  </g>
+
+  <line x1="764" y1="276" x2="896" y2="276" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Sinks -->
+  <text x="916" y="180" fill="#86868B" font-size="13" letter-spacing="2">SINKS</text>
+  <g font-size="13">
+    <rect x="916" y="196" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="224" fill="#F2F1ED">Cloud Storage / Lake</text>
+    <rect x="916" y="252" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="280" fill="#F2F1ED">Warehouse &amp; BI</text>
+    <rect x="916" y="308" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="336" fill="#F2F1ED">CDP / mParticle</text>
+  </g>
+
+  <!-- bottom: troubleshooting band -->
+  <text x="64" y="420" fill="#86868B" font-size="13" letter-spacing="2">WHAT THE ARCHITECT ROLE COVERED</text>
+  <rect x="64" y="436" width="1152" height="210" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <g font-size="13">
+    <rect x="84" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="490" fill="#D9FF4B">Schema &amp; contracts</text>
+    <text x="104" y="514" fill="#86868B" font-size="12">Mapped Currents event types to sink schemas</text>
+
+    <rect x="461" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="481" y="490" fill="#D9FF4B">Reconciliation</text>
+    <text x="481" y="514" fill="#86868B" font-size="12">Export counts vs. in-platform engagement</text>
+
+    <rect x="838" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="858" y="490" fill="#D9FF4B">Troubleshooting</text>
+    <text x="858" y="514" fill="#86868B" font-size="12">Gaps, lag, and delivery issues across the stream</text>
+
+    <rect x="84" y="550" width="1112" height="76" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="104" y="582" fill="#F2F1ED" font-weight="600">Outcome</text>
+    <text x="104" y="606" fill="#86868B" font-size="12">A trustworthy export pipeline the lending fintech's team could build reporting and downstream activation on.</text>
+  </g>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">Advised the client team on data exports and general troubleshooting throughout the implementation.</text>
+</svg>

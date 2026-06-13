@@ -3,6 +3,20 @@ import { Project, Experience, Skill, Certification } from './types';
 
 export const PROJECTS: Project[] = [
   {
+    id: '2',
+    title: 'Braze Implementation Architecture',
+    description: 'Technical architect on two **Braze** implementations — a greenfield digital bank and a consumer-lending fintech — leading the SDK, REST API, webhook, and data-export architecture, including **Braze ⇄ mParticle SDK congruency**.',
+    longDescription: 'Two financial-services Braze implementations, one architect. I ran the technical sessions and advised the client engineering teams across the full Braze surface — SDK, REST API, webhooks, and data exports — so that engagement tooling was stood up correctly from day one and stayed correct as the products scaled.\n\n• **The architect role**: Led the technical working sessions and acted as the standing technical advisor — translating Braze\'s SDK, API, webhook, and data-export capabilities into concrete, governed implementation decisions for each client\'s engineering team.\n• **Greenfield digital bank (inception phase)**: Engaged while the bank was still being built. I ran the sessions covering the Braze SDK, REST API, and webhooks, and advised on **SDK congruency between Braze and mParticle**, which the bank was implementing in parallel — aligning identity keys and event shapes across both SDKs so the two stayed in lockstep with no double-instrumentation or identity drift.\n• **Scaled with the launch**: Post-implementation the bank scaled rapidly, passing roughly **470,000 customers — about 2,100 a day — within around a year of launch**. The instrumentation architecture stood up at inception held cleanly through that growth.\n• **Consumer-lending fintech (full lifecycle)**: Technical architect to the lending fintech\'s team across the Braze SDK, REST API, webhooks, and **data exports (Currents)** — mapping export schemas to downstream sinks, reconciling exported volumes against in-platform engagement, and providing general troubleshooting throughout the implementation.\n• **Outcome**: A repeatable, governed Braze architecture delivered for two regulated financial-services clients — clean identity, reliable webhooks, and trustworthy data exports their teams could build reporting and activation on.',
+    tags: ['Braze SDK', 'Braze REST API', 'Webhooks', 'Data Exports', 'mParticle', 'Solutions Architecture'],
+    imageUrl: './assets/images/braze-architecture-featured.svg',
+    category: 'Martech',
+    galleryImages: [
+      './assets/images/braze-sdk-api-webhooks.svg',
+      './assets/images/braze-mparticle-congruency.svg',
+      './assets/images/braze-data-export-flow.svg'
+    ]
+  },
+  {
     id: '1',
     title: 'Olympics Data Intelligence',
     description: 'End-to-end data application built on Domo, managing complete pipelines from acquisition to interactive dashboards.',
@@ -147,7 +161,7 @@ Core Information:
 
 When answering:
 1. Be professional, confident, and highly technical yet accessible.
-2. Emphasize James's specific success in scaling fintech apps (Paysika, Wonga) and multi-brand retail analytics.
+2. Emphasize James's specific success as a Braze technical architect for fintech and digital-banking clients (a greenfield digital bank and a consumer-lending fintech, both anonymized) and in multi-brand retail analytics. Do not disclose specific client names.
 3. If asked about contact, mention the email (james.jullies@gmail.com) or LinkedIn.
 4. Highlight his certifications, especially the Google Generative AI Leader and his master-level proficiency in Braze and DOMO.
 `;
