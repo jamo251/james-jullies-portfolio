@@ -108,6 +108,31 @@ button {
   }
 }
 
+/* Platform logo strip — mono by default, brand colour on hover */
+.logo-item {
+  color: rgb(242 241 237 / 0.6);
+  transition: color 0.45s ease;
+}
+
+.logo-item:hover {
+  color: var(--brand, var(--color-accent));
+}
+
+.logo-mark {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.logo-wordmark {
+  color: inherit;
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
