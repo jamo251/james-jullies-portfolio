@@ -10,6 +10,7 @@ import AiAssistant from './components/AiAssistant';
 import Preloader from './components/Preloader';
 import Cursor from './components/Cursor';
 import Marquee from './components/Marquee';
+import PlatformLogos from './components/PlatformLogos';
 import SectionHeading from './components/SectionHeading';
 import MagneticButton from './components/MagneticButton';
 import { PROJECTS, CERTIFICATIONS } from './constants';
@@ -102,6 +103,10 @@ const App: React.FC = () => {
               title="Core Impact"
               intro="Proven expertise in architecting and implementing enterprise-scale customer engagement platforms."
             />
+            <div className="mt-10 mb-16 md:mb-20">
+              <p className="mono-label text-muted mb-6">Platforms I work with</p>
+              <PlatformLogos />
+            </div>
             <ProjectList projects={PROJECTS} onSelect={setSelectedProject} />
           </section>
 
