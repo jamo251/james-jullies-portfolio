@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">SOLUTION ARCHITECTURE / DATA FLOW</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Cross-Brand Analytics Stack</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: 3 SFCC storefronts -->
+  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">SALESFORCE COMMERCE CLOUD — 3 STOREFRONTS</text>
+  <g>
+    <rect x="64" y="186" width="350" height="78" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="222" fill="#F2F1ED" font-size="17" font-weight="600">Brand A Storefront</text>
+    <text x="84" y="246" fill="#86868B" font-size="12">SFCC · data layer</text>
+
+    <rect x="465" y="186" width="350" height="78" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="485" y="222" fill="#F2F1ED" font-size="17" font-weight="600">Brand B Storefront</text>
+    <text x="485" y="246" fill="#86868B" font-size="12">SFCC · data layer</text>
+
+    <rect x="866" y="186" width="350" height="78" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="886" y="222" fill="#F2F1ED" font-size="17" font-weight="600">Brand C Storefront</text>
+    <text x="886" y="246" fill="#86868B" font-size="12">SFCC · data layer</text>
+  </g>
+
+  <!-- arrows down to GTM -->
+  <line x1="239" y1="264" x2="239" y2="320" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="264" x2="640" y2="320" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="1041" y1="264" x2="1041" y2="320" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: GTM / data layer -->
+  <rect x="64" y="324" width="1152" height="74" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="356" fill="#F2F1ED" font-size="17" font-weight="600">Google Tag Manager — Shared Data Layer</text>
+  <text x="84" y="380" fill="#86868B" font-size="12">Normalises dataLayer pushes from every storefront into a common event shape</text>
+
+  <line x1="640" y1="398" x2="640" y2="430" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: Unified taxonomy -->
+  <rect x="64" y="434" width="1152" height="74" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="466" fill="#D9FF4B" font-size="17" font-weight="600">Unified Event Taxonomy</text>
+  <text x="84" y="490" fill="#86868B" font-size="12">One governed Object–Action spec · brand distinguished by property, not by schema fork</text>
+
+  <line x1="640" y1="508" x2="640" y2="540" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4: Amplitude -->
+  <text x="64" y="534" fill="#86868B" font-size="13" letter-spacing="2"></text>
+  <rect x="64" y="544" width="1152" height="120" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="578" fill="#F2F1ED" font-size="17" font-weight="600">Amplitude</text>
+  <g font-size="13">
+    <rect x="84" y="596" width="340" height="48" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="625" fill="#D9FF4B">Funnel Analysis</text>
+    <rect x="448" y="596" width="340" height="48" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="468" y="625" fill="#D9FF4B">Cross-Brand Dashboards</text>
+    <rect x="812" y="596" width="384" height="48" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="832" y="625" fill="#D9FF4B">Retention &amp; Cohorts</text>
+  </g>
+
+  <text x="64" y="698" fill="#86868B" font-size="12">Architected and guided the Amplitude instrumentation rollout across all three brands.</text>
+</svg>

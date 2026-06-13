@@ -49,12 +49,16 @@ export const PROJECTS: Project[] = [
   {
     id: '4',
     title: 'Retail Analytics Ecosystem',
-    description: 'Data collection framework for major retail groups including Cape Union Mart and Old Khaki.',
-    longDescription: 'Deployed Amplitude Analytics solutions, designing tracking specifications that established robust data-driven decision-making infrastructures for large-scale retail operations.',
-    tags: ['Amplitude', 'GTM', 'Product Analytics', 'Retail'],
-    imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
+    description: 'A unified, cross-brand event taxonomy and checkout-tracking architecture for a multi-brand retail group running on **Salesforce Commerce Cloud**, implemented end-to-end in **Amplitude**.',
+    longDescription: 'Three storefronts, one analytics language. The brands each ran on a shared Salesforce Commerce Cloud (SFCC) platform, but had no consistent way to measure how shoppers actually moved through the buying journey. I designed the measurement layer that unified them — from data layer to funnel report.\n\n• **Salesforce Commerce Cloud foundation**: Worked across three SFCC storefronts sharing a common platform, mapping the on-site data layer for each so every brand emitted events in the same shape.\n• **Unified cross-brand taxonomy**: Authored a single governed event spec in Object–Action naming (Product Viewed, Cart Viewed, Checkout Started, Payment Info Entered, Order Completed). One schema serves all three brands — the storefront is distinguished by a `brand` property rather than forking events per brand, which keeps reporting consistent and governance simple.\n• **Checkout journey event architecture**: Architected the events and properties that trace the full cart-to-order flow, deliberately structured so each step becomes a stage in an Amplitude funnel with the right properties (`cart_value`, `item_count`, `payment_method`, `currency`) attached for segmentation.\n• **Implementation guidance**: Guided the instrumentation rollout across all three brands — translating the spec into GTM/data-layer tags and Amplitude events, then validating that data landed cleanly and consistently per brand.\n• **Outcome**: Funnel reports that pinpoint exactly where shoppers drop off in checkout. The largest leak surfaced at payment entry — roughly 1 in 5 shoppers abandoning at that step — turning a previously invisible gap into a clear, prioritised target for conversion-rate optimisation across the group.',
+    tags: ['Amplitude', 'Salesforce Commerce Cloud', 'Event Taxonomy', 'GTM', 'Funnel Analysis'],
+    imageUrl: './assets/images/retail-ecosystem-funnel.svg',
     category: 'Data',
-    link: '#'
+    galleryImages: [
+      './assets/images/retail-ecosystem-funnel.svg',
+      './assets/images/retail-ecosystem-taxonomy.svg',
+      './assets/images/retail-ecosystem-architecture.svg'
+    ]
   }
 ];
 
@@ -143,7 +147,7 @@ Core Information:
 
 When answering:
 1. Be professional, confident, and highly technical yet accessible.
-2. Emphasize James's specific success in scaling fintech apps (Paysika, Wonga) and retail analytics (Cape Union Mart).
+2. Emphasize James's specific success in scaling fintech apps (Paysika, Wonga) and multi-brand retail analytics.
 3. If asked about contact, mention the email (james.jullies@gmail.com) or LinkedIn.
 4. Highlight his certifications, especially the Google Generative AI Leader and his master-level proficiency in Braze and DOMO.
 `;

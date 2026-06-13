@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0A0A0B;
+  --color-surface: #141416;
+  --color-paper: #F2F1ED;
+  --color-muted: #86868B;
+  --color-accent: #D9FF4B;
+  --color-line: rgb(242 241 237 / 0.12);
+
+  --font-display: "Archivo", "Inter", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  background-color: var(--color-ink);
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Oversized display type */
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+/* Mono micro-label */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Fixed film-grain overlay */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Infinite marquee — track holds two identical halves, loops at -50% */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+/* Custom cursor takes over on interactive project rows */
+@media (pointer: fine) {
+  [data-cursor="view"] {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  /* The platform logo strip keeps its slow, decorative scroll. */
+  .logo-marquee .marquee-track {
+    animation: marquee var(--marquee-duration, 30s) linear infinite;
+  }
+}
+
+/* Platform logo strip — actual brand logos, slightly dimmed until hover */
+.logo-img {
+  display: inline-block;
+  opacity: 0.85;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo-item:hover .logo-img {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

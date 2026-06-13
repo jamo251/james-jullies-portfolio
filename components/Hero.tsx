@@ -1,36 +1,109 @@
+import React, { useRef } from 'react';
+import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
+import { scrollToSection } from '../hooks/useLenis';
+import MagneticButton from './MagneticButton';
 
-import React from 'react';
+interface HeroProps {
+  introDelay?: number;
+}
 
-const Hero: React.FC = () => {
+const HERO_LINES = [
+  { text: 'James Jullies', accent: false },
+  { text: 'Martech & AI', accent: true },
+  { text: 'Architect.', accent: false },
+];
+
+const Hero: React.FC<HeroProps> = ({ introDelay = 0.2 }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add(MOTION_OK, () => {
+        const tl = gsap.timeline({ delay: introDelay });
+        tl.from('.hero-eyebrow', { opacity: 0, y: 16, duration: 0.7, ease: 'power3.out' })
+          .from(
+            '.hero-line',
+            { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: 0.12 },
+            0.1
+          )
+          .from('.hero-bio', { opacity: 0, y: 24, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+          .from('.hero-cta', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out', stagger: 0.08 }, '-=0.55')
+          .from('.hero-scroll', { opacity: 0, duration: 0.6 }, '-=0.3');
+
+        gsap.to(headingRef.current, {
+          yPercent: -12,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
+      });
+    },
+    { scope: sectionRef }
+  );
+
+  const handleCta = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    scrollToSection(href);
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#0F4C81]/10 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#2B9B78]/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
-      
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <h2 className="text-[#2B9B78] font-semibold tracking-widest uppercase mb-4 text-sm">Strategic Technology Leader | Bahrain | EMEA</h2>
-        <h1 className="text-5xl md:text-8xl font-extrabold mb-8 leading-tight text-offwhite">
-          James Jullies <br />
-          <span className="gradient-text">Martech & AI</span> <br />
-          Architect.
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-12">
-          Driving digital transformation across fintech, telecommunications, and retail for 12+ years. 
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col justify-end px-6 md:px-10 pt-32 pb-12 overflow-hidden"
+    >
+      <p className="hero-eyebrow mono-label text-accent mb-8 md:mb-12">
+        Strategic Technology Leader | Bahrain | EMEA
+      </p>
+
+      <h1 ref={headingRef} className="display-heading text-[clamp(3rem,12vw,11rem)] text-paper">
+        {HERO_LINES.map((line) => (
+          <span key={line.text} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
+            <span className={`hero-line block ${line.accent ? 'text-accent' : ''}`}>
+              {line.text}
+            </span>
+          </span>
+        ))}
+      </h1>
+
+      <div className="mt-10 md:mt-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 order-2 md:order-1">
+          <MagneticButton className="hero-cta">
+            <a
+              href="#projects"
+              onClick={(e) => handleCta(e, '#projects')}
+              className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-paper border-b border-paper/30 pb-2 hover:border-accent hover:text-accent transition-colors"
+            >
+              Explore Achievements
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+            </a>
+          </MagneticButton>
+          <MagneticButton className="hero-cta">
+            <a
+              href="#experience"
+              onClick={(e) => handleCta(e, '#experience')}
+              className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted border-b border-paper/20 pb-2 hover:border-accent hover:text-accent transition-colors"
+            >
+              Career Journey
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+            </a>
+          </MagneticButton>
+        </div>
+
+        <p className="hero-bio max-w-md text-muted text-base md:text-lg leading-relaxed order-1 md:order-2 md:text-right">
+          Driving digital transformation across fintech, telecommunications, and retail for 12+ years.
           Expertly architecting high-growth platforms powered by data and intelligence.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#projects" className="bg-[#0F4C81] text-white px-10 py-4 rounded-full font-bold hover:bg-[#025147] transition-all transform hover:-translate-y-1">
-            Explore Achievements
-          </a>
-          <a href="#experience" className="glass px-10 py-4 rounded-full font-bold hover:bg-white/5 text-offwhite transition-all transform hover:-translate-y-1">
-            Career Journey
-          </a>
-        </div>
       </div>
-      
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 animate-bounce">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-1 h-6 bg-[#2B9B78] rounded-full"></div>
+
+      <div className="hero-scroll absolute top-1/3 right-6 md:right-10 hidden lg:flex flex-col items-center gap-3">
+        <span className="mono-label text-muted [writing-mode:vertical-rl]">Scroll</span>
+        <span className="w-px h-12 bg-accent animate-pulse" aria-hidden="true" />
       </div>
     </section>
   );

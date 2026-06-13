@@ -1,40 +1,82 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
 import { EXPERIENCE } from '../constants';
+import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
+import SectionHeading from './SectionHeading';
 
 const ExperienceTimeline: React.FC = () => {
+  const rootRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add(MOTION_OK, () => {
+        gsap.from('.exp-progress', {
+          scaleY: 0,
+          transformOrigin: 'top center',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: listRef.current,
+            start: 'top 75%',
+            end: 'bottom 55%',
+            scrub: true,
+          },
+        });
+        gsap.utils.toArray<HTMLElement>('.exp-item').forEach((item) => {
+          gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: item, start: 'top 85%', once: true },
+          });
+        });
+      });
+    },
+    { scope: rootRef }
+  );
+
   return (
-    <section id="experience" className="py-24 scroll-mt-24">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-offwhite">Career <span className="gradient-text">Journey</span></h2>
+    <section
+      ref={rootRef}
+      id="experience"
+      className="px-6 md:px-10 py-24 md:py-36 border-t border-line scroll-mt-16"
+    >
+      <SectionHeading index="04" label="Timeline" title="Career Journey" />
 
-        <div className="max-w-4xl mx-auto space-y-12">
-          {EXPERIENCE.map((exp, idx) => (
-            <div key={idx} className="relative pl-8 md:pl-0">
-              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-[#025147]/20 -translate-x-1/2 hidden md:block"></div>
+      <div ref={listRef} className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-px bg-line hidden md:block" aria-hidden="true" />
+        <div className="exp-progress absolute left-0 top-0 bottom-0 w-px bg-accent hidden md:block" aria-hidden="true" />
 
-              <div className={`flex flex-col md:flex-row items-start ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="md:w-1/2 mb-8 md:mb-0">
-                  <div className={`glass p-8 rounded-3xl relative ${idx % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}>
-                    <div className="absolute top-8 w-4 h-4 bg-[#2B9B78] rounded-full border-4 border-[#030712] -left-10 md:left-auto md:right-auto md:-translate-x-1/2 md:left-1/2 hidden md:block"></div>
-
-                    <span className="text-[#2B9B78] text-xs font-bold tracking-widest uppercase mb-2 block">{exp.period}</span>
-                    <h3 className="text-2xl font-bold mb-1 text-offwhite">{exp.role}</h3>
-                    <p className="text-gray-400 font-medium mb-4">{exp.company} • {exp.location}</p>
-                    <ul className="space-y-2">
-                      {exp.description.map((item, i) => (
-                        <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-                          <span className="mt-1.5 w-1.5 h-1.5 bg-[#0F4C81] rounded-full shrink-0"></span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+        {EXPERIENCE.map((exp, idx) => (
+          <div
+            key={idx}
+            className="exp-item grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 py-10 md:py-14 border-t border-line first:border-t-0 md:pl-10"
+          >
+            <div className="md:col-span-4">
+              <div className="md:sticky md:top-24">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent block">
+                  {exp.period}
+                </span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted block mt-2">
+                  {exp.location}
+                </span>
               </div>
             </div>
-          ))}
-        </div>
+            <div className="md:col-span-8">
+              <h3 className="display-heading text-2xl md:text-4xl text-paper">{exp.role}</h3>
+              <p className="mono-label text-muted mt-3">{exp.company}</p>
+              <ul className="mt-6 space-y-3">
+                {exp.description.map((item, i) => (
+                  <li key={i} className="text-muted text-sm md:text-base leading-relaxed flex items-start gap-3">
+                    <span className="mt-2.5 w-4 h-px bg-accent shrink-0" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

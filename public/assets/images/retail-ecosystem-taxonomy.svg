@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <!-- Header -->
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">EVENT TAXONOMY / CHECKOUT JOURNEY</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Checkout Tracking Spec</text>
+  <text x="64" y="138" fill="#86868B" font-size="14">Object–Action naming · one governed spec serves all three brands via the <tspan fill="#D9FF4B">brand</tspan> property</text>
+
+  <!-- Table header -->
+  <line x1="64" y1="166" x2="1216" y2="166" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="76" y="194" fill="#86868B" font-size="13" letter-spacing="2">EVENT NAME</text>
+  <text x="470" y="194" fill="#86868B" font-size="13" letter-spacing="2">TRIGGER</text>
+  <text x="800" y="194" fill="#86868B" font-size="13" letter-spacing="2">KEY PROPERTIES</text>
+  <line x1="64" y1="210" x2="1216" y2="210" stroke="#F2F1ED" stroke-opacity="0.12"/>
+
+  <!-- Rows -->
+  <!-- helper: rows every 62px starting y=210 -->
+  <g font-size="15">
+    <!-- Row 1 -->
+    <rect x="64" y="210" width="1152" height="62" fill="#141416"/>
+    <text x="76" y="248" fill="#D9FF4B" font-weight="600">Product Viewed</text>
+    <text x="470" y="248" fill="#F2F1ED">PDP load</text>
+    <text x="800" y="248" fill="#86868B" font-size="13">brand · product_id · category · price · currency</text>
+
+    <!-- Row 2 -->
+    <rect x="64" y="272" width="1152" height="62" fill="#0A0A0B"/>
+    <text x="76" y="310" fill="#D9FF4B" font-weight="600">Product Added</text>
+    <text x="470" y="310" fill="#F2F1ED">Add-to-cart click</text>
+    <text x="800" y="310" fill="#86868B" font-size="13">brand · product_id · quantity · price · cart_value</text>
+
+    <!-- Row 3 -->
+    <rect x="64" y="334" width="1152" height="62" fill="#141416"/>
+    <text x="76" y="372" fill="#D9FF4B" font-weight="600">Cart Viewed</text>
+    <text x="470" y="372" fill="#F2F1ED">Cart / mini-cart open</text>
+    <text x="800" y="372" fill="#86868B" font-size="13">brand · cart_value · item_count · currency</text>
+
+    <!-- Row 4 -->
+    <rect x="64" y="396" width="1152" height="62" fill="#0A0A0B"/>
+    <text x="76" y="434" fill="#D9FF4B" font-weight="600">Checkout Started</text>
+    <text x="470" y="434" fill="#F2F1ED">Begin checkout</text>
+    <text x="800" y="434" fill="#86868B" font-size="13">brand · cart_value · item_count · coupon</text>
+
+    <!-- Row 5 -->
+    <rect x="64" y="458" width="1152" height="62" fill="#141416"/>
+    <text x="76" y="496" fill="#D9FF4B" font-weight="600">Shipping Info Completed</text>
+    <text x="470" y="496" fill="#F2F1ED">Shipping step submit</text>
+    <text x="800" y="496" fill="#86868B" font-size="13">brand · shipping_method · cart_value</text>
+
+    <!-- Row 6 (highlighted - the drop step) -->
+    <rect x="64" y="520" width="1152" height="62" fill="#141416"/>
+    <rect x="64" y="520" width="6" height="62" fill="#FF5C5C" fill-opacity="0.7"/>
+    <text x="76" y="558" fill="#D9FF4B" font-weight="600">Payment Info Entered</text>
+    <text x="470" y="558" fill="#F2F1ED">Payment step submit</text>
+    <text x="800" y="558" fill="#86868B" font-size="13">brand · payment_method · cart_value</text>
+
+    <!-- Row 7 -->
+    <rect x="64" y="582" width="1152" height="62" fill="#0A0A0B"/>
+    <text x="76" y="620" fill="#D9FF4B" font-weight="600">Order Completed</text>
+    <text x="470" y="620" fill="#F2F1ED">Order confirmation</text>
+    <text x="800" y="620" fill="#86868B" font-size="13">brand · order_id · revenue · payment_method · currency</text>
+  </g>
+
+  <line x1="64" y1="644" x2="1216" y2="644" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="64" y="676" fill="#86868B" font-size="13">SHARED PROPERTY — <tspan fill="#D9FF4B">brand</tspan> distinguishes storefronts inside a single schema; no per-brand event forks, consistent governance.</text>
+</svg>
