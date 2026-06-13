@@ -59,7 +59,7 @@ const PlatformLogos: React.FC = () => {
   return (
     <section aria-label="Platforms I work with">
       <div aria-hidden="true">
-        <Marquee duration={28} className="py-2">
+        <Marquee duration={28} className="logo-marquee py-2">
           {row}
         </Marquee>
       </div>
