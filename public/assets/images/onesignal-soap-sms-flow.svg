@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">WEBHOOK / SOAP SMS BRIDGE</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Bridging event triggers to legacy SMS</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Modern side -->
+  <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">MODERN / EVENT-DRIVEN</text>
+  <rect x="64" y="300" width="250" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="368" fill="#F2F1ED" font-size="17" font-weight="600">OneSignal</text>
+  <text x="84" y="394" fill="#86868B" font-size="12">Event fires</text>
+
+  <line x1="314" y1="360" x2="376" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <rect x="380" y="300" width="250" height="120" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="400" y="368" fill="#D9FF4B" font-size="17" font-weight="600">Webhook</text>
+  <text x="400" y="394" fill="#86868B" font-size="12">REST → SOAP adapter</text>
+
+  <!-- Bridge -->
+  <line x1="630" y1="360" x2="700" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <text x="618" y="280" fill="#86868B" font-size="12" letter-spacing="2">ARCHITECTED BRIDGE</text>
+  <line x1="665" y1="200" x2="665" y2="520" stroke="#F2F1ED" stroke-opacity="0.12" stroke-dasharray="4 6"/>
+
+  <!-- Legacy side -->
+  <text x="704" y="180" fill="#86868B" font-size="13" letter-spacing="2">LEGACY / TELCO</text>
+  <rect x="704" y="300" width="250" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="724" y="360" fill="#F2F1ED" font-size="17" font-weight="600">SOAP Endpoint</text>
+  <text x="724" y="386" fill="#86868B" font-size="12">XML envelope · WSDL</text>
+  <text x="724" y="408" fill="#86868B" font-size="12">SMS infrastructure</text>
+
+  <line x1="954" y1="360" x2="1016" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <rect x="1020" y="300" width="196" height="120" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="1040" y="360" fill="#F2F1ED" font-size="17" font-weight="600">Outbound SMS</text>
+  <text x="1040" y="386" fill="#86868B" font-size="12">Delivered to</text>
+  <text x="1040" y="408" fill="#86868B" font-size="12">customer handset</text>
+
+  <text x="64" y="560" fill="#F2F1ED" font-size="16" font-weight="600">Architected the webhook-to-SOAP path</text>
+  <text x="64" y="592" fill="#86868B" font-size="13">Designed how a modern webhook would translate event triggers into SOAP requests against the bank's</text>
+  <text x="64" y="614" fill="#86868B" font-size="13">existing SMS infrastructure — connecting event-driven messaging to legacy telco rails.</text>
+</svg>

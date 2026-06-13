@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">WEBHOOKS / WHATSAPP TEMPLATES</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">OneSignal event triggers a WhatsApp template</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1 -->
+  <rect x="64" y="300" width="270" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="338" fill="#86868B" font-size="12" letter-spacing="2">STEP 1</text>
+  <text x="84" y="368" fill="#F2F1ED" font-size="17" font-weight="600">OneSignal</text>
+  <text x="84" y="394" fill="#86868B" font-size="12">Journey / event fires</text>
+
+  <line x1="334" y1="360" x2="396" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <rect x="400" y="300" width="270" height="120" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="420" y="338" fill="#86868B" font-size="12" letter-spacing="2">STEP 2</text>
+  <text x="420" y="368" fill="#D9FF4B" font-size="17" font-weight="600">Webhook</text>
+  <text x="420" y="394" fill="#86868B" font-size="12">Payload + template params</text>
+
+  <line x1="670" y1="360" x2="732" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <rect x="736" y="300" width="300" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="756" y="338" fill="#86868B" font-size="12" letter-spacing="2">STEP 3</text>
+  <text x="756" y="368" fill="#F2F1ED" font-size="17" font-weight="600">WhatsApp Business Mgr</text>
+  <text x="756" y="394" fill="#86868B" font-size="12">Approved template selected</text>
+
+  <line x1="1036" y1="360" x2="1098" y2="360" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <rect x="1040" y="300" width="176" height="120" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="1060" y="338" fill="#86868B" font-size="12" letter-spacing="2">STEP 4</text>
+  <text x="1060" y="368" fill="#F2F1ED" font-size="17" font-weight="600">Customer</text>
+  <text x="1060" y="394" fill="#86868B" font-size="12">Receives message</text>
+
+  <text x="64" y="520" fill="#F2F1ED" font-size="16" font-weight="600">Assisted the webhook → template wiring</text>
+  <text x="64" y="552" fill="#86868B" font-size="13">Connected OneSignal events to the bank's conversational channel, mapping event payloads to the variable</text>
+  <text x="64" y="574" fill="#86868B" font-size="13">parameters of approved WhatsApp Business Manager templates.</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">SDK UPLIFT / GUIDED SESSIONS</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">From a 2014 install to clean SDK wiring</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Before -->
+  <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">BEFORE</text>
+  <rect x="64" y="196" width="420" height="300" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="88" y="240" fill="#F2F1ED" font-size="18" font-weight="600">Legacy OneSignal (2014)</text>
+  <text x="88" y="280" fill="#86868B" font-size="13">• Aged Web / iOS / Android SDKs</text>
+  <text x="88" y="312" fill="#86868B" font-size="13">• Drifted wiring &amp; init logic</text>
+  <text x="88" y="344" fill="#86868B" font-size="13">• Tied to MS Dynamics 365 stack</text>
+  <text x="88" y="376" fill="#86868B" font-size="13">• Unverified event &amp; tag flow</text>
+
+  <!-- Sessions in the middle -->
+  <line x1="484" y1="346" x2="556" y2="346" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <rect x="500" y="200" width="280" height="292" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="520" y="238" fill="#D9FF4B" font-size="16" font-weight="600">Guided Sessions</text>
+  <text x="520" y="270" fill="#86868B" font-size="12">Portugal-based dev team</text>
+  <text x="520" y="300" fill="#86868B" font-size="12">• SDK update walkthroughs</text>
+  <text x="520" y="326" fill="#86868B" font-size="12">• Init &amp; wiring verification</text>
+  <text x="520" y="352" fill="#86868B" font-size="12">• Data-tagging sessions</text>
+  <text x="520" y="378" fill="#86868B" font-size="12">• AI / real-time translation</text>
+  <text x="520" y="404" fill="#86868B" font-size="12">  (mostly Portuguese)</text>
+  <line x1="780" y1="346" x2="852" y2="346" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- After -->
+  <text x="860" y="180" fill="#86868B" font-size="13" letter-spacing="2">AFTER</text>
+  <rect x="796" y="196" width="420" height="300" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="820" y="240" fill="#F2F1ED" font-size="18" font-weight="600">Updated OneSignal SDKs</text>
+  <text x="820" y="280" fill="#86868B" font-size="13">• Current Web / iOS / Android SDKs</text>
+  <text x="820" y="312" fill="#86868B" font-size="13">• Correct init &amp; subscription wiring</text>
+  <text x="820" y="344" fill="#86868B" font-size="13">• Verified events &amp; data tags</text>
+  <text x="820" y="376" fill="#86868B" font-size="13">• Clean base for API &amp; webhooks</text>
+
+  <text x="64" y="560" fill="#F2F1ED" font-size="16" font-weight="600">Instrumented cleanly from the ground up</text>
+  <text x="64" y="592" fill="#86868B" font-size="13">As technical architect I ran the working sessions so every SDK was updated and wired correctly before</text>
+  <text x="64" y="614" fill="#86868B" font-size="13">REST API and webhook work was layered on top.</text>
+</svg>
