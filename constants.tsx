@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     description: 'End-to-end data application built on Domo, managing complete pipelines from acquisition to interactive dashboards.',
     longDescription: 'This comprehensive Olympics tracking application was architected to demonstrate the power of real-time data orchestration across the GCC and EMEA regions.\n\nI managed the entire data lifecycle: from the acquisition of raw historical and real-time athletic data to the sophisticated cleansing and transformation logic required for cross-discipline comparisons. \n\nThe final solution features interactive Domo "cards" and stories that allow users to drill down into athlete performance, national medal counts, and historical trends. Key features include:\n\n• **Real-time Heatmaps**: Visualizing global medal distribution and historical performance trends.\n• **Athlete Intelligence**: Deep dives into specific athlete rituals, philosophies, and performance metrics.\n• **Regional Snapshots**: Specialized views for localized insights (e.g., Bahrain, South Africa).\n• **Predictive Trends**: Analyzing participation growth across genders and nations since 1896.',
     tags: ['Domo', 'Data Engineering', 'BI', 'Analytics'],
-    imageUrl: './assets/images/olympic-page-1.png',
+    imageUrl: './assets/images/olympic-featured.png',
     category: 'Data',
     link: 'https://www.youknow.co.za/interactive-content/olympic-data-visualisation',
     galleryImages: [
@@ -25,9 +25,12 @@ export const PROJECTS: Project[] = [
     description: 'Strava GPX files meet Pokémon — upload a run and generate a shareable collectible card from your workout data.',
     longDescription: 'Run DNA Cards is a full-stack product built end-to-end as a demonstration of product mindset and practical craft across geospatial processing, stats, algorithms, and UX — think Pokémon meets running performance.\n\nUpload any GPX file and the app parses your route, pace, elevation, and splits to generate a unique collectible card you can share or keep. Route geometry is rendered as a custom SVG path (no D3), and cards are exported as server-side PNGs via Satori + resvg-js — sub-3 second generation, fully serverless.\n\nKey features:\n\n• **GPX → GeoJSON Pipeline**: `@tmcw/togeojson` extracts distance, splits, elevation, and coordinates with full fidelity.\n• **Custom SVG Route Rendering**: Pure math-based path logic — no D3 bundle, pixel-perfect route art on every card.\n• **Server-Side Card Generation**: Satori + `@resvg/resvg-js` produce PNGs on Vercel serverless functions with fast cold starts (<3s).\n• **Local Card Collection**: IndexedDB stores your cards client-side with a custom async wrapper — no backend required.\n• **Native Sharing**: Web Share API for one-click posting to X and Instagram, with clipboard fallback.\n• **Route Fingerprinting**: djb2 hashing on downsampled coordinates for collision-resistant card IDs.',
     tags: ['Next.js', 'TypeScript', 'Tailwind v4', 'Satori', 'SVG', 'Vercel'],
-    imageUrl: 'https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?auto=format&fit=crop&q=80&w=800',
+    imageUrl: './assets/images/run-dna-featured.png',
     category: 'AI',
-    link: 'https://run-dna-cards.vercel.app/'
+    link: 'https://run-dna-cards.vercel.app/',
+    galleryImages: [
+      './assets/images/run-dna-cards-home.png'
+    ]
   },
   {
     id: '6',
@@ -35,9 +38,13 @@ export const PROJECTS: Project[] = [
     description: 'Upload a gameboard screenshot and AI predicts the next tile — built for loyalty apps like Discovery Vitality and Starbucks Rewards.',
     longDescription: 'Tile Predictor Pro uses Google AI to analyse gameboard screenshots from loyalty and rewards apps, then predicts the most likely next tile placement.\n\nDesigned for games like Discovery Vitality\'s activity board and Starbucks Rewards, the app learns the pattern logic from past plays visible in a screenshot and surfaces the optimal next move. Built with a lean, fast local stack — no CDN dependencies, no bloat.\n\nKey features:\n\n• **Image Analysis**: Uploads and processes gameboard screenshots to map tile positions and patterns.\n• **AI Prediction Engine**: Google AI Studio model interprets game state and outputs the highest-probability next tile.\n• **Loyalty App Focus**: Tuned for the tile mechanics common in health and rewards gamification platforms.\n• **Optional Analytics**: Amplitude instrumentation available for tracking prediction usage and accuracy.\n• **Simple Interface**: Upload a screenshot, get a prediction — no game knowledge required.',
     tags: ['React 19', 'TypeScript', 'Vite 6', 'Google AI Studio', 'Tailwind'],
-    imageUrl: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&q=80&w=800',
+    imageUrl: './assets/images/tile-predictor-featured.png',
     category: 'AI',
-    link: 'https://tile-predictor-pro.vercel.app/'
+    link: 'https://tile-predictor-pro.vercel.app/',
+    galleryImages: [
+      './assets/images/tile-predictor-pro-home.png',
+      './assets/images/tile-predictor-pro-board.png'
+    ]
   },
   {
     id: '4',
