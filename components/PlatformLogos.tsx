@@ -32,19 +32,19 @@ const PLATFORMS: Platform[] = [
 
 const LogoItem: React.FC<{ platform: Platform }> = ({ platform }) => (
   <span
-    className="logo-item inline-flex items-center px-8 md:px-12"
+    className="logo-item inline-flex items-center px-5 md:px-10"
     style={{ '--brand': platform.color } as React.CSSProperties}
   >
     {platform.src ? (
       <span
-        className="logo-mark h-7 w-7 md:h-9 md:w-9"
+        className="logo-mark h-6 w-6 md:h-8 md:w-8"
         style={{
           WebkitMaskImage: `url("${platform.src}")`,
           maskImage: `url("${platform.src}")`,
         }}
       />
     ) : (
-      <span className="logo-wordmark display-heading text-2xl md:text-3xl">{platform.name}</span>
+      <span className="logo-wordmark display-heading text-lg md:text-2xl">{platform.name}</span>
     )}
   </span>
 );
