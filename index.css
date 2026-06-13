@@ -136,10 +136,6 @@ button {
   mask-size: contain;
 }
 
-.logo-wordmark {
-  color: inherit;
-}
-
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
