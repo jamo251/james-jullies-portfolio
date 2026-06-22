@@ -19,7 +19,7 @@
     <text x="84" y="250" fill="#86868B" font-size="12">Migrating off — customer engagement stack</text>
 
     <rect x="660" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Legacy OneSignal (2014)</text>
+    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Legacy OneSignal (2024)</text>
     <text x="680" y="250" fill="#86868B" font-size="12">Aged install · SDKs to be uplifted</text>
   </g>
 
