@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">INTERNAL TOOL / MCP SLACK BOT</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Sales Intelligence Slack Bot</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: Slack entry point -->
+  <text x="64" y="178" fill="#86868B" font-size="13" letter-spacing="2">WHERE TEAMS WORK</text>
+  <rect x="64" y="194" width="1152" height="92" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="232" fill="#D9FF4B" font-size="18" font-weight="600">Slack</text>
+  <text x="84" y="258" fill="#86868B" font-size="12">Sales &amp; CS teams ask in one prompt — no logins, no tab-switching</text>
+  <text x="84" y="276" fill="#F2F1ED" font-size="12" font-style="italic">"@bot give me the full picture on Acme — deals, docs, and open tickets"</text>
+
+  <line x1="640" y1="286" x2="640" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: brain + MCP -->
+  <rect x="64" y="336" width="1152" height="132" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="372" fill="#D9FF4B" font-size="18" font-weight="600">Gemini Flash · over MCP</text>
+  <text x="84" y="396" fill="#86868B" font-size="12">Interprets the request, decides which sources to call, reconciles the answer</text>
+  <g font-size="13">
+    <rect x="84" y="412" width="358" height="44" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="440" fill="#F2F1ED">Routing &amp; tool selection</text>
+    <rect x="461" y="412" width="358" height="44" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="481" y="440" fill="#F2F1ED">Multi-source synthesis</text>
+    <rect x="838" y="412" width="358" height="44" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="858" y="440" fill="#F2F1ED">Low-latency replies</text>
+  </g>
+
+  <!-- Layer 3: three knowledge sources via MCP -->
+  <text x="64" y="488" fill="#86868B" font-size="13" letter-spacing="2">KNOWLEDGE SOURCES — EACH AN MCP SERVER</text>
+
+  <line x1="245" y1="498" x2="245" y2="520" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="498" x2="640" y2="520" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="1035" y1="498" x2="1035" y2="520" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <g font-size="13">
+    <rect x="64" y="524" width="362" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="558" fill="#F2F1ED" font-size="16" font-weight="600">HubSpot</text>
+    <text x="84" y="584" fill="#86868B" font-size="12">CRM records, deals,</text>
+    <text x="84" y="602" fill="#86868B" font-size="12">pipeline &amp; owner context</text>
+
+    <rect x="459" y="524" width="362" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="479" y="558" fill="#F2F1ED" font-size="16" font-weight="600">Notion</text>
+    <text x="479" y="584" fill="#86868B" font-size="12">Playbooks, account notes,</text>
+    <text x="479" y="602" fill="#86868B" font-size="12">internal knowledge base</text>
+
+    <rect x="854" y="524" width="362" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="874" y="558" fill="#F2F1ED" font-size="16" font-weight="600">Zendesk</text>
+    <text x="874" y="584" fill="#86868B" font-size="12">Support history, open</text>
+    <text x="874" y="602" fill="#86868B" font-size="12">tickets &amp; sentiment</text>
+  </g>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">One Slack prompt → live context from three platforms, stitched into a single answer.</text>
+</svg>

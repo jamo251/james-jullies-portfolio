@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">FLOW / ONE PROMPT, ONE ANSWER</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">The Lifecycle of a Question</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1 -->
+  <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">01 — PROMPT</text>
+  <rect x="64" y="196" width="540" height="120" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="232" fill="#D9FF4B" font-size="16" font-weight="600">A rep asks in Slack</text>
+  <text x="84" y="260" fill="#86868B" font-size="12">"Prep me for the Acme renewal call"</text>
+  <text x="84" y="284" fill="#86868B" font-size="12">Natural language — no syntax, no platform knowledge needed.</text>
+
+  <line x1="604" y1="256" x2="736" y2="256" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <text x="736" y="180" fill="#86868B" font-size="13" letter-spacing="2">02 — PLAN</text>
+  <rect x="736" y="196" width="480" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="756" y="232" fill="#F2F1ED" font-size="16" font-weight="600">Gemini Flash routes</text>
+  <text x="756" y="260" fill="#86868B" font-size="12">Decides which MCP tools to call and in what</text>
+  <text x="756" y="278" fill="#86868B" font-size="12">order to answer the question.</text>
+
+  <line x1="976" y1="316" x2="976" y2="362" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 - parallel fetch -->
+  <text x="64" y="356" fill="#86868B" font-size="13" letter-spacing="2">03 — FETCH IN PARALLEL VIA MCP</text>
+  <g font-size="13">
+    <rect x="64" y="372" width="362" height="92" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="404" fill="#F2F1ED" font-weight="600">HubSpot</text>
+    <text x="84" y="428" fill="#86868B" font-size="12">Open deal, renewal date,</text>
+    <text x="84" y="446" fill="#86868B" font-size="12">owner, deal stage</text>
+
+    <rect x="459" y="372" width="362" height="92" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="479" y="404" fill="#F2F1ED" font-weight="600">Notion</text>
+    <text x="479" y="428" fill="#86868B" font-size="12">Account plan, last QBR</text>
+    <text x="479" y="446" fill="#86868B" font-size="12">notes, success criteria</text>
+
+    <rect x="854" y="372" width="362" height="92" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="874" y="404" fill="#F2F1ED" font-weight="600">Zendesk</text>
+    <text x="874" y="428" fill="#86868B" font-size="12">Open tickets, recent</text>
+    <text x="874" y="446" fill="#86868B" font-size="12">escalations &amp; sentiment</text>
+  </g>
+
+  <line x1="245" y1="464" x2="500" y2="516" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="464" x2="640" y2="516" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="1035" y1="464" x2="780" y2="516" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 - synthesis -->
+  <text x="64" y="510" fill="#86868B" font-size="13" letter-spacing="2">04 — SYNTHESISE</text>
+  <rect x="320" y="520" width="640" height="64" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="340" y="552" fill="#D9FF4B" font-size="16" font-weight="600">Reconcile into one coherent picture</text>
+  <text x="340" y="574" fill="#86868B" font-size="12">Disparate facts from three platforms, stitched and de-duplicated.</text>
+
+  <line x1="640" y1="584" x2="640" y2="612" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5 - reply -->
+  <rect x="320" y="616" width="640" height="56" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
+  <text x="340" y="640" fill="#F2F1ED" font-size="15" font-weight="600">05 — One unified reply, back in the Slack thread</text>
+  <text x="340" y="662" fill="#86868B" font-size="12">Seconds, not a round of logins across three tabs.</text>
+</svg>
