@@ -55,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2 }) => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col justify-end px-6 md:px-10 pt-32 pb-12 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center md:justify-end px-6 md:px-10 pt-24 md:pt-32 pb-12 overflow-hidden"
     >
       <p className="hero-eyebrow mono-label text-accent mb-8 md:mb-12">
         Strategic Technology Leader | Bahrain | EMEA
