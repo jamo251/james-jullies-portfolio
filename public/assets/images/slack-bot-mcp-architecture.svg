@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">ARCHITECTURE / MODEL CONTEXT PROTOCOL</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">One Client, Three Servers</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Host / client -->
+  <text x="64" y="178" fill="#86868B" font-size="13" letter-spacing="2">HOST</text>
+  <rect x="64" y="194" width="320" height="180" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="232" fill="#D9FF4B" font-size="18" font-weight="600">Slack Bot Host</text>
+  <text x="84" y="258" fill="#86868B" font-size="12">Gemini Flash as the</text>
+  <text x="84" y="276" fill="#86868B" font-size="12">reasoning engine</text>
+  <g font-size="12">
+    <rect x="84" y="292" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="98" y="308" fill="#F2F1ED">Slack Events API listener</text>
+    <rect x="84" y="320" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="98" y="336" fill="#F2F1ED">MCP client + tool router</text>
+    <rect x="84" y="348" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="98" y="364" fill="#F2F1ED">Answer composer</text>
+  </g>
+
+  <!-- MCP transport label -->
+  <line x1="384" y1="284" x2="520" y2="284" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <text x="392" y="274" fill="#86868B" font-size="11">MCP · tools / resources</text>
+  <line x1="520" y1="284" x2="384" y2="284" stroke="#D9FF4B" stroke-opacity="0.3" marker-end="url(#arrow)"/>
+
+  <!-- MCP servers column -->
+  <text x="540" y="178" fill="#86868B" font-size="13" letter-spacing="2">MCP SERVERS</text>
+  <g font-size="13">
+    <rect x="540" y="194" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="560" y="220" fill="#F2F1ED" font-weight="600">HubSpot MCP Server</text>
+    <text x="560" y="240" fill="#86868B" font-size="11">search_contacts · get_deals · get_company</text>
+
+    <rect x="540" y="262" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="560" y="288" fill="#F2F1ED" font-weight="600">Notion MCP Server</text>
+    <text x="560" y="308" fill="#86868B" font-size="11">search_pages · fetch_doc · query_db</text>
+
+    <rect x="540" y="330" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="560" y="356" fill="#F2F1ED" font-weight="600">Zendesk MCP Server</text>
+    <text x="560" y="376" fill="#86868B" font-size="11">list_tickets · get_ticket · get_user</text>
+  </g>
+
+  <line x1="860" y1="222" x2="976" y2="222" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="860" y1="290" x2="976" y2="290" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="860" y1="358" x2="976" y2="358" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- External platforms -->
+  <text x="996" y="178" fill="#86868B" font-size="13" letter-spacing="2">PLATFORM APIS</text>
+  <g font-size="13">
+    <rect x="996" y="194" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="1016" y="226" fill="#D9FF4B">HubSpot API</text>
+    <rect x="996" y="262" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="1016" y="294" fill="#D9FF4B">Notion API</text>
+    <rect x="996" y="330" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="1016" y="362" fill="#D9FF4B">Zendesk API</text>
+  </g>
+
+  <!-- Why MCP band -->
+  <text x="64" y="436" fill="#86868B" font-size="13" letter-spacing="2">WHY MCP</text>
+  <rect x="64" y="452" width="1152" height="200" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <g font-size="13">
+    <rect x="84" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="506" fill="#D9FF4B">Uniform tool layer</text>
+    <text x="104" y="530" fill="#86868B" font-size="12">Three different APIs, one protocol the model calls</text>
+
+    <rect x="461" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="481" y="506" fill="#D9FF4B">Governed access</text>
+    <text x="481" y="530" fill="#86868B" font-size="12">Scoped tools &amp; credentials per source, server-side</text>
+
+    <rect x="838" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="858" y="506" fill="#D9FF4B">Composable</text>
+    <text x="858" y="530" fill="#86868B" font-size="12">Add a source by adding a server — no host rewrite</text>
+
+    <rect x="84" y="558" width="1112" height="76" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="104" y="590" fill="#F2F1ED" font-weight="600">The model never touches a raw API</text>
+    <text x="104" y="614" fill="#86868B" font-size="12">It calls MCP tools; each server owns its platform's auth, queries, and response shaping.</text>
+  </g>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">Built with Claude Code · reasoning by Gemini Flash · integration over the Model Context Protocol.</text>
+</svg>

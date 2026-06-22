@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">KNOWLEDGE SOURCES / WHO CONTRIBUTES WHAT</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Three Systems of Record</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- HubSpot column -->
+  <rect x="64" y="170" width="362" height="392" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="208" fill="#D9FF4B" font-size="20" font-weight="600">HubSpot</text>
+  <text x="84" y="232" fill="#86868B" font-size="12">The commercial truth</text>
+  <g font-size="13">
+    <rect x="84" y="252" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="278" fill="#F2F1ED">Contacts &amp; companies</text>
+    <text x="104" y="298" fill="#86868B" font-size="11">who's who on the account</text>
+
+    <rect x="84" y="320" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="346" fill="#F2F1ED">Deals &amp; pipeline</text>
+    <text x="104" y="366" fill="#86868B" font-size="11">stage, value, close date</text>
+
+    <rect x="84" y="388" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="104" y="414" fill="#F2F1ED">Owner &amp; activity</text>
+    <text x="104" y="434" fill="#86868B" font-size="11">last touch, next step</text>
+
+    <rect x="84" y="470" width="322" height="74" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="104" y="500" fill="#D9FF4B" font-size="12">ANSWERS</text>
+    <text x="104" y="524" fill="#86868B" font-size="11">"Where's the deal and who owns it?"</text>
+  </g>
+
+  <!-- Notion column -->
+  <rect x="459" y="170" width="362" height="392" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="479" y="208" fill="#D9FF4B" font-size="20" font-weight="600">Notion</text>
+  <text x="479" y="232" fill="#86868B" font-size="12">The institutional memory</text>
+  <g font-size="13">
+    <rect x="479" y="252" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="499" y="278" fill="#F2F1ED">Account plans</text>
+    <text x="499" y="298" fill="#86868B" font-size="11">goals, stakeholders, risks</text>
+
+    <rect x="479" y="320" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="499" y="346" fill="#F2F1ED">Playbooks &amp; processes</text>
+    <text x="499" y="366" fill="#86868B" font-size="11">how we sell &amp; onboard</text>
+
+    <rect x="479" y="388" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="499" y="414" fill="#F2F1ED">Meeting &amp; QBR notes</text>
+    <text x="499" y="434" fill="#86868B" font-size="11">what was said &amp; promised</text>
+
+    <rect x="479" y="470" width="322" height="74" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="499" y="500" fill="#D9FF4B" font-size="12">ANSWERS</text>
+    <text x="499" y="524" fill="#86868B" font-size="11">"What's the plan and the history?"</text>
+  </g>
+
+  <!-- Zendesk column -->
+  <rect x="854" y="170" width="362" height="392" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="874" y="208" fill="#D9FF4B" font-size="20" font-weight="600">Zendesk</text>
+  <text x="874" y="232" fill="#86868B" font-size="12">The health signal</text>
+  <g font-size="13">
+    <rect x="874" y="252" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="894" y="278" fill="#F2F1ED">Open tickets</text>
+    <text x="894" y="298" fill="#86868B" font-size="11">what's unresolved now</text>
+
+    <rect x="874" y="320" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="894" y="346" fill="#F2F1ED">Escalations &amp; SLAs</text>
+    <text x="894" y="366" fill="#86868B" font-size="11">where it's hurting</text>
+
+    <rect x="874" y="388" width="322" height="60" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="894" y="414" fill="#F2F1ED">Support sentiment</text>
+    <text x="894" y="434" fill="#86868B" font-size="11">tone of recent contact</text>
+
+    <rect x="874" y="470" width="322" height="74" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
+    <text x="894" y="500" fill="#D9FF4B" font-size="12">ANSWERS</text>
+    <text x="894" y="524" fill="#86868B" font-size="11">"Are they happy or at risk?"</text>
+  </g>
+
+  <!-- Converge band -->
+  <line x1="245" y1="562" x2="600" y2="606" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="562" x2="640" y2="606" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="1035" y1="562" x2="680" y2="606" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <rect x="320" y="610" width="640" height="56" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
+  <text x="340" y="634" fill="#F2F1ED" font-size="15" font-weight="600">Commercial + memory + health = the whole client</text>
+  <text x="340" y="656" fill="#86868B" font-size="12">No single platform has the full story — the bot assembles it.</text>
+
+  <text x="64" y="700" fill="#86868B" font-size="12">Each source is exposed through its own MCP server, so the model pulls only what each question needs.</text>
+</svg>

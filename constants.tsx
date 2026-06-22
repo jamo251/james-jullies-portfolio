@@ -75,6 +75,20 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
+    id: '7',
+    title: 'Sales Intelligence Slack Bot',
+    description: 'An internal Slack bot that uses **MCP** to pull live context from **HubSpot**, **Notion**, and **Zendesk** into a single prompt — so sales and customer-success teams get a unified view of any client or prospect without platform-hopping.',
+    longDescription: 'An internal tool I built to kill a daily annoyance: account research means jumping between **HubSpot** (the deal), **Notion** (the playbooks and history), and **Zendesk** (the support story) — then mentally stitching three half-pictures into one. This bot does the stitching. A rep asks a question in Slack and gets back a single, reconciled answer drawn live from all three platforms — no separate logins, no tab-switching, no piecing it together by hand.\n\nIt\'s built on the **Model Context Protocol (MCP)**: each platform is wrapped as its own MCP server exposing a small set of governed tools, and **Gemini Flash** sits at the centre as the reasoning engine — deciding what to fetch, calling the right tools, and composing the reply. The whole thing was developed with **Claude Code**.\n\nKey aspects:\n\n• **One prompt, one answer**: Ask in plain language — "prep me for the Acme renewal" — and the bot gathers deals, account notes, and open tickets, then returns a single coherent brief in the thread.\n• **MCP as the integration layer**: Three very different APIs sit behind one uniform protocol. Each MCP server owns its platform\'s auth and queries, so the model calls clean tools and never touches a raw API. Adding a source later means adding a server, not rewriting the bot.\n• **Gemini Flash as the brain**: Chosen for low latency, so answers come back at conversation speed — it routes across sources, reconciles disparate facts, and de-duplicates into one picture.\n• **What each source contributes**: HubSpot gives the commercial truth (deals, pipeline, owner); Notion gives the institutional memory (plans, playbooks, QBR notes); Zendesk gives the health signal (open tickets, escalations, sentiment).\n• **Built for the daily grind**: Account research, prospect prep, and support-history lookups for sales and CS — the platform-hopping tax, removed.\n\n*Built as an internal tool; details are kept deliberately high-level.*',
+    tags: ['Slack API', 'MCP (Model Context Protocol)', 'Gemini Flash', 'HubSpot', 'Notion', 'Zendesk', 'Claude Code'],
+    imageUrl: './assets/images/slack-bot-featured.svg',
+    category: 'AI',
+    galleryImages: [
+      './assets/images/slack-bot-mcp-architecture.svg',
+      './assets/images/slack-bot-query-flow.svg',
+      './assets/images/slack-bot-knowledge-sources.svg'
+    ]
+  },
+  {
     id: '4',
     title: 'Retail Analytics Ecosystem',
     description: 'A unified, cross-brand event taxonomy and checkout-tracking architecture for a multi-brand retail group running on **Salesforce Commerce Cloud**, implemented end-to-end in **Amplitude**.',
@@ -170,6 +184,7 @@ Core Information:
 - Education: PG Dip in Business Admin (GIBS), B.Comm in IT Management (UJ).
 - Projects: ${JSON.stringify(PROJECTS)}
 - GitHub Projects: Run DNA Cards (https://run-dna-cards.vercel.app/) — GPX-to-collectible-card app built with Claude AI and TypeScript. Tile Predictor Pro (https://tile-predictor-pro.vercel.app/) — AI gameboard tile predictor for loyalty apps built with Google AI Studio and TypeScript.
+- Internal Tools: Sales Intelligence Slack Bot — an internal tool James built that uses MCP (Model Context Protocol) to unify HubSpot, Notion, and Zendesk into a single Slack prompt for sales and customer-success teams, with Gemini Flash as the reasoning engine, built with Claude Code. Kept anonymized; discuss it at a high level without internal specifics.
 - Experience: ${JSON.stringify(EXPERIENCE)}
 - Certifications: ${JSON.stringify(CERTIFICATIONS)}
 
