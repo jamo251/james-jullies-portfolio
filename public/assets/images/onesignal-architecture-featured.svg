@@ -11,16 +11,16 @@
     </marker>
   </defs>
 
-  <!-- Layer 1: legacy estate -->
-  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">ANGOLAN RETAIL BANK — LEGACY ESTATE</text>
+  <!-- Layer 1: existing estate -->
+  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">ANGOLAN RETAIL BANK — EXISTING ESTATE</text>
   <g>
     <rect x="64" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
     <text x="84" y="224" fill="#F2F1ED" font-size="18" font-weight="600">MS Dynamics 365</text>
     <text x="84" y="250" fill="#86868B" font-size="12">Migrating off — customer engagement stack</text>
 
     <rect x="660" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Legacy OneSignal (2024)</text>
-    <text x="680" y="250" fill="#86868B" font-size="12">Aged install · SDKs to be uplifted</text>
+    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Existing OneSignal (2024)</text>
+    <text x="680" y="250" fill="#86868B" font-size="12">Prior install · SDKs to be uplifted</text>
   </g>
 
   <line x1="342" y1="272" x2="500" y2="332" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>

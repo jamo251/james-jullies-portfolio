@@ -14,8 +14,8 @@
   <!-- Before -->
   <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">BEFORE</text>
   <rect x="64" y="196" width="420" height="300" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <text x="88" y="240" fill="#F2F1ED" font-size="18" font-weight="600">Legacy OneSignal (2024)</text>
-  <text x="88" y="280" fill="#86868B" font-size="13">• Aged Web / iOS / Android SDKs</text>
+  <text x="88" y="240" fill="#F2F1ED" font-size="18" font-weight="600">Existing OneSignal (2024)</text>
+  <text x="88" y="280" fill="#86868B" font-size="13">• Outdated Web / iOS / Android SDKs</text>
   <text x="88" y="312" fill="#86868B" font-size="13">• Drifted wiring &amp; init logic</text>
   <text x="88" y="344" fill="#86868B" font-size="13">• Tied to MS Dynamics 365 stack</text>
   <text x="88" y="376" fill="#86868B" font-size="13">• Unverified event &amp; tag flow</text>
