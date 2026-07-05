@@ -109,7 +109,7 @@ export const EXPERIENCE: Experience[] = [
     company: 'YOUKNOW Technologies',
     role: 'Senior Solutions Consultant',
     period: 'Nov 2024 - Present',
-    location: 'Bahrain / Remote',
+    location: 'Johannesburg, SA (Remote)',
     description: [
       'Leading solution consultants in implementing Braze, Amplitude, DOMO, and OneSignal.',
       'Architecting technical integration strategies for fintech and digital banking sectors.',
@@ -120,7 +120,7 @@ export const EXPERIENCE: Experience[] = [
     company: 'YOUKNOW Technologies',
     role: 'Solutions Engineer: CX & Analytics',
     period: 'July 2023 - Oct 2024',
-    location: 'South Africa / Bahrain',
+    location: 'Johannesburg, SA',
     description: [
       'Built comprehensive Olympics data application using the Domo platform.',
       'Implemented custom event tracking pipelines using GTM and JavaScript.',
