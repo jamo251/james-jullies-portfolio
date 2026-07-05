@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import SectionHeading from './SectionHeading';
 import MagneticButton from './MagneticButton';
 
@@ -6,12 +7,20 @@ const fieldClasses =
   'w-full bg-transparent border-0 border-b border-line px-0 py-4 text-lg md:text-xl text-paper placeholder:text-muted/40 focus:outline-none focus:border-accent transition-colors';
 
 const ContactForm: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
-    setTimeout(() => setStatus('success'), 1500);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.currentTarget,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+      )
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
   };
 
   return (
@@ -43,22 +52,26 @@ const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div>
                 <label className="mono-label text-muted block mb-2">Name</label>
-                <input required type="text" className={fieldClasses} placeholder="John Doe" />
+                <input required name="user_name" type="text" className={fieldClasses} placeholder="John Doe" />
               </div>
               <div>
                 <label className="mono-label text-muted block mb-2">Email</label>
-                <input required type="email" className={fieldClasses} placeholder="john@example.com" />
+                <input required name="user_email" type="email" className={fieldClasses} placeholder="john@example.com" />
               </div>
             </div>
             <div>
               <label className="mono-label text-muted block mb-2">Message</label>
               <textarea
                 required
+                name="message"
                 rows={4}
                 className={`${fieldClasses} resize-none`}
                 placeholder="How can I help you?"
               ></textarea>
             </div>
+            {status === 'error' && (
+              <p className="text-sm text-accent">Something went wrong sending your message. Please try again or email me directly.</p>
+            )}
             <MagneticButton>
               <button
                 type="submit"
