@@ -63,7 +63,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       style={{ clipPath: 'inset(0 0 0% 0)' }}
       aria-hidden="true"
     >
-      <div className="mono-label text-muted">Portfolio — 2026</div>
+      <div className="mono-label text-muted">Portfolio · 2026</div>
 
       <div className="display-heading text-[clamp(2.5rem,9vw,8rem)] text-paper">
         {NAME.split('').map((char, i) => (

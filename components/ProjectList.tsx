@@ -56,7 +56,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelect }) => {
 
   return (
     <div ref={rootRef} className="relative">
-      {/* Floating hover preview — desktop fine-pointer only */}
+      {/* Floating hover preview - desktop fine-pointer only */}
       <div
         ref={floatRef}
         className={`hidden lg:block absolute top-0 left-0 z-20 w-[420px] xl:w-[480px] aspect-[4/3] pointer-events-none overflow-hidden transition-opacity duration-300 ${

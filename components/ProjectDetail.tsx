@@ -183,7 +183,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           />
         </div>
         <figcaption className="mono-label text-muted mt-4">
-          {project.title} — 01
+          {project.title} / 01
         </figcaption>
       </figure>
 
@@ -255,7 +255,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     Insight Layer {String(activeImage + 1).padStart(2, '0')}
                   </div>
                   <div className="absolute bottom-4 right-4 font-mono text-xs text-muted bg-ink/70 px-3 py-2 border border-line opacity-0 group-hover:opacity-100 transition-opacity">
-                    {String(activeImage + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')} — Click to expand
+                    {String(activeImage + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')} · Click to expand
                   </div>
                 </div>
 

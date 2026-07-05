@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   useLenis();
 
-  // The detail view is a fixed overlay with native scrolling — pause Lenis underneath
+  // The detail view is a fixed overlay with native scrolling - pause Lenis underneath
   useEffect(() => {
     const lenis = getLenis();
     if (selectedProject) {

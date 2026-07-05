@@ -6,7 +6,7 @@ interface MarqueeProps {
   duration?: number;
 }
 
-/** Infinite horizontal strip — content is duplicated so the loop is seamless. */
+/** Infinite horizontal strip - content is duplicated so the loop is seamless. */
 const Marquee: React.FC<MarqueeProps> = ({ children, className = '', duration = 30 }) => {
   return (
     <div className={`overflow-hidden whitespace-nowrap ${className}`}>
