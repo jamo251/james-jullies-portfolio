@@ -187,6 +187,7 @@ Core Information:
 - Internal Tools: Sales Intelligence Slack Bot, an internal tool James built that uses MCP (Model Context Protocol) to unify HubSpot, Notion, and Zendesk into a single Slack prompt for sales and customer-success teams, with Gemini Flash as the reasoning engine, built with Claude Code. Kept anonymized; discuss it at a high level without internal specifics.
 - Experience: ${JSON.stringify(EXPERIENCE)}
 - Certifications: ${JSON.stringify(CERTIFICATIONS)}
+- Creative side: James also produces instrumental electronic music under the alias JAMO. This portfolio has an Artist mode (the Architect/Artist toggle in the navbar) showcasing ANIMUS, a nine-track EP where each track channels the spirit of a different animal. Jaguar, Seal, Dragonfly, Octopus, and Bear are out on Spotify; Phoenix, Spider, Owl, and Wolf are still in production. Also in the works: Silent Night (2025) and The Christmas Beat of Africa.
 
 When answering:
 1. Be professional, confident, and highly technical yet accessible.

@@ -17,6 +17,18 @@ html {
   background-color: var(--color-ink);
 }
 
+/* Artist mode - the JAMO side. Same dark bones, warmer blood. */
+html[data-mode="artist"] {
+  --color-accent: #FF7A1A;
+  --color-surface: #17120E;
+  --font-display: "Unbounded", "Archivo", sans-serif;
+}
+
+html[data-mode="artist"] .display-heading {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
 body {
   background-color: var(--color-ink);
   color: var(--color-paper);
