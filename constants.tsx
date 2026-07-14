@@ -57,7 +57,11 @@ export const PROJECTS: Project[] = [
     category: 'AI',
     link: 'https://run-dna-cards.vercel.app/',
     galleryImages: [
-      './assets/images/run-dna-cards-home.png'
+      './assets/images/run-dna-cards-home.png',
+      './assets/images/run-dna-card-grind.png',
+      './assets/images/run-dna-card-comrades.png',
+      './assets/images/run-dna-card-western-states.png',
+      './assets/images/run-dna-battle.png'
     ]
   },
   {
