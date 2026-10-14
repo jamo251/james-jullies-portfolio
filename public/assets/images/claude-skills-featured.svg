@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">AI &amp; AUTOMATION / AGENT SKILLS</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Claude Skills Ecosystem</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: request -->
+  <text x="64" y="178" fill="#86868B" font-size="13" letter-spacing="2">PLAIN-ENGLISH REQUEST</text>
+  <rect x="64" y="194" width="1152" height="80" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="230" fill="#D9FF4B" font-size="18" font-weight="600">Claude</text>
+  <text x="84" y="256" fill="#F2F1ED" font-size="12" font-style="italic">"Tailor my CV for this role"  ·  "Invoice the client for 12 hours"  ·  "Prep me for Thursday's interview"</text>
+
+  <line x1="640" y1="274" x2="640" y2="320" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: skill router -->
+  <rect x="64" y="324" width="1152" height="96" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="84" y="360" fill="#F2F1ED" font-size="18" font-weight="600">Skill matching</text>
+  <text x="84" y="386" fill="#86868B" font-size="12">Each skill's description says when it applies, so the right instructions, references and</text>
+  <text x="84" y="404" fill="#86868B" font-size="12">scripts load only when the task needs them.</text>
+
+  <line x1="245" y1="420" x2="245" y2="466" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="420" x2="640" y2="466" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="1035" y1="420" x2="1035" y2="466" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: skill families -->
+  <g font-size="13">
+    <rect x="64" y="470" width="362" height="160" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+    <text x="84" y="506" fill="#D9FF4B" font-size="16" font-weight="600">Document generation</text>
+    <text x="84" y="534" fill="#86868B" font-size="12">ATS-ready tailored CVs</text>
+    <text x="84" y="556" fill="#86868B" font-size="12">Branded PDF invoices</text>
+    <text x="84" y="578" fill="#86868B" font-size="12">Website build guides</text>
+
+    <rect x="459" y="470" width="362" height="160" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+    <text x="479" y="506" fill="#D9FF4B" font-size="16" font-weight="600">Brand-consistent output</text>
+    <text x="479" y="534" fill="#86868B" font-size="12">Brand guidelines as rules</text>
+    <text x="479" y="556" fill="#86868B" font-size="12">A written personal voice</text>
+    <text x="479" y="578" fill="#86868B" font-size="12">Social image design system</text>
+
+    <rect x="854" y="470" width="362" height="160" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+    <text x="874" y="506" fill="#D9FF4B" font-size="16" font-weight="600">Structured research</text>
+    <text x="874" y="534" fill="#86868B" font-size="12">Interview prep sheets</text>
+    <text x="874" y="556" fill="#86868B" font-size="12">Recruiter outreach drafts</text>
+    <text x="874" y="578" fill="#86868B" font-size="12">Inbox-to-tracker syncs</text>
+  </g>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">Repeatable work written down once, then run on demand with the same quality every time.</text>
+</svg>

@@ -59,8 +59,8 @@
 
   <rect x="754" y="560" width="462" height="92" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
   <text x="774" y="594" fill="#D9FF4B" font-size="16" font-weight="600">Held Through Rapid Scale</text>
-  <text x="774" y="618" fill="#86868B" font-size="12">Bank scaled past ~470k customers</text>
-  <text x="774" y="636" fill="#86868B" font-size="12">(~2,100/day) within ~a year of launch</text>
+  <text x="774" y="618" fill="#86868B" font-size="12">140k+ identities unified in 3 months;</text>
+  <text x="774" y="636" fill="#86868B" font-size="12">bank since scaled past 740k (H1 2026)</text>
 
   <text x="64" y="694" fill="#86868B" font-size="12">Ran the technical sessions and advised client engineering teams across the full Braze stack.</text>
 </svg>

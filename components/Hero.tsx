@@ -10,13 +10,13 @@ interface HeroProps {
 }
 
 const ARCHITECT_HERO: HeroContent = {
-  eyebrow: 'Strategic Technology Leader | Bahrain | EMEA',
+  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI | Bahrain',
   lines: [
     { text: 'James Jullies' },
     { text: 'Martech & AI', accent: true },
     { text: 'Architect.' },
   ],
-  bio: 'Driving digital transformation across fintech, telecommunications, and retail for 12+ years. Expertly architecting high-growth platforms powered by data and intelligence.',
+  bio: '14 years in enterprise technology delivery across fintech, banking, and retail. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
   ctas: [
     { label: 'Explore Achievements', href: '#projects' },
     { label: 'Career Journey', href: '#experience' },

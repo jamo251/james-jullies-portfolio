@@ -15,8 +15,8 @@
   <text x="64" y="178" fill="#86868B" font-size="13" letter-spacing="2">HOST</text>
   <rect x="64" y="194" width="320" height="180" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
   <text x="84" y="232" fill="#D9FF4B" font-size="18" font-weight="600">Slack Bot Host</text>
-  <text x="84" y="258" fill="#86868B" font-size="12">Gemini Flash as the</text>
-  <text x="84" y="276" fill="#86868B" font-size="12">reasoning engine</text>
+  <text x="84" y="258" fill="#86868B" font-size="12">Claude API as the reasoning</text>
+  <text x="84" y="276" fill="#86868B" font-size="12">engine (migrated from Gemini Flash)</text>
   <g font-size="12">
     <rect x="84" y="292" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
     <text x="98" y="308" fill="#F2F1ED">Slack Events API listener</text>
@@ -83,5 +83,5 @@
     <text x="104" y="614" fill="#86868B" font-size="12">It calls MCP tools; each server owns its platform's auth, queries, and response shaping.</text>
   </g>
 
-  <text x="64" y="692" fill="#86868B" font-size="12">Built with Claude Code · reasoning by Gemini Flash · integration over the Model Context Protocol.</text>
+  <text x="64" y="692" fill="#86868B" font-size="12">Built with Claude Code · reasoning by the Claude API (migrated from Gemini Flash) · integration over the Model Context Protocol.</text>
 </svg>
