@@ -32,6 +32,19 @@ export interface Experience {
   description: string[];
 }
 
+export interface EarlierRole {
+  company: string;
+  role: string;
+  period: string;
+  summary: string;
+}
+
+export interface Education {
+  qualification: string;
+  institution: string;
+  year: string;
+}
+
 export interface SkillGroup {
   name: string;
   skills: string[];

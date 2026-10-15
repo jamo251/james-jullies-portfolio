@@ -1,5 +1,5 @@
 
-import type { Project, Experience, SkillGroup, Certification, HeroContent } from '../types';
+import type { Project, Experience, EarlierRole, Education, SkillGroup, Certification, HeroContent } from '../types';
 
 /**
  * Single source for everything the site publishes. The UI renders from it and
@@ -204,6 +204,28 @@ export const EXPERIENCE: Experience[] = [
       'Translated user feedback into product enhancements.'
     ]
   }
+];
+
+export const EARLIER_CAREER: EarlierRole[] = [
+  {
+    company: 'inQuba',
+    role: 'Service & Operations Support Analyst',
+    period: 'Mar 2017 - Oct 2018',
+    summary:
+      'First-line technical support through Zendesk across three time zones. Streamlined support processes, cutting response times by 20%.',
+  },
+  {
+    company: 'Automated Outsourcing Services',
+    role: 'Operations Analyst',
+    period: 'Mar 2012 - Feb 2017',
+    summary:
+      'Operations Analyst from Jul 2013: software and data operations on Oracle Flexcube for major South African unit trusts and ETFs (ABSA, Satrix, iTransact), with gap analysis and process documentation in a regulated environment. Earlier roles: Change Management Operator; IS Operator.',
+  },
+];
+
+export const EDUCATION: Education[] = [
+  { qualification: 'Post Graduate Diploma in Business Administration (PGDBA)', institution: 'GIBS Business School', year: '2016' },
+  { qualification: 'BCom Information Technology Management', institution: 'University of Johannesburg', year: '2014' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [

@@ -1,6 +1,6 @@
 // Imported by the serverless function, so relative imports carry the .js
 // extension that Node's ESM loader needs at runtime.
-import { HERO, PROJECTS, EXPERIENCE, SKILL_GROUPS, CERTIFICATIONS } from './content.js';
+import { HERO, PROJECTS, EXPERIENCE, EARLIER_CAREER, EDUCATION, SKILL_GROUPS, CERTIFICATIONS } from './content.js';
 
 const plain = (text: string) => text.replace(/\*\*/g, '').replace(/`/g, '');
 
@@ -23,6 +23,11 @@ const timeline = () =>
   EXPERIENCE.map((e) =>
     [`### ${e.role}, ${e.company} (${e.period})`, ...e.description.map((d) => `- ${d}`)].join('\n')
   ).join('\n\n');
+
+const earlierCareer = () =>
+  EARLIER_CAREER.map((e) => `- ${e.role}, ${e.company} (${e.period}): ${e.summary}`).join('\n');
+
+const education = () => EDUCATION.map((e) => `- ${e.qualification}, ${e.institution}, ${e.year}`).join('\n');
 
 const skills = () => SKILL_GROUPS.map((g) => `- ${g.name}: ${g.skills.join('; ')}`).join('\n');
 
@@ -52,6 +57,12 @@ ${caseStudies()}
 
 ## Career timeline
 ${timeline()}
+
+## Earlier career
+${earlierCareer()}
+
+## Education
+${education()}
 
 ## Skills
 ${skills()}
