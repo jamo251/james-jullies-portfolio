@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import { scrollToSection } from '../hooks/useLenis';
 import { HeroContent } from '../types';
+import { HERO } from '../data/content';
 import MagneticButton from './MagneticButton';
 
 interface HeroProps {
@@ -9,21 +10,7 @@ interface HeroProps {
   content?: HeroContent;
 }
 
-const ARCHITECT_HERO: HeroContent = {
-  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI | Bahrain',
-  lines: [
-    { text: 'James Jullies' },
-    { text: 'Martech & AI', accent: true },
-    { text: 'Architect.' },
-  ],
-  bio: '14 years in enterprise technology delivery across fintech, banking, and retail. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
-  ctas: [
-    { label: 'Explore Achievements', href: '#projects' },
-    { label: 'Career Journey', href: '#experience' },
-  ],
-};
-
-const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = ARCHITECT_HERO }) => {
+const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = HERO }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 

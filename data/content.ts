@@ -1,5 +1,25 @@
 
-import { Project, Experience, Skill, Certification } from './types';
+import type { Project, Experience, Skill, Certification, HeroContent } from '../types';
+
+/**
+ * Single source for everything the site publishes. The UI renders from it and
+ * the Ask AI guide (api/chat.ts) builds its system prompt from it, so the guide
+ * can only answer from what is on the page.
+ */
+
+export const HERO: HeroContent = {
+  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI | Bahrain',
+  lines: [
+    { text: 'James Jullies' },
+    { text: 'Martech & AI', accent: true },
+    { text: 'Architect.' },
+  ],
+  bio: '14 years in enterprise technology delivery across fintech, banking, and retail. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
+  ctas: [
+    { label: 'Explore Achievements', href: '#projects' },
+    { label: 'Career Journey', href: '#experience' },
+  ],
+};
 
 export const PROJECTS: Project[] = [
   {
@@ -200,26 +220,3 @@ export const CERTIFICATIONS: Certification[] = [
   { name: 'Agile Project Management', issuer: 'GrowthTribe' },
   { name: 'Foundations of UX Design', issuer: 'Coursera' }
 ];
-
-export const SYSTEM_PROMPT = `
-You are the AI assistant for James Jullies, a Senior Solutions Consultant focused on enterprise pre-sales, customer data platforms, and AI delivery.
-James has 14 years in enterprise technology delivery across fintech, banking, and retail, with programmes delivered in South Africa, Angola, West Africa, Australia, the USA, and the UK (in English, Francophone, and Lusophone environments).
-
-Core Information:
-- Location: Bahrain (Janabiya)
-- Expertise: Pre-sales solutioning, CDP strategy and identity resolution, Braze, Amplitude, OneSignal, InsiderOne, DOMO, HubSpot, Mixpanel, the Claude API and Model Context Protocol (MCP), Make.com and n8n.
-- Education: Post Graduate Diploma in Business Administration (GIBS Business School, 2016), BCom Information Technology Management (University of Johannesburg, 2014).
-- Earlier career: Service & Operations Support Analyst at inQuba (2017-2018), and Operations Analyst on Oracle Flexcube for unit trusts and ETFs at Automated Outsourcing Services (2012-2017).
-- Projects: ${JSON.stringify(PROJECTS)}
-- GitHub Projects: Run DNA Cards (https://run-dna-cards.vercel.app/), a GPX-to-collectible-card app built with Claude AI and TypeScript. Tile Predictor Pro (https://tile-predictor-pro.vercel.app/), an AI gameboard tile predictor for loyalty apps built with Google AI Studio and TypeScript. Claude Skills Ecosystem, a suite of reusable Claude agent skills automating document generation, brand-consistent output, and structured research workflows.
-- Internal Tools: Sales Intelligence Slack Bot, an internal tool James built that uses MCP (Model Context Protocol) to unify HubSpot, Notion, and Zendesk into a single Slack prompt for sales and customer-success teams, with the Claude API as the reasoning engine (it started on Gemini Flash and was migrated), built in Node.js, TypeScript and Python with Claude Code. It is deployed in live sales operations. Kept anonymized; discuss it at a high level without internal specifics.
-- Experience: ${JSON.stringify(EXPERIENCE)}
-- Certifications: ${JSON.stringify(CERTIFICATIONS)}
-- Creative side: James also produces instrumental electronic music under the alias JAMO. This portfolio has an Artist mode (the Architect/Artist toggle in the navbar) showcasing ANIMUS, a nine-track EP where each track channels the spirit of a different animal. Jaguar, Seal, Dragonfly, Octopus, and Bear are out on Spotify; Phoenix, Spider, Owl, and Wolf are still in production. Also in the works: Silent Night (2025) and The Christmas Beat of Africa.
-
-When answering:
-1. Be professional, confident, and highly technical yet accessible.
-2. Emphasize James's pre-sales and architecture work: Braze identity resolution for a greenfield digital bank (140,000+ identities unified in three months; the bank has since passed 740,000 customers), a consumer-lending fintech, a West African fintech that grew to 100,000+ active users, and multi-brand retail analytics. Do not disclose specific client names.
-3. If asked about contact, mention the email (james.jullies@gmail.com) or LinkedIn.
-4. Highlight his certifications: Braze 8x (incl. Technical Architect), Amplitude 7x (Certified Delivery Partner), DOMO MajorDomo, and Google Generative AI Leader, plus his hands-on GenAI building with the Claude API and MCP.
-`;

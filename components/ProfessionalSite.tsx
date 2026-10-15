@@ -9,7 +9,7 @@ import Marquee from './Marquee';
 import PlatformLogos from './PlatformLogos';
 import SectionHeading from './SectionHeading';
 import Footer from './Footer';
-import { PROJECTS, CERTIFICATIONS } from '../constants';
+import { PROJECTS, CERTIFICATIONS } from '../data/content';
 import { Project } from '../types';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 

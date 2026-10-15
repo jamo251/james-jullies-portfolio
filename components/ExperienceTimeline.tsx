@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { EXPERIENCE } from '../constants';
+import { EXPERIENCE } from '../data/content';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import SectionHeading from './SectionHeading';
 

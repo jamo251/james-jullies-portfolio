@@ -1,15 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { chatWithPortfolioAI } from '../services/geminiService';
+import { askPortfolioGuide, MAX_QUESTION_CHARS, MAX_QUESTIONS } from '../services/chatService';
 import { ChatMessage } from '../types';
 import { gsap, prefersReducedMotion } from '../lib/gsap';
 
+const GREETING: ChatMessage = {
+  role: 'assistant',
+  content: "Hi, I'm a guide to James's work, running on Claude. Ask me about his projects, experience or certifications.",
+};
+
 const AiAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: "Hi! I'm an AI assistant trained on James's professional experience. Ask me anything about his projects or certifications!" }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const questionsAsked = messages.filter((m) => m.role === 'user').length;
+  const limitReached = questionsAsked >= MAX_QUESTIONS;
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,24 +32,30 @@ const AiAssistant: React.FC = () => {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+    const question = input.trim();
+    if (!question || isLoading || limitReached) return;
 
-    const userMsg = input.trim();
     setInput('');
-    const newMessages = [...messages, { role: 'user' as const, content: userMsg }];
-    setMessages(newMessages);
+    setError(null);
+    const conversation = [...messages, { role: 'user' as const, content: question }];
+    setMessages(conversation);
     setIsLoading(true);
 
-    const history = messages
-      .filter((m, i) => i > 0)
-      .map(m => ({
-        role: m.role === 'user' ? 'user' : 'model',
-        parts: [{ text: m.content }]
-      }));
-
-    const response = await chatWithPortfolioAI(userMsg, history);
-    setMessages(prev => [...prev, { role: 'assistant', content: response }]);
+    const result = await askPortfolioGuide(conversation.slice(1));
+    if ('reply' in result) {
+      setMessages((prev) => [...prev, { role: 'assistant', content: result.reply }]);
+    } else {
+      // Drop the unanswered question so the history stays valid for a retry
+      setMessages(messages);
+      setInput(question);
+      setError(result.error);
+    }
     setIsLoading(false);
+  };
+
+  const resetChat = () => {
+    setMessages([GREETING]);
+    setError(null);
   };
 
   return (
@@ -55,7 +68,7 @@ const AiAssistant: React.FC = () => {
           <div className="p-4 border-b border-line flex justify-between items-center bg-ink">
             <h3 className="mono-label text-paper flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-accent animate-pulse" aria-hidden="true"></span>
-              Expert AI Guide
+              AI Guide
             </h3>
             <button
               onClick={() => setIsOpen(false)}
@@ -76,15 +89,31 @@ const AiAssistant: React.FC = () => {
                       : 'bg-ink text-paper border border-line'
                   }`}
                 >
-                  {msg.content}
+                  <span className="whitespace-pre-wrap">{msg.content}</span>
                 </div>
               </div>
             ))}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-ink text-muted border border-line px-4 py-3 font-mono text-[11px] uppercase tracking-[0.15em]">
-                  Analyzing profile...
+                  Thinking...
                 </div>
+              </div>
+            )}
+            {error && (
+              <div role="alert" className="border border-accent/40 bg-ink px-4 py-3 text-sm text-paper">
+                {error}{' '}
+                <a href="#contact" onClick={() => setIsOpen(false)} className="text-accent underline underline-offset-2">
+                  Contact James directly
+                </a>
+              </div>
+            )}
+            {limitReached && !isLoading && (
+              <div className="text-xs text-muted">
+                That's the limit for this conversation.{' '}
+                <button onClick={resetChat} className="text-accent underline underline-offset-2">
+                  Start a new one
+                </button>
               </div>
             )}
           </div>
@@ -95,12 +124,16 @@ const AiAssistant: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask about James's stack..."
+              maxLength={MAX_QUESTION_CHARS}
+              disabled={limitReached}
+              aria-label="Your question"
+              placeholder="Ask about James's work..."
               className="flex-1 bg-ink border border-line px-4 py-2.5 text-sm text-paper placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
             />
             <button
               onClick={handleSend}
-              className="bg-accent text-ink px-4 font-mono text-xs uppercase tracking-[0.1em] hover:bg-paper transition-colors"
+              disabled={isLoading || limitReached || !input.trim()}
+              className="disabled:opacity-50 bg-accent text-ink px-4 font-mono text-xs uppercase tracking-[0.1em] hover:bg-paper transition-colors"
               aria-label="Send message"
             >
               Send
