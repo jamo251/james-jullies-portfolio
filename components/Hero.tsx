@@ -1,16 +1,14 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import { scrollToSection } from '../hooks/useLenis';
-import { HeroContent } from '../types';
 import { HERO } from '../data/content';
 import MagneticButton from './MagneticButton';
 
 interface HeroProps {
   introDelay?: number;
-  content?: HeroContent;
 }
 
-const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = HERO }) => {
+const Hero: React.FC<HeroProps> = ({ introDelay = 0.2 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -55,11 +53,11 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = HERO }) => {
       className="relative min-h-screen flex flex-col justify-center md:justify-end px-6 md:px-10 pt-24 md:pt-32 pb-12 overflow-hidden"
     >
       <p className="hero-eyebrow mono-label text-accent mb-8 md:mb-12">
-        {content.eyebrow}
+        {HERO.eyebrow}
       </p>
 
       <h1 ref={headingRef} className="display-heading text-[clamp(3rem,12vw,11rem)] text-paper">
-        {content.lines.map((line) => (
+        {HERO.lines.map((line) => (
           <span key={line.text} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
             <span className={`hero-line block ${line.accent ? 'text-accent' : ''}`}>
               {line.text}
@@ -70,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = HERO }) => {
 
       <div className="mt-10 md:mt-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
         <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 order-2 md:order-1">
-          {content.ctas.map((cta, i) => (
+          {HERO.ctas.map((cta, i) => (
             <MagneticButton key={cta.href} className="hero-cta">
               <a
                 href={cta.href}
@@ -87,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = HERO }) => {
         </div>
 
         <p className="hero-bio max-w-md text-muted text-base md:text-lg leading-relaxed order-1 md:order-2 md:text-right">
-          {content.bio}
+          {HERO.bio}
         </p>
       </div>
 

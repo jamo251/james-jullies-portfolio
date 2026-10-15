@@ -1,24 +1,9 @@
 
-export type SiteMode = 'architect' | 'artist';
-
 export interface HeroContent {
   eyebrow: string;
   lines: { text: string; accent?: boolean }[];
   bio: string;
   ctas: { label: string; href: string }[];
-}
-
-export interface Track {
-  title: string;
-  concept: string;
-  mood: string[];
-  spotifyTrackId?: string; // present once the track is released
-}
-
-export interface Release {
-  title: string;
-  status: string;
-  description: string;
 }
 
 export interface Project {
