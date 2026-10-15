@@ -15,11 +15,11 @@
   <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">FINANCIAL-SERVICES CLIENTS — TECHNICAL ARCHITECT</text>
   <g>
     <rect x="64" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="84" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Greenfield Digital Bank</text>
+    <text x="84" y="224" fill="#F2F1ED" font-size="18" font-weight="600">OM Bank (Old Mutual)</text>
     <text x="84" y="250" fill="#86868B" font-size="12">Inception phase · Braze + mParticle in parallel</text>
 
     <rect x="660" y="186" width="556" height="86" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Consumer-Lending Fintech</text>
+    <text x="680" y="224" fill="#F2F1ED" font-size="18" font-weight="600">Wonga</text>
     <text x="680" y="250" fill="#86868B" font-size="12">Full lifecycle · SDK, API, webhooks, data exports</text>
   </g>
 
