@@ -92,7 +92,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
     >
       {/* Top bar */}
       <nav className="sticky top-0 z-30 bg-ink/85 backdrop-blur-sm border-b border-line h-16">
-        <div className="px-6 md:px-10 h-full flex justify-between items-center">
+        <div className="px-6 md:px-10 h-full flex justify-between items-center gap-6">
           <button
             onClick={onBack}
             className="flex items-center gap-3 mono-label text-muted hover:text-accent transition-colors group"
@@ -100,7 +100,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">←</span>
             Back to Portfolio
           </button>
-          <div className="mono-label text-accent">{project.category} Case Study</div>
+          <div className="mono-label text-accent hidden sm:block">{project.category} Case Study</div>
         </div>
       </nav>
 
