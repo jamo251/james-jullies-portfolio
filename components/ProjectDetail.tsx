@@ -74,10 +74,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
     setActiveImage((prev) => (prev - 1 + gallery.length) % gallery.length);
   };
 
-  const handleImageError = (index: number, source: string) => {
-    console.error(`ProjectDetail: Error loading asset: ${source} (Base: ${window.location.href})`);
+  const handleImageError = (index: number) => {
     setLoadingError((prev) => ({ ...prev, [index]: true }));
   };
+
+  const imageAlt = (index: number) => `${project.title}, image ${index + 1} of ${gallery.length}`;
 
   const squareNavButton =
     'w-12 h-12 flex items-center justify-center border border-line text-paper hover:bg-accent hover:text-ink hover:border-accent transition-colors';
@@ -125,15 +126,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   src={gallery[activeImage]}
                   className="max-w-full max-h-full object-contain"
                   onClick={(e) => e.stopPropagation()}
-                  alt="Dashboard Preview"
-                  onError={() => handleImageError(activeImage, gallery[activeImage])}
+                  alt={imageAlt(activeImage)}
+                  onError={() => handleImageError(activeImage)}
                 />
               ) : (
-                <div className="text-muted font-mono text-center p-12 border border-line">
-                  <div className="text-4xl mb-4">⚠️</div>
-                  <div className="text-sm tracking-widest uppercase mb-2">Image Not Found</div>
-                  <span className="text-[10px] opacity-30 break-all">{gallery[activeImage]}</span>
-                </div>
+                <div className="mono-label text-muted text-center p-12 border border-line">Image unavailable</div>
               )}
             </div>
             <button onClick={nextImage} className={`absolute right-0 z-10 ${squareNavButton} bg-ink`} aria-label="Next image">
@@ -142,7 +139,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           </div>
 
           <div className="absolute bottom-8 font-mono text-xs text-muted uppercase tracking-[0.15em]">
-            {gallery[activeImage].split('/').pop()} · {String(activeImage + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
+            {project.title} · {String(activeImage + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
           </div>
         </div>
       )}
@@ -177,7 +174,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             alt={project.title}
             className="w-full max-h-[70vh] object-contain"
             onError={(e) => {
-              console.error(`Hero: Failed to load ${project.imageUrl}`);
               e.currentTarget.style.opacity = '0.2';
             }}
           />
@@ -212,12 +208,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                       <span className="w-10 h-px bg-line" aria-hidden="true" />
                       <h2 className="mono-label text-muted">Gallery</h2>
                     </div>
-                    <h3 className="display-heading text-2xl md:text-4xl text-paper">
-                      Dashboard Architecture
-                    </h3>
-                    <p className="text-muted text-sm mt-2">
-                      Interactive visualization layer built on enterprise data streams.
-                    </p>
+                    {project.galleryTitle && (
+                      <h3 className="display-heading text-2xl md:text-4xl text-paper">
+                        {project.galleryTitle}
+                      </h3>
+                    )}
+                    {project.galleryCaption && (
+                      <p className="text-muted text-sm mt-2">{project.galleryCaption}</p>
+                    )}
                   </div>
                   <div className="flex gap-3 shrink-0">
                     <button onClick={prevImage} className={squareNavButton} aria-label="Previous image">
@@ -238,22 +236,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                       <img
                         key={activeImage}
                         src={gallery[activeImage]}
-                        alt={`Dashboard frame ${activeImage + 1}`}
+                        alt={imageAlt(activeImage)}
                         loading="lazy"
                         className="w-full h-full object-contain"
-                        onError={() => handleImageError(activeImage, gallery[activeImage])}
+                        onError={() => handleImageError(activeImage)}
                       />
                     ) : (
-                      <div className="text-muted font-mono text-center flex flex-col items-center py-20">
-                        <div className="text-[10px] tracking-[0.4em] uppercase opacity-40">Static_Asset_Error</div>
-                        <div className="text-[8px] mt-4 opacity-20 break-all px-12">{gallery[activeImage]}</div>
-                      </div>
+                      <div className="mono-label text-muted text-center py-20">Image unavailable</div>
                     )}
                   </div>
 
-                  <div className="absolute top-4 left-4 mono-label text-accent bg-ink/70 px-3 py-2 border border-line">
-                    Insight Layer {String(activeImage + 1).padStart(2, '0')}
-                  </div>
                   <div className="absolute bottom-4 right-4 font-mono text-xs text-muted bg-ink/70 px-3 py-2 border border-line opacity-0 group-hover:opacity-100 transition-opacity">
                     {String(activeImage + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')} · Click to expand
                   </div>
@@ -274,7 +266,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     >
                       <img
                         src={img}
-                        alt="Thumbnail"
+                        alt=""
                         loading="lazy"
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -328,19 +320,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-3 w-full bg-accent text-ink py-5 font-mono text-xs uppercase tracking-[0.2em] hover:bg-paper transition-colors group"
                     >
-                      View Live Dashboard
+                      {project.linkLabel ?? 'View project'}
                       <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
                     </a>
                   </MagneticButton>
                 )}
-                <MagneticButton className="w-full">
-                  <button
-                    onClick={() => setIsFullscreen(true)}
-                    className="flex items-center justify-center gap-3 w-full border border-line text-paper py-5 font-mono text-xs uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors"
-                  >
-                    Inspect Screenshots
-                  </button>
-                </MagneticButton>
+                {project.galleryImages && (
+                  <MagneticButton className="w-full">
+                    <button
+                      onClick={() => setIsFullscreen(true)}
+                      className="flex items-center justify-center gap-3 w-full border border-line text-paper py-5 font-mono text-xs uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors"
+                    >
+                      Open gallery
+                    </button>
+                  </MagneticButton>
+                )}
               </div>
             </div>
           </div>

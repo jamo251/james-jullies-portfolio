@@ -14,6 +14,11 @@ export interface Project {
   tags: string[];
   imageUrl: string;
   link?: string;
+  /** Label for the public-link button; the button only renders when `link` is set. */
+  linkLabel?: string;
+  /** Heading and one-line caption for the gallery, written per project. */
+  galleryTitle?: string;
+  galleryCaption?: string;
   github?: string;
   embedUrl?: string;
   galleryImages?: string[];

@@ -30,6 +30,8 @@ export const PROJECTS: Project[] = [
     tags: ['Braze SDK', 'Braze REST API', 'Identity Resolution', 'Webhooks', 'Data Exports', 'mParticle', 'Solutions Architecture'],
     imageUrl: './assets/images/braze-architecture-featured.svg',
     category: 'Martech',
+    galleryTitle: 'Architecture diagrams',
+    galleryCaption: 'SDK, REST API and webhook flows, Braze and mParticle SDK congruency, and the Currents data-export pipeline.',
     galleryImages: [
       './assets/images/braze-sdk-api-webhooks.svg',
       './assets/images/braze-mparticle-congruency.svg',
@@ -44,6 +46,8 @@ export const PROJECTS: Project[] = [
     tags: ['OneSignal', 'SDK Architecture', 'Webhooks', 'WhatsApp Business', 'SOAP / SMS', 'Solutions Architecture'],
     imageUrl: './assets/images/onesignal-architecture-featured.svg',
     category: 'Martech',
+    galleryTitle: 'Architecture diagrams',
+    galleryCaption: 'The SDK uplift, WhatsApp template triggering through webhooks, and the webhook-to-SOAP SMS design.',
     galleryImages: [
       './assets/images/onesignal-sdk-migration.svg',
       './assets/images/onesignal-whatsapp-webhooks.svg',
@@ -58,6 +62,9 @@ export const PROJECTS: Project[] = [
     tags: ['Domo', 'Data Engineering', 'BI', 'Analytics'],
     imageUrl: './assets/images/olympic-featured.png',
     category: 'Data',
+    galleryTitle: 'App screens',
+    galleryCaption: 'Pages from the finished Domo app.',
+    linkLabel: 'View interactive version',
     link: 'https://www.youknow.co.za/interactive-content/olympic-data-visualisation',
     galleryImages: [
       './assets/images/olympic-page-1.png',
@@ -75,6 +82,9 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind v4', 'Satori', 'SVG', 'Vercel'],
     imageUrl: './assets/images/run-dna-featured.png',
     category: 'AI',
+    galleryTitle: 'App screens',
+    galleryCaption: 'The upload screen, three generated cards and battle mode.',
+    linkLabel: 'View live app',
     link: 'https://run-dna-cards.vercel.app/',
     galleryImages: [
       './assets/images/run-dna-cards-home.png',
@@ -92,6 +102,9 @@ export const PROJECTS: Project[] = [
     tags: ['React 19', 'TypeScript', 'Vite 6', 'Google AI Studio', 'Tailwind'],
     imageUrl: './assets/images/tile-predictor-featured.png',
     category: 'AI',
+    galleryTitle: 'App screens',
+    galleryCaption: 'The upload screen and the board heatmap.',
+    linkLabel: 'View live app',
     link: 'https://tile-predictor-pro.vercel.app/',
     galleryImages: [
       './assets/images/tile-predictor-pro-home.png',
@@ -106,6 +119,8 @@ export const PROJECTS: Project[] = [
     tags: ['Slack API', 'MCP (Model Context Protocol)', 'Claude API', 'Gemini Flash', 'Node.js', 'TypeScript', 'Python', 'HubSpot', 'Notion', 'Zendesk'],
     imageUrl: './assets/images/slack-bot-featured.svg',
     category: 'AI',
+    galleryTitle: 'Architecture diagrams',
+    galleryCaption: 'The MCP architecture, how a question moves through the bot, and what each source contributes.',
     galleryImages: [
       './assets/images/slack-bot-mcp-architecture.svg',
       './assets/images/slack-bot-query-flow.svg',
@@ -120,6 +135,8 @@ export const PROJECTS: Project[] = [
     tags: ['Claude', 'Agent Skills', 'Prompt Engineering', 'Python', 'Automation', 'Document Generation'],
     imageUrl: './assets/images/claude-skills-featured.svg',
     category: 'AI',
+    galleryTitle: 'Diagrams',
+    galleryCaption: 'What goes into a skill, and how one runs from a plain-English request to a finished file.',
     galleryImages: [
       './assets/images/claude-skills-anatomy.svg',
       './assets/images/claude-skills-workflow.svg'
@@ -133,6 +150,8 @@ export const PROJECTS: Project[] = [
     tags: ['Amplitude', 'Salesforce Commerce Cloud', 'Event Taxonomy', 'GTM', 'Funnel Analysis'],
     imageUrl: './assets/images/retail-featured.png',
     category: 'Data',
+    galleryTitle: 'Diagrams',
+    galleryCaption: 'The checkout funnel (representative data), the cross-brand event taxonomy and the analytics architecture.',
     galleryImages: [
       './assets/images/retail-ecosystem-funnel.svg',
       './assets/images/retail-ecosystem-taxonomy.svg',
