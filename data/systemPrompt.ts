@@ -1,6 +1,6 @@
 // Imported by the serverless function, so relative imports carry the .js
 // extension that Node's ESM loader needs at runtime.
-import { HERO, PROJECTS, EXPERIENCE, SKILLS, CERTIFICATIONS } from './content.js';
+import { HERO, PROJECTS, EXPERIENCE, SKILL_GROUPS, CERTIFICATIONS } from './content.js';
 
 const plain = (text: string) => text.replace(/\*\*/g, '').replace(/`/g, '');
 
@@ -24,7 +24,7 @@ const timeline = () =>
     [`### ${e.role}, ${e.company} (${e.period})`, ...e.description.map((d) => `- ${d}`)].join('\n')
   ).join('\n\n');
 
-const skills = () => SKILLS.map((s) => `- ${s.name}`).join('\n');
+const skills = () => SKILL_GROUPS.map((g) => `- ${g.name}: ${g.skills.join('; ')}`).join('\n');
 
 const certifications = () => CERTIFICATIONS.map((c) => `- ${c.issuer}: ${c.name}`).join('\n');
 

@@ -1,5 +1,5 @@
 
-import type { Project, Experience, Skill, Certification, HeroContent } from '../types';
+import type { Project, Experience, SkillGroup, Certification, HeroContent } from '../types';
 
 /**
  * Single source for everything the site publishes. The UI renders from it and
@@ -206,23 +206,35 @@ export const EXPERIENCE: Experience[] = [
   }
 ];
 
-export const SKILLS: Skill[] = [
-  { name: 'Python', level: 85, category: 'Langs' },
-  { name: 'JavaScript', level: 90, category: 'Langs' },
-  { name: 'TypeScript / Node.js', level: 85, category: 'Langs' },
-  { name: 'Claude API & MCP', level: 92, category: 'AI/ML' },
-  { name: 'GenAI Agent Design', level: 90, category: 'AI/ML' },
-  { name: 'Make.com / n8n', level: 85, category: 'AI/ML' },
-  { name: 'Braze (8x Certified)', level: 98, category: 'Martech/BI' },
-  { name: 'Amplitude (7x Certified)', level: 95, category: 'Martech/BI' },
-  { name: 'DOMO (MajorDomo)', level: 95, category: 'Martech/BI' },
-  { name: 'OneSignal / InsiderOne', level: 90, category: 'Martech/BI' },
-  { name: 'Pre-Sales & Solution Design', level: 95, category: 'Strategy' },
-  { name: 'Solutions Architecture', level: 96, category: 'Strategy' },
-  { name: 'CDP & Identity Resolution', level: 93, category: 'Strategy' },
-  { name: 'GTM / Event Tracking', level: 90, category: 'Tools' },
-  { name: 'HubSpot / Mixpanel', level: 85, category: 'Tools' },
-  { name: 'WordPress (12+ yrs)', level: 92, category: 'Tools' }
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    name: 'Pre-sales & solutioning',
+    skills: ['Pre-sales & solution design', 'Solutions architecture', 'Architecture discovery', 'Objection handling', 'Stakeholder advisory'],
+  },
+  {
+    name: 'Customer data & engagement',
+    skills: [
+      'Braze — 8x certified, incl. Technical Architect',
+      'Amplitude — 7x certified, Certified Delivery Partner',
+      'CDP & identity resolution',
+      'OneSignal',
+      'InsiderOne',
+      'HubSpot',
+      'Mixpanel',
+    ],
+  },
+  {
+    name: 'AI & automation',
+    skills: ['Claude API & MCP', 'GenAI agent design', 'Claude agent skills', 'Google Generative AI Leader certified', 'Make.com', 'n8n'],
+  },
+  {
+    name: 'Data & integration',
+    skills: ['DOMO — MajorDomo certified', 'GTM & event tracking', 'Event taxonomy design', 'REST APIs & webhooks'],
+  },
+  {
+    name: 'Languages',
+    skills: ['Python', 'JavaScript', 'TypeScript / Node.js', 'WordPress (12+ years)'],
+  },
 ];
 
 export const CERTIFICATIONS: Certification[] = [

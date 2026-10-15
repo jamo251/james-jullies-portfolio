@@ -1,35 +1,24 @@
 import React, { useRef } from 'react';
-import { SKILLS } from '../data/content';
+import { SKILL_GROUPS } from '../data/content';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import SectionHeading from './SectionHeading';
 
 const SkillsSection: React.FC = () => {
   const rootRef = useRef<HTMLElement>(null);
-  const categories = Array.from(new Set(SKILLS.map((s) => s.category)));
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
-        gsap.utils.toArray<HTMLElement>('.skill-row').forEach((row) => {
-          gsap.from(row, {
+        gsap.utils.toArray<HTMLElement>('.skill-group').forEach((group) => {
+          gsap.from(group.querySelectorAll('.skill-tag'), {
             opacity: 0,
-            y: 30,
-            duration: 0.8,
+            y: 16,
+            duration: 0.6,
             ease: 'power3.out',
-            scrollTrigger: { trigger: row, start: 'top 90%', once: true },
+            stagger: 0.04,
+            scrollTrigger: { trigger: group, start: 'top 90%', once: true },
           });
-          const bar = row.querySelector('.skill-bar');
-          if (bar) {
-            gsap.from(bar, {
-              scaleX: 0,
-              transformOrigin: 'left center',
-              duration: 1.2,
-              ease: 'power3.inOut',
-              delay: 0.15,
-              scrollTrigger: { trigger: row, start: 'top 90%', once: true },
-            });
-          }
         });
       });
     },
@@ -49,33 +38,23 @@ const SkillsSection: React.FC = () => {
         intro="From pre-sales discovery and customer data architecture to production GenAI tooling built on the Claude API and MCP."
       />
 
-      <div className="space-y-16 md:space-y-20">
-        {categories.map((cat) => (
-          <div key={cat} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-            <div className="md:col-span-3">
-              <h3 className="mono-label text-accent md:sticky md:top-24">{cat}</h3>
-            </div>
-            <div className="md:col-span-9">
-              {SKILLS.filter((s) => s.category === cat).map((skill) => (
-                <div
-                  key={skill.name}
-                  className="skill-row flex items-center gap-6 md:gap-10 py-5 md:py-6 border-b border-line"
+      <div className="border-t border-line">
+        {SKILL_GROUPS.map((group) => (
+          <div
+            key={group.name}
+            className="skill-group grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-10 py-8 md:py-10 border-b border-line"
+          >
+            <h3 className="md:col-span-3 mono-label text-accent md:pt-3">{group.name}</h3>
+            <ul className="md:col-span-9 flex flex-wrap gap-2.5 md:gap-3">
+              {group.skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="skill-tag border border-line px-4 py-2.5 text-sm md:text-base text-paper leading-snug"
                 >
-                  <span className="display-heading text-xl md:text-3xl text-paper w-1/2 md:w-2/5 shrink-0">
-                    {skill.name}
-                  </span>
-                  <div className="flex-1 h-0.5 bg-line relative overflow-hidden">
-                    <div
-                      className="skill-bar absolute inset-y-0 left-0 bg-accent"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-                  <span className="font-mono text-xs text-muted w-10 text-right shrink-0">
-                    {skill.level}%
-                  </span>
-                </div>
+                  {skill}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

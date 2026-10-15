@@ -32,10 +32,9 @@ export interface Experience {
   description: string[];
 }
 
-export interface Skill {
+export interface SkillGroup {
   name: string;
-  level: number; // 1-100
-  category: 'Langs' | 'AI/ML' | 'Martech/BI' | 'Strategy' | 'Tools';
+  skills: string[];
 }
 
 export interface Certification {
