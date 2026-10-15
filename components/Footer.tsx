@@ -1,6 +1,7 @@
 import React from 'react';
 import Marquee from './Marquee';
 import MagneticButton from './MagneticButton';
+import { CONTACT_LINKS } from '../data/content';
 
 interface FooterProps {
   name: string;
@@ -25,27 +26,19 @@ const Footer: React.FC<FooterProps> = ({ name, tagline }) => {
         <div className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
           © {new Date().getFullYear()} {tagline}
         </div>
-        <div className="flex gap-8">
-          <MagneticButton>
-            <a
-              href="https://www.linkedin.com/in/james-jullies/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mono-label text-paper hover:text-accent transition-colors inline-flex items-center gap-2"
-            >
-              LinkedIn
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
-            </a>
-          </MagneticButton>
-          <MagneticButton>
-            <a
-              href="mailto:james.jullies@gmail.com"
-              className="group mono-label text-paper hover:text-accent transition-colors inline-flex items-center gap-2"
-            >
-              Email
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
-            </a>
-          </MagneticButton>
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
+          {CONTACT_LINKS.map((link) => (
+            <MagneticButton key={link.label}>
+              <a
+                href={link.href}
+                {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="group mono-label text-paper hover:text-accent transition-colors inline-flex items-center gap-2"
+              >
+                {link.label}
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            </MagneticButton>
+          ))}
         </div>
       </div>
     </footer>

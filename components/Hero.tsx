@@ -1,29 +1,14 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import { scrollToSection } from '../hooks/useLenis';
-import { HeroContent } from '../types';
+import { HERO, CV_URL } from '../data/content';
 import MagneticButton from './MagneticButton';
 
 interface HeroProps {
   introDelay?: number;
-  content?: HeroContent;
 }
 
-const ARCHITECT_HERO: HeroContent = {
-  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI | Bahrain',
-  lines: [
-    { text: 'James Jullies' },
-    { text: 'Martech & AI', accent: true },
-    { text: 'Architect.' },
-  ],
-  bio: '14 years in enterprise technology delivery across fintech, banking, and retail. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
-  ctas: [
-    { label: 'Explore Achievements', href: '#projects' },
-    { label: 'Career Journey', href: '#experience' },
-  ],
-};
-
-const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = ARCHITECT_HERO }) => {
+const Hero: React.FC<HeroProps> = ({ introDelay = 0.2 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -68,11 +53,17 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = ARCHITECT_HERO 
       className="relative min-h-screen flex flex-col justify-center md:justify-end px-6 md:px-10 pt-24 md:pt-32 pb-12 overflow-hidden"
     >
       <p className="hero-eyebrow mono-label text-accent mb-8 md:mb-12">
-        {content.eyebrow}
+        {/* Keep each segment whole so narrow screens break at the separators */}
+        {HERO.eyebrow.split(' | ').map((part, i) => (
+          <React.Fragment key={part}>
+            {i > 0 && ' | '}
+            <span className="whitespace-nowrap">{part}</span>
+          </React.Fragment>
+        ))}
       </p>
 
       <h1 ref={headingRef} className="display-heading text-[clamp(3rem,12vw,11rem)] text-paper">
-        {content.lines.map((line) => (
+        {HERO.lines.map((line) => (
           <span key={line.text} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
             <span className={`hero-line block ${line.accent ? 'text-accent' : ''}`}>
               {line.text}
@@ -81,14 +72,14 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = ARCHITECT_HERO 
         ))}
       </h1>
 
-      <div className="mt-10 md:mt-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 order-2 md:order-1">
-          {content.ctas.map((cta, i) => (
+      <div className="mt-10 md:mt-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-6 sm:gap-x-10 order-2 lg:order-1">
+          {HERO.ctas.map((cta, i) => (
             <MagneticButton key={cta.href} className="hero-cta">
               <a
                 href={cta.href}
                 onClick={(e) => handleCta(e, cta.href)}
-                className={`group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] pb-2 hover:border-accent hover:text-accent transition-colors border-b ${
+                className={`group inline-flex items-center gap-3 whitespace-nowrap font-mono text-xs uppercase tracking-[0.2em] pb-2 hover:border-accent hover:text-accent transition-colors border-b ${
                   i === 0 ? 'text-paper border-paper/30' : 'text-muted border-paper/20'
                 }`}
               >
@@ -97,10 +88,20 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2, content = ARCHITECT_HERO 
               </a>
             </MagneticButton>
           ))}
+          <MagneticButton className="hero-cta">
+            <a
+              href={CV_URL}
+              download
+              className="group inline-flex items-center gap-3 whitespace-nowrap font-mono text-xs uppercase tracking-[0.2em] pb-2 border-b text-accent border-accent/50 hover:border-accent transition-colors"
+            >
+              Download CV
+              <span className="inline-block transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
+            </a>
+          </MagneticButton>
         </div>
 
-        <p className="hero-bio max-w-md text-muted text-base md:text-lg leading-relaxed order-1 md:order-2 md:text-right">
-          {content.bio}
+        <p className="hero-bio max-w-md text-muted text-base md:text-lg leading-relaxed order-1 lg:order-2 lg:text-right">
+          {HERO.bio}
         </p>
       </div>
 

@@ -1,29 +1,53 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Navbar from './components/Navbar';
 import ProfessionalSite from './components/ProfessionalSite';
-import CreativeSite from './components/CreativeSite';
 import AiAssistant from './components/AiAssistant';
 import Preloader from './components/Preloader';
 import Cursor from './components/Cursor';
-import { Project, SiteMode } from './types';
+import { Project } from './types';
+import { PROJECTS } from './data/content';
 import { useLenis, getLenis } from './hooks/useLenis';
-import { useMode } from './hooks/useMode';
-import { gsap, ScrollTrigger, prefersReducedMotion } from './lib/gsap';
+import { usePathname, navigate, workPath, cameFromHome } from './hooks/useRoute';
+import { ScrollTrigger, prefersReducedMotion } from './lib/gsap';
+
+const HOME_TITLE = 'James Jullies | Martech & AI Architect';
+
+const projectFromPath = (pathname: string): Project | null => {
+  const match = pathname.match(/^\/work\/([^/]+)\/?$/);
+  return match ? PROJECTS.find((p) => p.slug === match[1]) ?? null : null;
+};
 
 const App: React.FC = () => {
-  const { mode, setMode } = useMode();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const pathname = usePathname();
+  const selectedProject = projectFromPath(pathname);
   const [showPreloader] = useState(
     () =>
       typeof window !== 'undefined' &&
       !prefersReducedMotion() &&
-      !sessionStorage.getItem('jj-intro')
+      !sessionStorage.getItem('jj-intro') &&
+      // Deep links go straight to the case study
+      window.location.pathname === '/'
   );
   const [introDone, setIntroDone] = useState(!showPreloader);
-  const wipeRef = useRef<HTMLDivElement>(null);
-  const switching = useRef(false);
+  // Last scroll position on the portfolio; null until the visitor has seen it
+  const homeScroll = useRef<number | null>(null);
+  const skipRestore = useRef(false);
+  const wasOnProject = useRef(Boolean(selectedProject));
 
   useLenis();
+
+  useEffect(() => {
+    history.scrollRestoration = 'manual';
+  }, []);
+
+  // Unknown paths fall back to the portfolio
+  useEffect(() => {
+    if (pathname !== '/' && !selectedProject) navigate('/', { replace: true });
+  }, [pathname, selectedProject]);
+
+  useEffect(() => {
+    document.title = selectedProject ? `${selectedProject.title} | James Jullies` : HOME_TITLE;
+  }, [selectedProject]);
 
   // The detail view is a fixed overlay with native scrolling - pause Lenis underneath
   useEffect(() => {
@@ -36,45 +60,49 @@ const App: React.FC = () => {
     }
   }, [selectedProject]);
 
-  const resetSelection = () => {
-    setSelectedProject(null);
-  };
+  useEffect(() => {
+    if (selectedProject) return;
+    const track = () => {
+      // Ignore the scroll reset when the portfolio unmounts
+      if (document.getElementById('projects')) homeScroll.current = window.scrollY;
+    };
+    window.addEventListener('scroll', track, { passive: true });
+    return () => window.removeEventListener('scroll', track);
+  }, [selectedProject]);
 
-  const scrollHome = () => {
-    getLenis()?.scrollTo(0, { immediate: true, force: true });
-    window.scrollTo(0, 0);
-  };
-
-  // Flip persona behind a full-screen accent wipe; instant when motion is reduced
-  const switchMode = (next: SiteMode) => {
-    if (next === mode || switching.current) return;
-
-    if (prefersReducedMotion() || !wipeRef.current) {
-      setSelectedProject(null);
-      setMode(next);
-      scrollHome();
+  // Coming back from a case study (button or browser back): return to where
+  // the visitor was, or to the work list if they arrived on the case study directly
+  useLayoutEffect(() => {
+    const leavingProject = wasOnProject.current && !selectedProject;
+    wasOnProject.current = Boolean(selectedProject);
+    if (!leavingProject) return;
+    if (skipRestore.current) {
+      skipRestore.current = false;
       return;
     }
+    const projects = document.getElementById('projects');
+    const y = homeScroll.current ?? (projects ? projects.getBoundingClientRect().top + window.scrollY - 72 : 0);
+    const lenis = getLenis();
+    lenis?.start();
+    lenis?.resize();
+    lenis?.scrollTo(y, { immediate: true, force: true });
+    window.scrollTo(0, y);
+  }, [selectedProject]);
 
-    switching.current = true;
-    const el = wipeRef.current;
-    gsap
-      .timeline({
-        onComplete: () => {
-          switching.current = false;
-          ScrollTrigger.refresh();
-        },
-      })
-      .set(el, { visibility: 'visible', pointerEvents: 'auto', transformOrigin: 'left center', scaleX: 0 })
-      .to(el, { scaleX: 1, duration: 0.5, ease: 'power4.inOut' })
-      .add(() => {
-        setSelectedProject(null);
-        setMode(next);
-        scrollHome();
-      })
-      .set(el, { transformOrigin: 'right center' }, '+=0.15')
-      .to(el, { scaleX: 0, duration: 0.5, ease: 'power4.inOut' })
-      .set(el, { visibility: 'hidden', pointerEvents: 'none' });
+  const openProject = (project: Project) => navigate(workPath(project.slug));
+
+  const closeProject = () => {
+    if (cameFromHome()) {
+      history.back();
+    } else {
+      navigate('/');
+    }
+  };
+
+  // Nav links scroll to their own section, so they skip the scroll restore
+  const goHome = () => {
+    if (selectedProject) skipRestore.current = true;
+    navigate('/');
   };
 
   const introDelay = showPreloader && !introDone ? 2.1 : 0.2;
@@ -83,28 +111,16 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-ink text-paper noise relative">
       {showPreloader && !introDone && <Preloader onComplete={() => setIntroDone(true)} />}
       <Cursor />
-      <Navbar mode={mode} onSwitchMode={switchMode} onNavClick={resetSelection} />
+      <Navbar onNavClick={goHome} />
 
-      {mode === 'artist' ? (
-        <CreativeSite introDelay={introDelay} />
-      ) : (
-        <ProfessionalSite
-          selectedProject={selectedProject}
-          onSelectProject={setSelectedProject}
-          onBack={resetSelection}
-          introDelay={introDelay}
-        />
-      )}
+      <ProfessionalSite
+        selectedProject={selectedProject}
+        onSelectProject={openProject}
+        onBack={closeProject}
+        introDelay={introDelay}
+      />
 
       <AiAssistant />
-
-      {/* Persona-switch wipe: sweeps in as one side, sweeps out as the other */}
-      <div
-        ref={wipeRef}
-        className="fixed inset-0 z-[120] bg-accent invisible pointer-events-none"
-        style={{ transform: 'scaleX(0)' }}
-        aria-hidden="true"
-      />
     </div>
   );
 };

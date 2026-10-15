@@ -9,7 +9,7 @@ import Marquee from './Marquee';
 import PlatformLogos from './PlatformLogos';
 import SectionHeading from './SectionHeading';
 import Footer from './Footer';
-import { PROJECTS, CERTIFICATIONS } from '../constants';
+import { PROJECTS, CERTIFICATIONS } from '../data/content';
 import { Project } from '../types';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 
@@ -120,7 +120,7 @@ const ProfessionalSite: React.FC<ProfessionalSiteProps> = ({
         <ContactForm />
       </main>
 
-      <Footer name="James Jullies" tagline="Senior Solutions Consultant. Bahrain." />
+      <Footer name="James Jullies" tagline="James Jullies. Senior Solutions Consultant." />
     </>
   );
 };

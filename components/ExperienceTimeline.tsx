@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { EXPERIENCE } from '../constants';
+import { EXPERIENCE, EARLIER_CAREER, EDUCATION } from '../data/content';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import SectionHeading from './SectionHeading';
 
@@ -58,9 +58,6 @@ const ExperienceTimeline: React.FC = () => {
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent block">
                   {exp.period}
                 </span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted block mt-2">
-                  {exp.location}
-                </span>
               </div>
             </div>
             <div className="md:col-span-8">
@@ -77,6 +74,36 @@ const ExperienceTimeline: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Compact blocks: earlier career and education */}
+      <div className="mt-16 md:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16">
+        <div>
+          <h3 className="mono-label text-accent pb-4 border-b border-line">Earlier career</h3>
+          <ul>
+            {EARLIER_CAREER.map((job) => (
+              <li key={job.company} className="py-6 border-b border-line">
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{job.period}</p>
+                <p className="text-paper text-lg mt-2">
+                  {job.role} <span className="text-muted">· {job.company}</span>
+                </p>
+                <p className="text-muted text-sm leading-relaxed mt-2">{job.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="mono-label text-accent pb-4 border-b border-line">Education</h3>
+          <ul>
+            {EDUCATION.map((ed) => (
+              <li key={ed.qualification} className="py-6 border-b border-line">
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{ed.year}</p>
+                <p className="text-paper text-lg mt-2">{ed.qualification}</p>
+                <p className="text-muted text-sm mt-1">{ed.institution}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

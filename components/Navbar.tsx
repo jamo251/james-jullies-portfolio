@@ -1,32 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap, useGSAP, prefersReducedMotion } from '../lib/gsap';
 import { scrollToSection } from '../hooks/useLenis';
-import { SiteMode } from '../types';
-import { ARTIST_NAV_LINKS } from '../constants.creative';
-import ModeToggle from './ModeToggle';
 
 interface NavbarProps {
-  mode: SiteMode;
-  onSwitchMode: (mode: SiteMode) => void;
   onNavClick?: () => void;
 }
 
-const ARCHITECT_NAV_LINKS = [
+const NAV_LINKS = [
   { href: '#projects', label: 'Achievements' },
   { href: '#skills', label: 'Expertise' },
   { href: '#experience', label: 'Timeline' },
   { href: '#contact', label: 'Contact' },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
+const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [time, setTime] = useState('');
   const lastY = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  const navLinks = mode === 'artist' ? ARTIST_NAV_LINKS : ARCHITECT_NAV_LINKS;
-  const brand = mode === 'artist' ? 'JAMO' : 'James Jullies';
 
   // Hide on scroll down, reveal on scroll up
   useEffect(() => {
@@ -37,19 +28,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // Bahrain local-time flourish
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Asia/Bahrain',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-    const update = () => setTime(fmt.format(new Date()));
-    update();
-    const id = setInterval(update, 10000);
-    return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
@@ -81,11 +59,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
     setTimeout(() => scrollToSection(href), 60);
   };
 
-  const handleSwitch = (next: SiteMode) => {
-    setMenuOpen(false);
-    onSwitchMode(next);
-  };
-
   return (
     <>
       <nav
@@ -104,11 +77,11 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
             }}
             className="display-heading text-lg text-paper hover:text-accent transition-colors"
           >
-            {brand}
+            James Jullies
           </a>
 
           <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -119,10 +92,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
                 <span className="absolute -bottom-1 left-0 w-full h-px bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
               </a>
             ))}
-            <ModeToggle mode={mode} onSwitch={handleSwitch} />
-            <span className="mono-label text-muted/60" aria-hidden="true">
-              BAHRAIN {time}
-            </span>
           </div>
 
           <button
@@ -141,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
       {menuOpen && (
         <div ref={menuRef} className="fixed inset-0 z-[99] bg-ink flex flex-col justify-end p-6 pb-16 md:hidden">
           <div className="space-y-2">
-            {navLinks.map((link, i) => (
+            {NAV_LINKS.map((link, i) => (
               <div key={link.href} className="overflow-hidden">
                 <a
                   href={link.href}
@@ -153,10 +122,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
                 </a>
               </div>
             ))}
-          </div>
-          <div className="mt-12 flex items-center justify-between gap-6">
-            <ModeToggle mode={mode} onSwitch={handleSwitch} />
-            <span className="mono-label text-muted">BAHRAIN {time}</span>
           </div>
         </div>
       )}

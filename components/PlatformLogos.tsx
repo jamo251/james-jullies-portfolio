@@ -13,29 +13,28 @@ const logo = (file: string) => `${ASSET}assets/images/logos/${file}`;
 /**
  * Platforms James works with, shown as their actual brand logos. Braze and
  * OneSignal ship as white marks and DOMO as its light-blue mark; the icon-only
- * marks carry their official brand colours, except Notion and Slack (white,
- * as their dark brand colours vanish on the background) and Make (its lighter
- * gradient purple), so every logo stays legible on the dark background.
+ * marks carry their official brand colours. InsiderOne's dark wordmark is
+ * rendered white (its gradient mark is kept) and Make uses its lighter
+ * gradient purple, so every logo stays legible on the dark background.
  */
 const PLATFORMS: Platform[] = [
   { name: 'Braze', src: logo('braze-logo.svg') },
   { name: 'OneSignal', src: logo('onesignal-logo-white.svg') },
+  { name: 'InsiderOne', src: logo('insiderone.svg') },
   { name: 'Amplitude', src: logo('amplitude-logo.svg') },
+  { name: 'Mixpanel', src: logo('mixpanel.svg') },
   { name: 'DOMO', src: logo('domo-logo2.svg') },
   { name: 'HubSpot', src: logo('hubspot.svg') },
   { name: 'Google Tag Manager', src: logo('google-tag-manager.svg') },
-  { name: 'Google Gemini', src: logo('google-gemini.svg') },
+  { name: 'Claude (Anthropic)', src: logo('claude.svg') },
   { name: 'Make', src: logo('make.svg') },
   { name: 'WhatsApp', src: logo('whatsapp.svg') },
-  { name: 'Slack', src: logo('slack.svg') },
-  { name: 'Notion', src: logo('notion.svg') },
   { name: 'WordPress', src: logo('wordpress.svg') },
-  { name: 'Shopify', src: logo('shopify.svg') },
 ];
 
 const LogoItem: React.FC<{ platform: Platform }> = ({ platform }) => (
   <span className="logo-item inline-flex items-center px-6 md:px-12">
-    <img className="logo-img h-6 md:h-8 w-auto" src={platform.src} alt="" loading="lazy" />
+    <img className="logo-img h-6 md:h-8 w-auto" src={platform.src} alt={`${platform.name} logo`} loading="lazy" />
   </span>
 );
 
