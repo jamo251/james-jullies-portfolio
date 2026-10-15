@@ -21,7 +21,6 @@ const ARCHITECT_NAV_LINKS = [
 const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [time, setTime] = useState('');
   const lastY = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -37,19 +36,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // Bahrain local-time flourish
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Asia/Bahrain',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-    const update = () => setTime(fmt.format(new Date()));
-    update();
-    const id = setInterval(update, 10000);
-    return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
@@ -120,9 +106,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
               </a>
             ))}
             <ModeToggle mode={mode} onSwitch={handleSwitch} />
-            <span className="mono-label text-muted/60" aria-hidden="true">
-              BAHRAIN {time}
-            </span>
           </div>
 
           <button
@@ -156,7 +139,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode, onSwitchMode, onNavClick }) => {
           </div>
           <div className="mt-12 flex items-center justify-between gap-6">
             <ModeToggle mode={mode} onSwitch={handleSwitch} />
-            <span className="mono-label text-muted">BAHRAIN {time}</span>
           </div>
         </div>
       )}

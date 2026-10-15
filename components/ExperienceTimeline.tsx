@@ -58,9 +58,6 @@ const ExperienceTimeline: React.FC = () => {
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent block">
                   {exp.period}
                 </span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted block mt-2">
-                  {exp.location}
-                </span>
               </div>
             </div>
             <div className="md:col-span-8">

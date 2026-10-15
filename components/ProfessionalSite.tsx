@@ -120,7 +120,7 @@ const ProfessionalSite: React.FC<ProfessionalSiteProps> = ({
         <ContactForm />
       </main>
 
-      <Footer name="James Jullies" tagline="Senior Solutions Consultant. Bahrain." />
+      <Footer name="James Jullies" tagline="James Jullies. Senior Solutions Consultant." />
     </>
   );
 };

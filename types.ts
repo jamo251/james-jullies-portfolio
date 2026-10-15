@@ -40,7 +40,6 @@ export interface Experience {
   role: string;
   period: string;
   description: string[];
-  location: string;
 }
 
 export interface Skill {

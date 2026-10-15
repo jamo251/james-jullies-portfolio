@@ -8,7 +8,7 @@ import type { Project, Experience, Skill, Certification, HeroContent } from '../
  */
 
 export const HERO: HeroContent = {
-  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI | Bahrain',
+  eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI',
   lines: [
     { text: 'James Jullies' },
     { text: 'Martech & AI', accent: true },
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     id: '1',
     title: 'Olympics Data Intelligence',
     description: 'An end-to-end Olympics data app built on Domo, covering the full pipeline from raw data to interactive dashboards.',
-    longDescription: 'I built this Olympics app on Domo to show what real-time data orchestration looks like in practice, with a focus on the GCC and EMEA regions.\n\nI handled the whole data lifecycle myself: pulling in raw historical and live athletic data, then cleaning and reshaping it so you could actually compare performance across disciplines.\n\nThe finished app uses interactive Domo "cards" and stories, so you can drill into athlete performance, national medal counts, and historical trends. Highlights:\n\n• **Real-time Heatmaps**: Global medal distribution and performance trends at a glance.\n• **Athlete Intelligence**: Deep dives into individual athletes, their rituals, philosophies, and numbers.\n• **Regional Snapshots**: Localized views for places like Bahrain and South Africa.\n• **Participation Trends**: Growth across genders and nations, going all the way back to 1896.',
+    longDescription: 'I built this Olympics app on Domo to show what real-time data orchestration looks like in practice.\n\nI handled the whole data lifecycle myself: pulling in raw historical and live athletic data, then cleaning and reshaping it so you could actually compare performance across disciplines.\n\nThe finished app uses interactive Domo "cards" and stories, so you can drill into athlete performance, national medal counts, and historical trends. Highlights:\n\n• **Real-time Heatmaps**: Global medal distribution and performance trends at a glance.\n• **Athlete Intelligence**: Deep dives into individual athletes, their rituals, philosophies, and numbers.\n• **Country Snapshots**: Country-level views of medal history and performance.\n• **Participation Trends**: Growth across genders and nations, going all the way back to 1896.',
     tags: ['Domo', 'Data Engineering', 'BI', 'Analytics'],
     imageUrl: './assets/images/olympic-featured.png',
     category: 'Data',
@@ -146,7 +146,6 @@ export const EXPERIENCE: Experience[] = [
     company: 'YOUKNOW Technologies',
     role: 'Senior Solutions Consultant',
     period: 'Oct 2024 - Present',
-    location: 'Johannesburg, SA (Remote)',
     description: [
       'Lead the technical architecture practice, directing a consultancy team implementing Braze, OneSignal, InsiderOne, Amplitude, DOMO, and HubSpot for high-growth fintech and retail clients.',
       'Own pre-sales technical advisory: architecture discovery, solution design, and objection handling with prospect C-suite and IT stakeholders, contributing directly to enterprise contract closures.',
@@ -160,7 +159,6 @@ export const EXPERIENCE: Experience[] = [
     company: 'YOUKNOW Technologies',
     role: 'Solutions Engineer: CX & Analytics',
     period: 'Aug 2023 - Sep 2024',
-    location: 'Johannesburg, SA',
     description: [
       'Guided the OneSignal implementation for a West African fintech app, enabling omnichannel messaging through rapid growth to 100,000+ active users.',
       'Deployed Amplitude Analytics across a major retail group\'s three-brand portfolio and built an automated lead-tracking pipeline in Google Tag Manager.',
@@ -171,7 +169,6 @@ export const EXPERIENCE: Experience[] = [
     company: 'inQuba',
     role: 'Business Analyst',
     period: 'July 2021 - Aug 2023',
-    location: 'Johannesburg, SA',
     description: [
       'Designed and implemented enterprise CX programmes for banking, insurance, health, and leisure clients, including Discovery Vitality and Virgin Active.',
       'Facilitated Agile sprints, translating business requirements into the product roadmap and user journey optimisation.',
@@ -182,7 +179,6 @@ export const EXPERIENCE: Experience[] = [
     company: 'inQuba',
     role: 'Service Delivery Manager',
     period: 'Nov 2018 - July 2021',
-    location: 'Johannesburg, SA',
     description: [
       'Led a multicultural service team supporting clients across South Africa, Australia, the USA, and the UK.',
       'Owned service delivery and post-implementation CX support for enterprise clients in insurance, retail, and hospitality, including TFG.',
