@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">CLAUDE SKILLS / ANATOMY OF A SKILL</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">What lives inside a skill</text>
+
+  <!-- File tree -->
+  <rect x="64" y="160" width="520" height="480" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="88" y="200" fill="#86868B" font-size="13" letter-spacing="2">FOLDER</text>
+  <g font-size="15">
+    <text x="88" y="244" fill="#D9FF4B">tailored-resume/</text>
+    <text x="118" y="290" fill="#F2F1ED">SKILL.md</text>
+    <text x="118" y="336" fill="#F2F1ED">references/</text>
+    <text x="148" y="372" fill="#86868B">master-cv.md</text>
+    <text x="148" y="404" fill="#86868B">ats-rules.md</text>
+    <text x="118" y="450" fill="#F2F1ED">scripts/</text>
+    <text x="148" y="486" fill="#86868B">build_docx.py</text>
+    <text x="118" y="532" fill="#F2F1ED">assets/</text>
+    <text x="148" y="568" fill="#86868B">template.docx</text>
+  </g>
+
+  <!-- Explanations -->
+  <g font-size="13">
+    <rect x="632" y="160" width="584" height="104" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+    <text x="656" y="196" fill="#D9FF4B" font-size="16" font-weight="600">SKILL.md</text>
+    <text x="656" y="222" fill="#86868B" font-size="12">A trigger description (when to use it) plus the step-by-step</text>
+    <text x="656" y="242" fill="#86868B" font-size="12">instructions Claude follows once it does.</text>
+
+    <rect x="632" y="284" width="584" height="104" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="656" y="320" fill="#F2F1ED" font-size="16" font-weight="600">references/</text>
+    <text x="656" y="346" fill="#86868B" font-size="12">Source-of-truth facts and rules, read only when needed so</text>
+    <text x="656" y="366" fill="#86868B" font-size="12">the context window stays lean.</text>
+
+    <rect x="632" y="408" width="584" height="104" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="656" y="444" fill="#F2F1ED" font-size="16" font-weight="600">scripts/</text>
+    <text x="656" y="470" fill="#86868B" font-size="12">Deterministic code for the parts a model shouldn't improvise:</text>
+    <text x="656" y="490" fill="#86868B" font-size="12">file formats, layout, totals.</text>
+
+    <rect x="632" y="532" width="584" height="108" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="656" y="568" fill="#F2F1ED" font-size="16" font-weight="600">assets/</text>
+    <text x="656" y="594" fill="#86868B" font-size="12">Templates, logos and fonts, so output is on-brand by</text>
+    <text x="656" y="614" fill="#86868B" font-size="12">default instead of by luck.</text>
+  </g>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">Instructions, facts, code and assets in one folder: portable, versioned, reusable.</text>
+</svg>

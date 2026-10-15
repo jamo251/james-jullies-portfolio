@@ -23,7 +23,7 @@
   <!-- Step 2 -->
   <text x="736" y="180" fill="#86868B" font-size="13" letter-spacing="2">02 — PLAN</text>
   <rect x="736" y="196" width="480" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <text x="756" y="232" fill="#F2F1ED" font-size="16" font-weight="600">Gemini Flash routes</text>
+  <text x="756" y="232" fill="#F2F1ED" font-size="16" font-weight="600">The Claude API routes</text>
   <text x="756" y="260" fill="#86868B" font-size="12">Decides which MCP tools to call and in what</text>
   <text x="756" y="278" fill="#86868B" font-size="12">order to answer the question.</text>
 

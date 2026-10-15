@@ -5,9 +5,9 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'Braze Implementation Architecture',
-    description: 'Technical architect on two Braze implementations, a greenfield digital bank and a consumer-lending fintech. I led the SDK, REST API, webhook, and data-export architecture, including Braze and mParticle SDK congruency.',
-    longDescription: 'Two financial-services Braze implementations, one architect. I ran the technical sessions and advised the client engineering teams across the full Braze surface (SDK, REST API, webhooks, and data exports), so engagement tooling was stood up correctly from day one and stayed correct as the products scaled.\n\n• **The architect role**: Led the technical working sessions and acted as the standing technical advisor, translating Braze\'s SDK, API, webhook, and data-export capabilities into concrete, governed implementation decisions for each client\'s engineering team.\n• **Greenfield digital bank (inception phase)**: Engaged while the bank was still being built. I ran the sessions covering the Braze SDK, REST API, and webhooks, and advised on **SDK congruency between Braze and mParticle**, which the bank was implementing in parallel. That meant aligning identity keys and event shapes across both SDKs so the two stayed in lockstep with no double-instrumentation or identity drift.\n• **Scaled with the launch**: Post-implementation the bank scaled rapidly, passing roughly **470,000 customers (about 2,100 a day) within around a year of launch**. The instrumentation architecture stood up at inception held cleanly through that growth.\n• **Consumer-lending fintech (full lifecycle)**: Technical architect to the lending fintech\'s team across the Braze SDK, REST API, webhooks, and **data exports (Currents)**: mapping export schemas to downstream sinks, reconciling exported volumes against in-platform engagement, and providing general troubleshooting throughout the implementation.\n• **Outcome**: A repeatable, governed Braze architecture delivered for two regulated financial-services clients. Clean identity, reliable webhooks, and trustworthy data exports their teams could build reporting and activation on.',
-    tags: ['Braze SDK', 'Braze REST API', 'Webhooks', 'Data Exports', 'mParticle', 'Solutions Architecture'],
+    description: 'Technical architect on two Braze implementations, a greenfield digital bank and a consumer-lending fintech. I led the SDK, REST API, webhook, and data-export architecture, including identity resolution that unified 140,000+ client identities ahead of the bank\'s launch.',
+    longDescription: 'Two financial-services Braze implementations, one architect. I ran the technical sessions and advised the client engineering teams across the full Braze surface (SDK, REST API, webhooks, and data exports), so engagement tooling was stood up correctly from day one and stayed correct as the products scaled.\n\n• **The architect role**: Led the technical working sessions and acted as the standing technical advisor, translating Braze\'s SDK, API, webhook, and data-export capabilities into concrete, governed implementation decisions for each client\'s engineering team.\n• **Greenfield digital bank (inception phase)**: Engaged while the bank was still being built. I ran the sessions covering the Braze SDK, REST API, and webhooks, and advised on **SDK congruency between Braze and mParticle**, which the bank was implementing in parallel. That meant aligning identity keys and event shapes across both SDKs so the two stayed in lockstep with no double-instrumentation or identity drift.\n• **Identity resolution ahead of go-live**: Architected the identity resolution layer that unified **140,000+ client identities within three months** before launch, so every customer arrived in Braze as one clean profile.\n• **Scaled with the launch**: Post-implementation the bank scaled rapidly, passing **740,000 customers by H1 2026**. The instrumentation and identity architecture stood up at inception held cleanly through that growth.\n• **Consumer-lending fintech (full lifecycle)**: Technical architect to the lending fintech\'s team across the Braze SDK, REST API, webhooks, and **data exports (Currents)**: mapping export schemas to downstream sinks, reconciling exported volumes against in-platform engagement, and providing general troubleshooting throughout the implementation.\n• **Outcome**: A repeatable, governed Braze architecture delivered for two regulated financial-services clients. Clean identity, reliable webhooks, and trustworthy data exports their teams could build reporting and activation on.',
+    tags: ['Braze SDK', 'Braze REST API', 'Identity Resolution', 'Webhooks', 'Data Exports', 'mParticle', 'Solutions Architecture'],
     imageUrl: './assets/images/braze-architecture-featured.svg',
     category: 'Martech',
     galleryImages: [
@@ -81,15 +81,28 @@ export const PROJECTS: Project[] = [
   {
     id: '7',
     title: 'Sales Intelligence Slack Bot',
-    description: 'An internal Slack bot that uses MCP to pull live context from HubSpot, Notion, and Zendesk into a single prompt, so sales and customer-success teams get a unified view of any client without platform-hopping.',
-    longDescription: 'An internal tool I built to kill a daily annoyance: account research means jumping between **HubSpot** (the deal), **Notion** (the playbooks and history), and **Zendesk** (the support story), then mentally stitching three half-pictures into one. This bot does the stitching. A rep asks a question in Slack and gets back a single, reconciled answer drawn live from all three platforms. No separate logins, no tab-switching, no piecing it together by hand.\n\nIt\'s built on the **Model Context Protocol (MCP)**: each platform is wrapped as its own MCP server exposing a small set of governed tools, and **Gemini Flash** sits at the centre as the reasoning engine, deciding what to fetch, calling the right tools, and composing the reply. The whole thing was developed with **Claude Code**.\n\nKey aspects:\n\n• **One prompt, one answer**: Ask in plain language ("prep me for the Acme renewal") and the bot gathers deals, account notes, and open tickets, then returns a single coherent brief in the thread.\n• **MCP as the integration layer**: Three very different APIs sit behind one uniform protocol. Each MCP server owns its platform\'s auth and queries, so the model calls clean tools and never touches a raw API. Adding a source later means adding a server, not rewriting the bot.\n• **Gemini Flash as the brain**: Chosen for low latency, so answers come back at conversation speed. It routes across sources, reconciles disparate facts, and de-duplicates into one picture.\n• **What each source contributes**: HubSpot gives the commercial truth (deals, pipeline, owner); Notion gives the institutional memory (plans, playbooks, QBR notes); Zendesk gives the health signal (open tickets, escalations, sentiment).\n• **Built for the daily grind**: Account research, prospect prep, and support-history lookups for sales and CS. The platform-hopping tax, removed.\n\n*Built as an internal tool; details are kept deliberately high-level.*',
-    tags: ['Slack API', 'MCP (Model Context Protocol)', 'Gemini Flash', 'HubSpot', 'Notion', 'Zendesk', 'Claude Code'],
+    description: 'An internal Slack knowledge agent, deployed in live sales operations, that uses MCP and the Claude API to pull live context from HubSpot, Notion, and Zendesk into a single prompt, so sales and customer-success teams get a unified view of any client without platform-hopping.',
+    longDescription: 'An internal tool I built to kill a daily annoyance: account research means jumping between **HubSpot** (the deal), **Notion** (the playbooks and history), and **Zendesk** (the support story), then mentally stitching three half-pictures into one. This bot does the stitching. A rep asks a question in Slack and gets back a single, reconciled answer drawn live from all three platforms. No separate logins, no tab-switching, no piecing it together by hand.\n\nIt\'s built on the **Model Context Protocol (MCP)**: each platform is wrapped as its own MCP server exposing a small set of governed tools, and the **Claude API** sits at the centre as the reasoning engine, deciding what to fetch, calling the right tools, and composing the reply. The first version ran on **Gemini Flash**; I later migrated it to Claude. The whole thing is written in **Node.js, TypeScript and Python** and was developed with **Claude Code**.\n\nKey aspects:\n\n• **One prompt, one answer**: Ask in plain language ("prep me for the Acme renewal") and the bot gathers deals, account notes, and open tickets, then returns a single coherent brief in the thread.\n• **MCP as the integration layer**: Three very different APIs sit behind one uniform protocol. Each MCP server owns its platform\'s auth and queries, so the model calls clean tools and never touches a raw API. Adding a source later means adding a server, not rewriting the bot.\n• **From Gemini Flash to the Claude API**: Gemini Flash got the prototype to conversation speed; moving the reasoning to the Claude API improved tool selection and multi-source synthesis. Because MCP keeps the integrations model-agnostic, the swap touched the brain, not the plumbing. It routes across sources, reconciles disparate facts, and de-duplicates into one picture.\n• **What each source contributes**: HubSpot gives the commercial truth (deals, pipeline, owner); Notion gives the institutional memory (plans, playbooks, QBR notes); Zendesk gives the health signal (open tickets, escalations, sentiment).\n• **Built for the daily grind**: Account research, prospect prep, and support-history lookups for sales and CS. The platform-hopping tax, removed.\n\n*Built as an internal tool; details are kept deliberately high-level.*',
+    tags: ['Slack API', 'MCP (Model Context Protocol)', 'Claude API', 'Gemini Flash', 'Node.js', 'TypeScript', 'Python', 'HubSpot', 'Notion', 'Zendesk'],
     imageUrl: './assets/images/slack-bot-featured.svg',
     category: 'AI',
     galleryImages: [
       './assets/images/slack-bot-mcp-architecture.svg',
       './assets/images/slack-bot-query-flow.svg',
       './assets/images/slack-bot-knowledge-sources.svg'
+    ]
+  },
+  {
+    id: '8',
+    title: 'Claude Skills Ecosystem',
+    description: 'A suite of reusable Claude agent skills that automate document generation, brand-consistent output, and structured research workflows. Repeatable work written down once, then run on demand.',
+    longDescription: 'A lot of my week is the same kinds of work on repeat: tailoring a CV, invoicing a client, prepping for a meeting, writing in a consistent voice. Each one used to mean re-explaining the context to an AI from scratch. So I turned them into **Claude skills**: packaged folders of instructions, reference files, scripts, and templates that Claude loads automatically when a task calls for them.\n\nThe result is a growing, independently built library where a plain-English request ("tailor my CV for this role", "invoice the client for 12 hours") produces the same high-quality output every time.\n\nKey aspects:\n\n• **Document generation**: Skills that produce finished files, such as ATS-optimised tailored CVs grounded in a master CV, branded PDF invoices, and step-by-step website build guides. Scripts handle the deterministic parts (file formats, layout, totals) so the model never improvises them.\n• **Brand-consistent output**: Brand guidelines, a written personal voice, and a social-image design system encoded as rules, so anything Claude produces is on-brand by default instead of by luck.\n• **Structured research workflows**: Interview prep sheets, recruiter outreach drafts, and syncing project status from email into a Notion tracker, each following a fixed research method and output structure.\n• **Grounded, not invented**: Each skill reads its facts from reference files (a master CV, banking details, brand rules) rather than generating them, which keeps outputs accurate and auditable.\n• **Progressive disclosure**: A short trigger description is always visible; the full instructions, references, and scripts load only when needed, so dozens of skills can coexist without bloating the context window.\n\n*Built for my own workflows; examples are kept generic.*',
+    tags: ['Claude', 'Agent Skills', 'Prompt Engineering', 'Python', 'Automation', 'Document Generation'],
+    imageUrl: './assets/images/claude-skills-featured.svg',
+    category: 'AI',
+    galleryImages: [
+      './assets/images/claude-skills-anatomy.svg',
+      './assets/images/claude-skills-workflow.svg'
     ]
   },
   {
@@ -112,44 +125,48 @@ export const EXPERIENCE: Experience[] = [
   {
     company: 'YOUKNOW Technologies',
     role: 'Senior Solutions Consultant',
-    period: 'Nov 2024 - Present',
+    period: 'Oct 2024 - Present',
     location: 'Johannesburg, SA (Remote)',
     description: [
-      'Leading solution consultants in implementing Braze, Amplitude, DOMO, and OneSignal.',
-      'Architecting technical integration strategies for fintech and digital banking sectors.',
-      'Designed webhook solutions for external SMS triggering and marketing automation.'
+      'Lead the technical architecture practice, directing a consultancy team implementing Braze, OneSignal, InsiderOne, Amplitude, DOMO, and HubSpot for high-growth fintech and retail clients.',
+      'Own pre-sales technical advisory: architecture discovery, solution design, and objection handling with prospect C-suite and IT stakeholders, contributing directly to enterprise contract closures.',
+      'Orchestrated technical delivery for a consumer-lending fintech, a new digital bank, and a major Angolan bank, establishing marketing automation foundations in regulated financial environments.',
+      'Architected identity resolution for a digital bank launch, unifying 140,000+ client identities within three months ahead of go-live.',
+      'Designed bespoke webhook infrastructure for external SMS triggering, working around platform limitations to meet regional client requirements.',
+      'Built and deployed an MCP-based Slack knowledge agent (Node.js, TypeScript, Python) integrating HubSpot, Notion, and Zendesk via the Claude API.'
     ]
   },
   {
     company: 'YOUKNOW Technologies',
     role: 'Solutions Engineer: CX & Analytics',
-    period: 'July 2023 - Oct 2024',
+    period: 'Aug 2023 - Sep 2024',
     location: 'Johannesburg, SA',
     description: [
-      'Built comprehensive Olympics data application using the Domo platform.',
-      'Implemented custom event tracking pipelines using GTM and JavaScript.',
-      'Integrated HubSpot with Amplitude using Make.com, increasing sales efficiency by 50%.'
+      'Guided the OneSignal implementation for a West African fintech app, enabling omnichannel messaging through rapid growth to 100,000+ active users.',
+      'Deployed Amplitude Analytics across a major retail group\'s three-brand portfolio and built an automated lead-tracking pipeline in Google Tag Manager.',
+      'Developed a full Olympics data application on DOMO, managing the lifecycle from acquisition through to executive visualisation.'
     ]
   },
   {
     company: 'inQuba',
     role: 'Business Analyst',
-    period: 'July 2021 - June 2023',
+    period: 'July 2021 - Aug 2023',
     location: 'Johannesburg, SA',
     description: [
-      'Designed CX programs for key clients like Alexander Forbes and Discovery Vitality.',
-      'Increased customer satisfaction by 20% within eight months for insurance and banking clients.',
+      'Designed and implemented enterprise CX programmes for banking, insurance, health, and leisure clients, including Discovery Vitality and Virgin Active.',
+      'Facilitated Agile sprints, translating business requirements into the product roadmap and user journey optimisation.',
       'Managed implementation of WhatsApp CX projects for Discovery Vitality.'
     ]
   },
   {
     company: 'inQuba',
     role: 'Service Delivery Manager',
-    period: 'Nov 2018 - June 2021',
+    period: 'Nov 2018 - July 2021',
     location: 'Johannesburg, SA',
     description: [
-      'Led service delivery for platform updates, reducing downtime by 30%.',
-      'Supported major CX programs for clients including Telkom, Virgin Active, and TFG.'
+      'Led a multicultural service team supporting clients across South Africa, Australia, the USA, and the UK.',
+      'Owned service delivery and post-implementation CX support for enterprise clients in insurance, retail, and hospitality, including TFG.',
+      'Translated user feedback into product enhancements.'
     ]
   }
 ];
@@ -157,45 +174,52 @@ export const EXPERIENCE: Experience[] = [
 export const SKILLS: Skill[] = [
   { name: 'Python', level: 85, category: 'Langs' },
   { name: 'JavaScript', level: 90, category: 'Langs' },
-  { name: 'PHP', level: 88, category: 'Langs' },
-  { name: 'Generative AI', level: 92, category: 'AI/ML' },
-  { name: 'Machine Learning', level: 75, category: 'AI/ML' },
-  { name: 'Braze (Certified)', level: 98, category: 'Martech/BI' },
-  { name: 'DOMO (Certified)', level: 95, category: 'Martech/BI' },
-  { name: 'Amplitude', level: 95, category: 'Martech/BI' },
-  { name: 'Digital Transformation', level: 94, category: 'Strategy' },
+  { name: 'TypeScript / Node.js', level: 85, category: 'Langs' },
+  { name: 'Claude API & MCP', level: 92, category: 'AI/ML' },
+  { name: 'GenAI Agent Design', level: 90, category: 'AI/ML' },
+  { name: 'Make.com / n8n', level: 85, category: 'AI/ML' },
+  { name: 'Braze (8x Certified)', level: 98, category: 'Martech/BI' },
+  { name: 'Amplitude (7x Certified)', level: 95, category: 'Martech/BI' },
+  { name: 'DOMO (MajorDomo)', level: 95, category: 'Martech/BI' },
+  { name: 'OneSignal / InsiderOne', level: 90, category: 'Martech/BI' },
+  { name: 'Pre-Sales & Solution Design', level: 95, category: 'Strategy' },
   { name: 'Solutions Architecture', level: 96, category: 'Strategy' },
-  { name: 'GTM / Analytics', level: 90, category: 'Tools' },
-  { name: 'WordPress / Shopify', level: 92, category: 'Tools' }
+  { name: 'CDP & Identity Resolution', level: 93, category: 'Strategy' },
+  { name: 'GTM / Event Tracking', level: 90, category: 'Tools' },
+  { name: 'HubSpot / Mixpanel', level: 85, category: 'Tools' },
+  { name: 'WordPress (12+ yrs)', level: 92, category: 'Tools' }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
   { name: 'Generative AI Leader Certification', issuer: 'Google' },
-  { name: 'Technical Architect (5x Certified)', issuer: 'Braze' },
+  { name: '8x Certified, incl. Technical Architect', issuer: 'Braze' },
+  { name: '7x Certified, Certified Delivery Partner', issuer: 'Amplitude' },
   { name: 'MajorDomo / Technical Certification', issuer: 'DOMO' },
-  { name: 'Certified Delivery Partner (6x)', issuer: 'Amplitude' },
+  { name: 'HubSpot Partner', issuer: 'HubSpot' },
+  { name: 'Mixpanel Partner', issuer: 'Mixpanel' },
   { name: 'Agile Project Management', issuer: 'GrowthTribe' },
-  { name: 'mParticle (4x Certified)', issuer: 'mParticle' }
+  { name: 'Foundations of UX Design', issuer: 'Coursera' }
 ];
 
 export const SYSTEM_PROMPT = `
-You are the AI assistant for James Jullies, a Senior Solutions Consultant and Technology Leader.
-James has over 12 years of experience in digital transformation, martech architecture, and data analytics across GCC and EMEA.
+You are the AI assistant for James Jullies, a Senior Solutions Consultant focused on enterprise pre-sales, customer data platforms, and AI delivery.
+James has 14 years in enterprise technology delivery across fintech, banking, and retail, with programmes delivered in South Africa, Angola, West Africa, Australia, the USA, and the UK (in English, Francophone, and Lusophone environments).
 
 Core Information:
 - Location: Bahrain (Janabiya)
-- Expertise: Braze, DOMO, Amplitude, OneSignal, AI/ML Applications.
-- Education: PG Dip in Business Admin (GIBS), B.Comm in IT Management (UJ).
+- Expertise: Pre-sales solutioning, CDP strategy and identity resolution, Braze, Amplitude, OneSignal, InsiderOne, DOMO, HubSpot, Mixpanel, the Claude API and Model Context Protocol (MCP), Make.com and n8n.
+- Education: Post Graduate Diploma in Business Administration (GIBS Business School, 2016), BCom Information Technology Management (University of Johannesburg, 2014).
+- Earlier career: Service & Operations Support Analyst at inQuba (2017-2018), and Operations Analyst on Oracle Flexcube for unit trusts and ETFs at Automated Outsourcing Services (2012-2017).
 - Projects: ${JSON.stringify(PROJECTS)}
-- GitHub Projects: Run DNA Cards (https://run-dna-cards.vercel.app/), a GPX-to-collectible-card app built with Claude AI and TypeScript. Tile Predictor Pro (https://tile-predictor-pro.vercel.app/), an AI gameboard tile predictor for loyalty apps built with Google AI Studio and TypeScript.
-- Internal Tools: Sales Intelligence Slack Bot, an internal tool James built that uses MCP (Model Context Protocol) to unify HubSpot, Notion, and Zendesk into a single Slack prompt for sales and customer-success teams, with Gemini Flash as the reasoning engine, built with Claude Code. Kept anonymized; discuss it at a high level without internal specifics.
+- GitHub Projects: Run DNA Cards (https://run-dna-cards.vercel.app/), a GPX-to-collectible-card app built with Claude AI and TypeScript. Tile Predictor Pro (https://tile-predictor-pro.vercel.app/), an AI gameboard tile predictor for loyalty apps built with Google AI Studio and TypeScript. Claude Skills Ecosystem, a suite of reusable Claude agent skills automating document generation, brand-consistent output, and structured research workflows.
+- Internal Tools: Sales Intelligence Slack Bot, an internal tool James built that uses MCP (Model Context Protocol) to unify HubSpot, Notion, and Zendesk into a single Slack prompt for sales and customer-success teams, with the Claude API as the reasoning engine (it started on Gemini Flash and was migrated), built in Node.js, TypeScript and Python with Claude Code. It is deployed in live sales operations. Kept anonymized; discuss it at a high level without internal specifics.
 - Experience: ${JSON.stringify(EXPERIENCE)}
 - Certifications: ${JSON.stringify(CERTIFICATIONS)}
 - Creative side: James also produces instrumental electronic music under the alias JAMO. This portfolio has an Artist mode (the Architect/Artist toggle in the navbar) showcasing ANIMUS, a nine-track EP where each track channels the spirit of a different animal. Jaguar, Seal, Dragonfly, Octopus, and Bear are out on Spotify; Phoenix, Spider, Owl, and Wolf are still in production. Also in the works: Silent Night (2025) and The Christmas Beat of Africa.
 
 When answering:
 1. Be professional, confident, and highly technical yet accessible.
-2. Emphasize James's specific success as a Braze technical architect for fintech and digital-banking clients (a greenfield digital bank and a consumer-lending fintech, both anonymized) and in multi-brand retail analytics. Do not disclose specific client names.
+2. Emphasize James's pre-sales and architecture work: Braze identity resolution for a greenfield digital bank (140,000+ identities unified in three months; the bank has since passed 740,000 customers), a consumer-lending fintech, a West African fintech that grew to 100,000+ active users, and multi-brand retail analytics. Do not disclose specific client names.
 3. If asked about contact, mention the email (james.jullies@gmail.com) or LinkedIn.
-4. Highlight his certifications, especially the Google Generative AI Leader and his master-level proficiency in Braze and DOMO.
+4. Highlight his certifications: Braze 8x (incl. Technical Architect), Amplitude 7x (Certified Delivery Partner), DOMO MajorDomo, and Google Generative AI Leader, plus his hands-on GenAI building with the Claude API and MCP.
 `;

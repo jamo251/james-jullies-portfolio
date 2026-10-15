@@ -22,7 +22,7 @@
 
   <!-- Layer 2: brain + MCP -->
   <rect x="64" y="336" width="1152" height="132" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
-  <text x="84" y="372" fill="#D9FF4B" font-size="18" font-weight="600">Gemini Flash · over MCP</text>
+  <text x="84" y="372" fill="#D9FF4B" font-size="18" font-weight="600">Claude API (formerly Gemini Flash) · over MCP</text>
   <text x="84" y="396" fill="#86868B" font-size="12">Interprets the request, decides which sources to call, reconciles the answer</text>
   <g font-size="13">
     <rect x="84" y="412" width="358" height="44" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">CLAUDE SKILLS / EXAMPLE RUN</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Job description in, tailored CV out</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <g font-size="13">
+    <text x="64" y="180" fill="#86868B" letter-spacing="2">01 — TRIGGER</text>
+    <rect x="64" y="196" width="480" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="232" fill="#F2F1ED" font-size="16" font-weight="600">Paste a job posting</text>
+    <text x="84" y="260" fill="#86868B" font-size="12">The request matches the skill's description,</text>
+    <text x="84" y="278" fill="#86868B" font-size="12">so its instructions load automatically.</text>
+  </g>
+  <line x1="544" y1="256" x2="728" y2="256" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <g font-size="13">
+    <text x="736" y="180" fill="#86868B" letter-spacing="2">02 — GROUND</text>
+    <rect x="736" y="196" width="480" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="756" y="232" fill="#F2F1ED" font-size="16" font-weight="600">Read the master CV</text>
+    <text x="756" y="260" fill="#86868B" font-size="12">Every claim comes from the reference file,</text>
+    <text x="756" y="278" fill="#86868B" font-size="12">so nothing is invented.</text>
+  </g>
+  <line x1="976" y1="316" x2="976" y2="388" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <g font-size="13">
+    <rect x="736" y="396" width="480" height="120" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="756" y="432" fill="#F2F1ED" font-size="16" font-weight="600">03 — Match keywords</text>
+    <text x="756" y="460" fill="#86868B" font-size="12">Mirror the posting's language and reorder</text>
+    <text x="756" y="478" fill="#86868B" font-size="12">achievements by relevance.</text>
+  </g>
+  <line x1="736" y1="456" x2="552" y2="456" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <g font-size="13">
+    <rect x="64" y="396" width="480" height="120" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+    <text x="84" y="432" fill="#D9FF4B" font-size="16" font-weight="600">04 — Build the file</text>
+    <text x="84" y="460" fill="#86868B" font-size="12">A script renders an ATS-safe .docx from the</text>
+    <text x="84" y="478" fill="#86868B" font-size="12">template. Same layout every time.</text>
+  </g>
+
+  <rect x="64" y="560" width="1152" height="80" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="596" fill="#D9FF4B" font-size="16" font-weight="600">Result</text>
+  <text x="84" y="620" fill="#86868B" font-size="12">A grounded, keyword-matched CV in minutes, not an afternoon of copy-paste.</text>
+
+  <text x="64" y="692" fill="#86868B" font-size="12">The same pattern powers invoices, interview prep and branded social images.</text>
+</svg>
