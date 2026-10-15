@@ -22,7 +22,7 @@ export interface Project {
   github?: string;
   embedUrl?: string;
   galleryImages?: string[];
-  category: 'AI' | 'Data' | 'Martech' | 'Web';
+  category: 'AI' | 'Build' | 'Data' | 'Martech' | 'Web';
 }
 
 export interface Experience {

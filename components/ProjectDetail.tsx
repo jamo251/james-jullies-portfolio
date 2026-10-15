@@ -13,6 +13,7 @@ const CATEGORY_LABELS: Record<Project['category'], string> = {
   Data: 'Business Intelligence & Data Eng',
   Martech: 'Martech Orchestration',
   AI: 'Applied Generative AI',
+  Build: 'Full-stack product build',
   Web: 'Web Architecture',
 };
 
