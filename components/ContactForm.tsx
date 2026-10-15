@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import SectionHeading from './SectionHeading';
 import MagneticButton from './MagneticButton';
+import { CV_URL, CONTACT_LINKS } from '../data/content';
+
+const linkClasses =
+  'group mono-label inline-flex items-center gap-2 transition-colors hover:text-accent';
 
 const fieldClasses =
   'w-full bg-transparent border-0 border-b border-line px-0 py-4 text-lg md:text-xl text-paper placeholder:text-muted/40 focus:outline-none focus:border-accent transition-colors';
@@ -83,6 +87,24 @@ const ContactForm: React.FC = () => {
             </MagneticButton>
           </form>
         )}
+
+        <div className="mt-16 pt-8 border-t border-line flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a href={CV_URL} download className={`${linkClasses} text-accent`}>
+            Download CV
+            <span className="inline-block transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
+          </a>
+          {CONTACT_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className={`${linkClasses} text-paper`}
+            >
+              {link.label}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

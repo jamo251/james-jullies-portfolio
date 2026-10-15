@@ -7,6 +7,14 @@ import type { Project, Experience, EarlierRole, Education, SkillGroup, Certifica
  * can only answer from what is on the page.
  */
 
+export const CV_URL = '/James_Jullies_CV.pdf';
+
+export const CONTACT_LINKS = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/james-jullies/', external: true },
+  { label: 'Email', href: 'mailto:james.jullies@gmail.com', external: false },
+  { label: 'GitHub', href: 'https://github.com/jamo251', external: true },
+];
+
 export const HERO: HeroContent = {
   eyebrow: 'Senior Solutions Consultant | Pre-Sales, Customer Data & AI',
   lines: [

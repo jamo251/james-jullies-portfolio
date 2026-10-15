@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { gsap, useGSAP, MOTION_OK } from '../lib/gsap';
 import { scrollToSection } from '../hooks/useLenis';
-import { HERO } from '../data/content';
+import { HERO, CV_URL } from '../data/content';
 import MagneticButton from './MagneticButton';
 
 interface HeroProps {
@@ -82,6 +82,16 @@ const Hero: React.FC<HeroProps> = ({ introDelay = 0.2 }) => {
               </a>
             </MagneticButton>
           ))}
+          <MagneticButton className="hero-cta">
+            <a
+              href={CV_URL}
+              download
+              className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] pb-2 border-b text-accent border-accent/50 hover:border-accent transition-colors"
+            >
+              Download CV
+              <span className="inline-block transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
+            </a>
+          </MagneticButton>
         </div>
 
         <p className="hero-bio max-w-md text-muted text-base md:text-lg leading-relaxed order-1 md:order-2 md:text-right">
