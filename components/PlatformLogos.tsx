@@ -12,9 +12,10 @@ const logo = (file: string) => `${ASSET}assets/images/logos/${file}`;
 
 /**
  * Platforms James works with, shown as their actual brand logos. Braze and
- * OneSignal ship as white marks and DOMO as its light-blue mark; HubSpot and
- * Google Tag Manager carry their official brand colours so every logo stays
- * legible on the dark background.
+ * OneSignal ship as white marks and DOMO as its light-blue mark; the icon-only
+ * marks carry their official brand colours, except Notion and Slack (white,
+ * as their dark brand colours vanish on the background) and Make (its lighter
+ * gradient purple), so every logo stays legible on the dark background.
  */
 const PLATFORMS: Platform[] = [
   { name: 'Braze', src: logo('braze-logo.svg') },
@@ -23,6 +24,13 @@ const PLATFORMS: Platform[] = [
   { name: 'DOMO', src: logo('domo-logo2.svg') },
   { name: 'HubSpot', src: logo('hubspot.svg') },
   { name: 'Google Tag Manager', src: logo('google-tag-manager.svg') },
+  { name: 'Google Gemini', src: logo('google-gemini.svg') },
+  { name: 'Make', src: logo('make.svg') },
+  { name: 'WhatsApp', src: logo('whatsapp.svg') },
+  { name: 'Slack', src: logo('slack.svg') },
+  { name: 'Notion', src: logo('notion.svg') },
+  { name: 'WordPress', src: logo('wordpress.svg') },
+  { name: 'Shopify', src: logo('shopify.svg') },
 ];
 
 const LogoItem: React.FC<{ platform: Platform }> = ({ platform }) => (
@@ -32,16 +40,14 @@ const LogoItem: React.FC<{ platform: Platform }> = ({ platform }) => (
 );
 
 const PlatformLogos: React.FC = () => {
-  // Repeat the set so the strip stays full on wide screens; Marquee then
-  // mirrors the whole row to make the loop seamless.
-  const row = Array.from({ length: 2 }).flatMap((_, rep) =>
-    PLATFORMS.map((platform) => <LogoItem key={`${rep}-${platform.name}`} platform={platform} />)
-  );
+  // One pass of the set is wide enough to fill the strip; Marquee mirrors
+  // the row to make the loop seamless.
+  const row = PLATFORMS.map((platform) => <LogoItem key={platform.name} platform={platform} />);
 
   return (
     <section aria-label="Platforms I work with">
       <div aria-hidden="true">
-        <Marquee duration={28} className="logo-marquee py-2">
+        <Marquee duration={30} className="logo-marquee py-2">
           {row}
         </Marquee>
       </div>
