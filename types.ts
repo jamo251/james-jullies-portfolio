@@ -8,6 +8,8 @@ export interface HeroContent {
 
 export interface Project {
   id: string;
+  /** URL segment for the case study: /work/<slug> */
+  slug: string;
   title: string;
   description: string;
   longDescription: string;

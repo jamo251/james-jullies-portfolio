@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Project } from '../types';
+import { workPath } from '../hooks/useRoute';
 import { gsap, useGSAP, MOTION_OK, FINE_POINTER_MOTION_OK } from '../lib/gsap';
 
 interface ProjectListProps {
@@ -80,11 +81,16 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelect }) => {
 
       <div className="border-y border-line divide-y divide-line">
         {projects.map((project, i) => (
-          <button
+          <a
             key={project.id}
-            type="button"
+            href={workPath(project.slug)}
             data-cursor="view"
-            onClick={() => onSelect(project)}
+            onClick={(e) => {
+              // Let modified clicks open the case study in a new tab
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+              e.preventDefault();
+              onSelect(project);
+            }}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             className="project-row group block w-full text-left py-8 md:py-12"
@@ -121,7 +127,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, onSelect }) => {
                 {project.description}
               </p>
             </div>
-          </button>
+          </a>
         ))}
       </div>
     </div>
