@@ -28,7 +28,8 @@
 
   <!-- MCP transport label -->
   <line x1="384" y1="284" x2="520" y2="284" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <text x="392" y="274" fill="#86868B" font-size="11">MCP · tools / resources</text>
+  <text x="392" y="262" fill="#86868B" font-size="11">MCP</text>
+  <text x="392" y="276" fill="#86868B" font-size="11">tools / resources</text>
   <line x1="520" y1="284" x2="384" y2="284" stroke="#D9FF4B" stroke-opacity="0.3" marker-end="url(#arrow)"/>
 
   <!-- MCP servers column -->
@@ -67,16 +68,19 @@
   <rect x="64" y="452" width="1152" height="200" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
   <g font-size="13">
     <rect x="84" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="104" y="506" fill="#D9FF4B">Uniform tool layer</text>
-    <text x="104" y="530" fill="#86868B" font-size="12">Three different APIs, one protocol the model calls</text>
+    <text x="104" y="498" fill="#D9FF4B">Uniform tool layer</text>
+    <text x="104" y="520" fill="#86868B" font-size="12">Three different APIs, one</text>
+    <text x="104" y="536" fill="#86868B" font-size="12">protocol the model calls</text>
 
     <rect x="461" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="481" y="506" fill="#D9FF4B">Governed access</text>
-    <text x="481" y="530" fill="#86868B" font-size="12">Scoped tools &amp; credentials per source, server-side</text>
+    <text x="481" y="498" fill="#D9FF4B">Governed access</text>
+    <text x="481" y="520" fill="#86868B" font-size="12">Scoped tools &amp; credentials</text>
+    <text x="481" y="536" fill="#86868B" font-size="12">per source, server-side</text>
 
     <rect x="838" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="858" y="506" fill="#D9FF4B">Composable</text>
-    <text x="858" y="530" fill="#86868B" font-size="12">Add a source by adding a server — no host rewrite</text>
+    <text x="858" y="498" fill="#D9FF4B">Composable</text>
+    <text x="858" y="520" fill="#86868B" font-size="12">Add a source by adding a</text>
+    <text x="858" y="536" fill="#86868B" font-size="12">server — no host rewrite</text>
 
     <rect x="84" y="558" width="1112" height="76" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
     <text x="104" y="590" fill="#F2F1ED" font-weight="600">The model never touches a raw API</text>

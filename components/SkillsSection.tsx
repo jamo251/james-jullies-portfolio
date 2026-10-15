@@ -46,7 +46,7 @@ const SkillsSection: React.FC = () => {
         index="02"
         label="Expertise"
         title="Mastering the Stack"
-        intro="Expertise spanning from advanced generative AI models to scalable cloud-native architectures."
+        intro="From pre-sales discovery and customer data architecture to production GenAI tooling built on the Claude API and MCP."
       />
 
       <div className="space-y-16 md:space-y-20">
