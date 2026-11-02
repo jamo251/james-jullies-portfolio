@@ -31,6 +31,23 @@ export const HERO: HeroContent = {
 
 export const PROJECTS: Project[] = [
   {
+    id: '9',
+    slug: 'melon-mobile-amplitude-appsflyer',
+    title: 'Amplitude & AppsFlyer Dual Implementation',
+    description: 'Led the dual onboarding of Amplitude and AppsFlyer for Melon Mobile across Android, iOS, Huawei and web. I sequenced how the two SDKs fire so attribution and product analytics resolve to a single customer view, designed the event taxonomy with the marketing agency, and took a phased rollout live on time.',
+    longDescription: 'Two SDKs, four platforms, one customer. Melon Mobile needed AppsFlyer to measure where users came from and Amplitude to measure what they did once they arrived. Run side by side without coordination, the two platforms would each build their own version of the same person, and acquisition could never be tied to behaviour. I designed the implementation so they agree on who every user is, from first open to logged-in customer.\n\n• **Four platforms, two SDKs**: Instrumented Amplitude and AppsFlyer across Android, iOS, Huawei (HMS, with no Google Play Services) and web. Each platform has its own initialisation lifecycle and identifiers, so the integration had to be specified per platform while behaving identically on all of them.\n• **SDK firing order**: Defined a strict sequence for how the SDKs start. Amplitude initialises first and its device ID is handed to AppsFlyer at init, so anonymous installs and sessions are linked from the very first open. At login or registration the Melon customer ID is set on both SDKs, merging the anonymous history into the known profile.\n• **Single customer view**: Because both platforms share the same identity keys, a user\'s acquisition source and their in-app journey can be read together, on any platform, without stitching data after the fact.\n• **Taxonomy with the marketing agency**: Co-designed a governed event spec in Object-Action naming with the client\'s marketing agency, covering what the agency needed for campaign measurement and what the product team needed for analytics. One spec, instrumented the same way across all four platforms.\n• **Phased delivery**: Scoped the rollout with the client and the agency into phases, so identity and core events landed first and every later phase built on a stable, verified foundation.\n• **Outcome**: Live on time across Android, iOS, Huawei and web, with attribution and behaviour on one profile. Marketing and product now work from the same customer instead of two partial ones.',
+    tags: ['Amplitude', 'AppsFlyer', 'Mobile SDKs', 'Huawei HMS', 'Identity Resolution', 'Event Taxonomy'],
+    imageUrl: '/assets/images/melon-featured.svg',
+    category: 'Martech',
+    galleryTitle: 'Architecture diagrams',
+    galleryCaption: 'The SDK firing sequence, the four-platform architecture and the phased rollout.',
+    galleryImages: [
+      '/assets/images/melon-sdk-firing-sequence.svg',
+      '/assets/images/melon-platform-architecture.svg',
+      '/assets/images/melon-phased-rollout.svg'
+    ]
+  },
+  {
     id: '2',
     slug: 'braze-implementation',
     title: 'Braze Implementation Architecture',
@@ -186,6 +203,7 @@ export const EXPERIENCE: Experience[] = [
       'Own pre-sales technical advisory: architecture discovery, solution design, and objection handling with prospect C-suite and IT stakeholders, contributing directly to enterprise contract closures.',
       'Orchestrated technical delivery for Wonga, OM Bank (Old Mutual\'s digital bank), and Banco Millennium Atlântico, establishing marketing automation foundations in regulated financial environments.',
       'Architected identity resolution for the OM Bank launch, unifying 140,000+ client identities within three months ahead of go-live.',
+      'Led the dual Amplitude and AppsFlyer implementation for Melon Mobile across Android, iOS, Huawei and web, sequencing both SDKs to deliver a single customer view and going live on time.',
       'Designed bespoke webhook infrastructure for external SMS triggering, working around platform limitations to meet regional client requirements.',
       'Built and deployed an MCP-based Slack knowledge agent (Node.js, TypeScript, Python) integrating HubSpot, Notion, and Zendesk via the Claude API.'
     ]
