@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">SOLUTION ARCHITECTURE / DATA FLOW</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Two SDKs on Every Platform</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <g fill="#86868B" font-size="13" letter-spacing="2">
+    <text x="64" y="152">PLATFORM</text>
+    <text x="360" y="152">SDKs · SAME TAXONOMY</text>
+    <text x="900" y="152">DESTINATION</text>
+  </g>
+
+  <!-- platform rows -->
+  <g>
+    <rect x="64" y="166" width="260" height="80" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="200" fill="#F2F1ED" font-size="17" font-weight="600">Android</text>
+    <text x="84" y="224" fill="#86868B" font-size="12">Google Play Services</text>
+
+    <rect x="64" y="262" width="260" height="80" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="296" fill="#F2F1ED" font-size="17" font-weight="600">iOS</text>
+    <text x="84" y="320" fill="#86868B" font-size="12">App Store</text>
+
+    <rect x="64" y="358" width="260" height="80" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="392" fill="#F2F1ED" font-size="17" font-weight="600">Huawei</text>
+    <text x="84" y="416" fill="#86868B" font-size="12">HMS · no GMS</text>
+
+    <rect x="64" y="454" width="260" height="80" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="84" y="488" fill="#F2F1ED" font-size="17" font-weight="600">Web</text>
+    <text x="84" y="512" fill="#86868B" font-size="12">Browser</text>
+  </g>
+
+  <!-- sdk pills -->
+  <g font-size="13">
+    <rect x="360" y="174" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="193" fill="#F2F1ED">Amplitude SDK</text>
+    <rect x="360" y="210" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="229" fill="#F2F1ED">AppsFlyer SDK</text>
+
+    <rect x="360" y="270" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="289" fill="#F2F1ED">Amplitude SDK</text>
+    <rect x="360" y="306" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="325" fill="#F2F1ED">AppsFlyer SDK</text>
+
+    <rect x="360" y="366" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="385" fill="#F2F1ED">Amplitude SDK</text>
+    <rect x="360" y="402" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="421" fill="#F2F1ED">AppsFlyer SDK · HMS build</text>
+
+    <rect x="360" y="462" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="481" fill="#F2F1ED">Amplitude Browser SDK</text>
+    <rect x="360" y="498" width="440" height="28" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="376" y="517" fill="#F2F1ED">AppsFlyer Web SDK</text>
+  </g>
+
+  <!-- buses -->
+  <g fill="none" stroke="#D9FF4B" stroke-opacity="0.35">
+    <path d="M800,188 H840 M800,284 H840 M800,380 H840 M800,476 H840 M840,188 V476"/>
+    <path d="M800,224 H868 M800,320 H868 M800,416 H868 M800,512 H868 M868,224 V512"/>
+  </g>
+  <g stroke="#D9FF4B" stroke-opacity="0.5">
+    <line x1="840" y1="254" x2="896" y2="254" marker-end="url(#arrow)"/>
+    <line x1="868" y1="446" x2="896" y2="446" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- destinations -->
+  <rect x="900" y="166" width="316" height="176" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.25"/>
+  <text x="920" y="202" fill="#F2F1ED" font-size="18" font-weight="600">Amplitude</text>
+  <text x="920" y="226" fill="#86868B" font-size="12">Product analytics</text>
+  <g font-size="13">
+    <rect x="920" y="244" width="276" height="34" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="266" fill="#D9FF4B">Funnels &amp; retention</text>
+    <rect x="920" y="288" width="276" height="34" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="310" fill="#D9FF4B">Journeys by source</text>
+  </g>
+
+  <rect x="900" y="358" width="316" height="176" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.25"/>
+  <text x="920" y="394" fill="#F2F1ED" font-size="18" font-weight="600">AppsFlyer</text>
+  <text x="920" y="418" fill="#86868B" font-size="12">Attribution</text>
+  <g font-size="13">
+    <rect x="920" y="436" width="276" height="34" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="458" fill="#D9FF4B">Install attribution</text>
+    <rect x="920" y="480" width="276" height="34" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+    <text x="936" y="502" fill="#D9FF4B">Campaign measurement</text>
+  </g>
+
+  <!-- identity layer -->
+  <rect x="64" y="564" width="1152" height="74" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="596" fill="#D9FF4B" font-size="17" font-weight="600">Shared Identity Keys</text>
+  <text x="84" y="620" fill="#86868B" font-size="12">Amplitude device_id passed to AppsFlyer at init · customer_id set on both at login · same keys on all four platforms</text>
+
+  <text x="64" y="690" fill="#86868B" font-size="12">One event spec, designed with the marketing agency, instrumented identically everywhere.</text>
+</svg>

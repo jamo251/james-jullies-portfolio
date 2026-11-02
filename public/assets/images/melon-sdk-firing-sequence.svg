@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1280" height="720" fill="#0A0A0B"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+
+  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">SDK FIRING SEQUENCE / IDENTITY</text>
+  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Anonymous to Known, in Order</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- stage labels -->
+  <text x="220" y="152" fill="#86868B" font-size="12">ANONYMOUS — linked from first open</text>
+  <text x="808" y="152" fill="#86868B" font-size="12">KNOWN — customer_id on both SDKs</text>
+
+  <!-- swimlanes -->
+  <rect x="64" y="166" width="1152" height="88" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <rect x="64" y="276" width="1152" height="88" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <rect x="64" y="386" width="1152" height="88" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <g fill="#86868B" font-size="13" letter-spacing="1.5">
+    <text x="84" y="215">APP</text>
+    <text x="84" y="325">AMPLITUDE</text>
+    <text x="84" y="435">APPSFLYER</text>
+  </g>
+
+  <!-- step 1: app open -->
+  <rect x="220" y="174" width="170" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="234" y="194" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 1</text>
+  <text x="234" y="214" fill="#F2F1ED" font-size="13" font-weight="600">App open</text>
+  <text x="234" y="234" fill="#86868B" font-size="12">first launch</text>
+
+  <!-- step 2: amplitude init -->
+  <rect x="416" y="284" width="170" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="430" y="304" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 2</text>
+  <text x="430" y="324" fill="#F2F1ED" font-size="13" font-weight="600">init()</text>
+  <text x="430" y="344" fill="#86868B" font-size="12">device_id created</text>
+
+  <!-- step 3: appsflyer init -->
+  <rect x="612" y="394" width="170" height="72" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="626" y="414" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 3</text>
+  <text x="626" y="434" fill="#F2F1ED" font-size="13" font-weight="600">init()</text>
+  <text x="626" y="454" fill="#86868B" font-size="12">with Amp device_id</text>
+
+  <!-- step 4: login -->
+  <rect x="808" y="174" width="170" height="72" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text x="822" y="194" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 4</text>
+  <text x="822" y="214" fill="#F2F1ED" font-size="13" font-weight="600">Login / register</text>
+  <text x="822" y="234" fill="#86868B" font-size="12">customer_id known</text>
+
+  <!-- step 5: set ids on both -->
+  <rect x="1004" y="284" width="170" height="72" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="1018" y="304" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 5</text>
+  <text x="1018" y="324" fill="#F2F1ED" font-size="13" font-weight="600">setUserId</text>
+  <text x="1018" y="344" fill="#86868B" font-size="12">(customer_id)</text>
+
+  <rect x="1004" y="394" width="170" height="72" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="1018" y="414" fill="#D9FF4B" font-size="11" letter-spacing="2">STEP 5</text>
+  <text x="1018" y="434" fill="#F2F1ED" font-size="13" font-weight="600">setCustomerUserId</text>
+  <text x="1018" y="454" fill="#86868B" font-size="12">(customer_id)</text>
+
+  <!-- flow -->
+  <g fill="none" stroke="#D9FF4B" stroke-opacity="0.5">
+    <path d="M390,210 H403 V320 H412" marker-end="url(#arrow)"/>
+    <path d="M586,320 H599 V430 H608" marker-end="url(#arrow)"/>
+    <path d="M782,430 H795 V210 H804" marker-end="url(#arrow)"/>
+    <path d="M978,210 H991 V430 H1000" marker-end="url(#arrow)"/>
+    <path d="M991,320 H1000" marker-end="url(#arrow)"/>
+    <line x1="1089" y1="466" x2="1089" y2="504" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- merged profile -->
+  <rect x="64" y="508" width="1152" height="80" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
+  <text x="84" y="542" fill="#D9FF4B" font-size="16" font-weight="600">Merged Customer Profile</text>
+  <text x="84" y="566" fill="#86868B" font-size="12">Anonymous history from first open joins the known customer, in Amplitude and AppsFlyer alike</text>
+
+  <text x="64" y="630" fill="#F2F1ED" font-size="12">Order matters: AppsFlyer needs Amplitude's device_id at init, or the install can't be tied to in-app sessions.</text>
+  <text x="64" y="690" fill="#86868B" font-size="12">Same sequence on Android, iOS, Huawei and web.</text>
+</svg>
