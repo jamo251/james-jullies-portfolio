@@ -1,137 +1,255 @@
-@import "tailwindcss";
+:root {
+  --bg: #FFFFFF;
+  --text: #2B2B2B;
+  --heading: #111111;
+  --muted: #5F5F5F;
+  --line: #E4E4E4;
+  --underline: #1F9D55;
+  /* #1F9D55 is 3.5:1 on white, below AA for text, so hover text uses a darker green */
+  --link-hover: #1A7F46;
+  --panel: #FFFFFF;
+  --bubble: #F3F3F3;
 
-@theme {
-  --color-ink: #0A0A0B;
-  --color-surface: #141416;
-  --color-paper: #F2F1ED;
-  --color-muted: #86868B;
-  --color-accent: #D9FF4B;
-  --color-line: rgb(242 241 237 / 0.12);
+  color-scheme: light dark;
+}
 
-  --font-display: "Archivo", "Inter", sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F0F10;
+    --text: #E6E6E6;
+    --heading: #FFFFFF;
+    --muted: #A3A3A3;
+    --line: #2C2C2E;
+    --underline: #3FCF7F;
+    --link-hover: #3FCF7F;
+    --panel: #18181A;
+    --bubble: #242426;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-  background-color: var(--color-ink);
+  background-color: var(--bg);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-sans);
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
-::selection {
-  background-color: var(--color-accent);
-  color: var(--color-ink);
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 120px 24px 160px;
+  overflow-wrap: break-word;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+h1 {
+  margin: 0 0 22px;
+  color: var(--heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-ink);
+p {
+  margin: 0 0 22px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2a2a2e;
+ul {
+  margin: 0 0 22px;
+  padding-left: 1.25em;
+  list-style: disc;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+li + li {
+  margin-top: 6px;
+}
+
+strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
 }
 
 a,
-button {
+.link-button {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+.link-button:hover {
+  color: var(--link-hover);
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
   cursor: pointer;
 }
 
 :focus-visible {
-  outline: 1px solid var(--color-accent);
+  outline: 2px solid var(--underline);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Oversized display type */
-.display-heading {
-  font-family: var(--font-display);
-  font-weight: 850;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  line-height: 0.92;
+figure {
+  margin: 0 0 22px;
 }
 
-/* Mono micro-label */
-.mono-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Fixed film-grain overlay */
-.noise::after {
-  content: '';
+figure img {
+  border: 1px solid var(--line);
+}
+
+/* Ask AI panel */
+.chat {
   position: fixed;
-  inset: 0;
-  z-index: 95;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: min(520px, calc(100dvh - 48px));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-/* Infinite marquee — track holds two identical halves, loops at -50% */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
+@media (max-width: 480px) {
+  .chat {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    max-width: none;
+    height: calc(100dvh - 32px);
   }
 }
 
-.marquee-track {
-  animation: marquee var(--marquee-duration, 30s) linear infinite;
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
 }
 
-/* Custom cursor takes over on interactive project rows */
-@media (pointer: fine) {
-  [data-cursor="view"] {
-    cursor: none;
-  }
+.chat-header h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.chat-log {
+  flex: 1;
+  margin: 0;
+  padding: 16px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.chat-log li + li {
+  margin-top: 12px;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--bubble);
+  white-space: pre-wrap;
+}
+
+.chat-msg.user {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--line);
+}
+
+.chat-note {
+  color: var(--muted);
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.chat-form input::placeholder {
+  color: var(--muted);
+}
+
+.chat-form button {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--heading);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.chat-form button:disabled {
+  color: var(--muted);
+  cursor: default;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
-
-  /* The platform logo strip keeps its slow, decorative scroll. */
-  .logo-marquee .marquee-track {
-    animation: marquee var(--marquee-duration, 30s) linear infinite;
-  }
-}
-
-/* Platform logo strip — actual brand logos, slightly dimmed until hover */
-.logo-img {
-  display: inline-block;
-  opacity: 0.85;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .logo-item:hover .logo-img {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
 }
