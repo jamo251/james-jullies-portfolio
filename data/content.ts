@@ -322,16 +322,16 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { name: '8x Certified, incl. Technical Architect', issuer: 'Braze' },
-  { name: '7x Certified, Certified Delivery Partner', issuer: 'Amplitude' },
-  { name: 'Reseller Solution Architect & Essentials', issuer: 'AppsFlyer' },
-  { name: 'Insider One Foundational', issuer: 'Insider One' },
-  { name: 'MajorDomo / Technical Certification', issuer: 'DOMO' },
-  { name: '5x Certified, incl. Model Context Protocol & Claude Code', issuer: 'Anthropic Academy' },
-  { name: 'Generative AI Leader Certification', issuer: 'Google' },
-  { name: 'Notion Workflows Badge', issuer: 'Notion' },
-  { name: 'HubSpot Partner', issuer: 'HubSpot' },
-  { name: 'Mixpanel Partner', issuer: 'Mixpanel' },
-  { name: 'Agile Project Management', issuer: 'GrowthTribe' },
-  { name: 'Foundations of UX Design', issuer: 'Coursera' }
+  { name: '8x Certified, incl. Technical Architect', issuer: 'Braze', logo: '/assets/images/logos/braze-logo.svg' },
+  { name: '7x Certified, Certified Delivery Partner', issuer: 'Amplitude', logo: '/assets/images/logos/amplitude-logo.svg' },
+  { name: 'Reseller Solution Architect & Essentials', issuer: 'AppsFlyer', logo: '/assets/images/logos/appsflyer.svg' },
+  { name: 'Insider One Foundational', issuer: 'Insider One', logo: '/assets/images/logos/insiderone.svg' },
+  { name: 'MajorDomo / Technical Certification', issuer: 'DOMO', logo: '/assets/images/logos/domo-logo2.svg' },
+  { name: '5x Certified, incl. Model Context Protocol & Claude Code', issuer: 'Anthropic Academy', logo: '/assets/images/logos/anthropic.svg' },
+  { name: 'Generative AI Leader Certification', issuer: 'Google', logo: '/assets/images/logos/google.svg' },
+  { name: 'Notion Workflows Badge', issuer: 'Notion', logo: '/assets/images/logos/notion.svg' },
+  { name: 'HubSpot Partner', issuer: 'HubSpot', logo: '/assets/images/logos/hubspot.svg' },
+  { name: 'Mixpanel Partner', issuer: 'Mixpanel', logo: '/assets/images/logos/mixpanel.svg' },
+  { name: 'Agile Project Management', issuer: 'GrowthTribe', logo: '/assets/images/logos/growthtribe.svg' },
+  { name: 'Foundations of UX Design', issuer: 'Coursera', logo: '/assets/images/logos/coursera.svg' }
 ];

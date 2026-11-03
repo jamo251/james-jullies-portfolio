@@ -55,6 +55,7 @@ export interface SkillGroup {
 export interface Certification {
   name: string;
   issuer: string;
+  logo: string;
 }
 
 export interface ChatMessage {
