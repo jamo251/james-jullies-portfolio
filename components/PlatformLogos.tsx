@@ -22,7 +22,7 @@ const PLATFORMS: Platform[] = [
   { name: 'OneSignal', src: logo('onesignal-logo-white.svg') },
   { name: 'InsiderOne', src: logo('insiderone.svg') },
   { name: 'Amplitude', src: logo('amplitude-logo.svg') },
-  { name: 'AppsFlyer', src: logo('appsflyer-wordmark.svg') },
+  { name: 'AppsFlyer', src: logo('appsflyer.svg') },
   { name: 'Mixpanel', src: logo('mixpanel.svg') },
   { name: 'DOMO', src: logo('domo-logo2.svg') },
   { name: 'HubSpot', src: logo('hubspot.svg') },
