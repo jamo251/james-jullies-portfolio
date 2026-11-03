@@ -263,8 +263,8 @@ export const EARLIER_CAREER: EarlierRole[] = [
 ];
 
 export const EDUCATION: Education[] = [
-  { qualification: 'Post Graduate Diploma in Business Administration (PGDBA)', institution: 'GIBS Business School', year: '2016' },
-  { qualification: 'BCom Information Technology Management', institution: 'University of Johannesburg', year: '2014' },
+  { qualification: 'Post Graduate Diploma in Business Administration (PGDBA)', institution: 'GIBS Business School', year: '2016', logo: '/assets/images/logos/gibs.svg' },
+  { qualification: 'BCom Information Technology Management', institution: 'University of Johannesburg', year: '2014', logo: '/assets/images/logos/uj.png' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [
