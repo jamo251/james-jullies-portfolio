@@ -105,7 +105,7 @@ const ProfessionalSite: React.FC<ProfessionalSiteProps> = ({
                   className="absolute -bottom-8 -right-2 display-heading text-[7rem] md:text-[9rem] text-paper/5 group-hover:text-accent/10 transition-colors duration-500 select-none"
                   aria-hidden="true"
                 >
-                  0{idx + 1}
+                  {String(idx + 1).padStart(2, '0')}
                 </span>
                 <p className="mono-label text-accent relative z-10">{cert.issuer}</p>
                 <h4 className="display-heading text-xl md:text-2xl text-paper relative z-10 mt-8">

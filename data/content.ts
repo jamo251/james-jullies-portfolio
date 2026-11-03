@@ -22,7 +22,7 @@ export const HERO: HeroContent = {
     { text: 'Martech & AI', accent: true },
     { text: 'Architect.' },
   ],
-  bio: '14 years in enterprise technology delivery across fintech, banking, and retail. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
+  bio: '14 years in enterprise technology delivery across fintech, banking, and retail, in markets from South Africa and Angola to West Africa, Australia, the USA, and the UK. I lead pre-sales solutioning and customer data architecture on Braze, Amplitude, AppsFlyer, OneSignal, and DOMO, and build production GenAI tooling with the Claude API and MCP.',
   ctas: [
     { label: 'Explore Achievements', href: '#projects' },
     { label: 'Career Journey', href: '#experience' },
@@ -34,9 +34,9 @@ export const PROJECTS: Project[] = [
     id: '9',
     slug: 'melon-mobile-amplitude-appsflyer',
     title: 'Amplitude & AppsFlyer Dual Implementation',
-    description: 'Led the dual onboarding of Amplitude and AppsFlyer for Melon Mobile across Android, iOS, Huawei and web. I sequenced how the two SDKs fire so attribution and product analytics resolve to a single customer view, designed the event taxonomy with the marketing agency, and took a phased rollout live on time.',
-    longDescription: 'Two SDKs, four platforms, one customer. Melon Mobile needed AppsFlyer to measure where users came from and Amplitude to measure what they did once they arrived. Run side by side without coordination, the two platforms would each build their own version of the same person, and acquisition could never be tied to behaviour. I designed the implementation so they agree on who every user is, from first open to logged-in customer.\n\n• **Four platforms, two SDKs**: Instrumented Amplitude and AppsFlyer across Android, iOS, Huawei (HMS, with no Google Play Services) and web. Each platform has its own initialisation lifecycle and identifiers, so the integration had to be specified per platform while behaving identically on all of them.\n• **SDK firing order**: Defined a strict sequence for how the SDKs start. Amplitude initialises first and its device ID is handed to AppsFlyer at init, so anonymous installs and sessions are linked from the very first open. At login or registration the Melon customer ID is set on both SDKs, merging the anonymous history into the known profile.\n• **Single customer view**: Because both platforms share the same identity keys, a user\'s acquisition source and their in-app journey can be read together, on any platform, without stitching data after the fact.\n• **Taxonomy with the marketing agency**: Co-designed a governed event spec in Object-Action naming with the client\'s marketing agency, covering what the agency needed for campaign measurement and what the product team needed for analytics. One spec, instrumented the same way across all four platforms.\n• **Developer specs per surface**: Built interactive, detailed specs and instruction documentation for each developer on each surface and platform, so every team knew exactly what to fire, when and with which properties. Implementation landed accurately with minimal back and forth.\n• **Consent management**: Introduced consent management, which didn\'t exist before this project, so tracking across the stack now respects user consent.\n• **Phased delivery**: Scoped the rollout with the client and the agency into phases, so identity and core events landed first and every later phase built on a stable, verified foundation.\n• **Outcome**: Live on time across Android, iOS, Huawei and web, with attribution and behaviour on one profile. Marketing and product now work from the same customer instead of two partial ones, on a consent-aware foundation.',
-    tags: ['Amplitude', 'AppsFlyer', 'Mobile SDKs', 'Huawei HMS', 'Identity Resolution', 'Event Taxonomy', 'Consent Management'],
+    description: 'Led the dual onboarding of Amplitude and AppsFlyer for Melon Mobile across Android, iOS, Huawei and web. I sequenced how the two SDKs fire so attribution and product analytics resolve to a single customer view, designed the event taxonomy with the marketing agency, and delivered phase one on time and accurately in six weeks.',
+    longDescription: 'Two SDKs, four platforms, one customer. Melon Mobile needed AppsFlyer to measure where users came from and Amplitude to measure what they did once they arrived. Run side by side without coordination, the two platforms would each build their own version of the same person, and acquisition could never be tied to behaviour. I designed the implementation so they agree on who every user is, from first open to logged-in customer.\n\n• **Four platforms, two SDKs**: Instrumented Amplitude and AppsFlyer across Android, iOS, Huawei (HMS, with no Google Play Services) and web. Each platform has its own initialisation lifecycle and identifiers, so the integration had to be specified per platform while behaving identically on all of them.\n• **SDK firing order**: Defined a strict sequence for how the SDKs start. Amplitude initialises first and its device ID is handed to AppsFlyer at init, so anonymous installs and sessions are linked from the very first open. At login or registration the Melon customer ID is set on both SDKs, merging the anonymous history into the known profile.\n• **Attribution and deep linking**: Set up AppsFlyer mobile attribution and deep linking, so campaign clicks land users on the right screen in the app and the install is credited to the source that drove it.\n• **Single customer view**: Because both platforms share the same identity keys, a user\'s acquisition source and their in-app journey can be read together, on any platform, without stitching data after the fact.\n• **Taxonomy with the marketing agency**: Co-designed a governed event spec in Object-Action naming with the client\'s marketing agency, covering what the agency needed for campaign measurement and what the product team needed for analytics. One spec, instrumented the same way across all four platforms.\n• **Developer specs per surface**: Built interactive, detailed specs and instruction documentation for each developer on each surface and platform, so every team knew exactly what to fire, when and with which properties. Implementation landed accurately with minimal back and forth.\n• **Consent management**: Introduced consent management, which didn\'t exist before this project, so tracking across the stack now respects user consent.\n• **Phased delivery**: Scoped the rollout with the client and the agency into phases, so identity and core events landed first and every later phase built on a stable, verified foundation.\n• **Outcome**: Phase one delivered on time and accurately in six weeks across Android, iOS, Huawei and web, with attribution and behaviour on one profile. Marketing and product now work from the same customer instead of two partial ones, on a consent-aware foundation.',
+    tags: ['Amplitude', 'AppsFlyer', 'Mobile SDKs', 'Huawei HMS', 'Deep Linking', 'Identity Resolution', 'Event Taxonomy', 'Consent Management'],
     imageUrl: '/assets/images/melon-featured.svg',
     category: 'Martech',
     galleryTitle: 'Architecture diagrams',
@@ -202,9 +202,9 @@ export const EXPERIENCE: Experience[] = [
       'Lead the technical architecture practice, directing a consultancy team implementing Braze, OneSignal, InsiderOne, Amplitude, DOMO, and HubSpot for high-growth fintech and retail clients.',
       'Own pre-sales technical advisory: architecture discovery, solution design, and objection handling with prospect C-suite and IT stakeholders, contributing directly to enterprise contract closures.',
       'Orchestrated technical delivery for Wonga, OM Bank (Old Mutual\'s digital bank), and Banco Millennium Atlântico, establishing marketing automation foundations in regulated financial environments.',
-      'Architected identity resolution for the OM Bank launch, unifying 140,000+ client identities within three months ahead of go-live.',
-      'Led the dual Amplitude and AppsFlyer implementation for Melon Mobile across Android, iOS, Huawei and web, sequencing both SDKs to deliver a single customer view and going live on time.',
-      'Designed bespoke webhook infrastructure for external SMS triggering, working around platform limitations to meet regional client requirements.',
+      'Architected identity resolution for the OM Bank launch, unifying 140,000+ client identities within three months ahead of go-live; the bank has since scaled past 740,000 customers (H1 2026).',
+      'Led the dual AppsFlyer and Amplitude onboarding and implementation for Melon Mobile across Android, iOS, Huawei and web, covering mobile attribution, deep linking and product analytics; phase one delivered on time and accurately in six weeks.',
+      'Built internal delivery tooling that turned open-ended client onboarding into tight, time-boxed platform implementations, cutting typical onboarding from ~6 months to ~8 weeks and consistently landing ahead of schedule.',
       'Built and deployed an MCP-based Slack knowledge agent (Node.js, TypeScript, Python) integrating HubSpot, Notion, and Zendesk via the Claude API.'
     ]
   },
@@ -221,20 +221,19 @@ export const EXPERIENCE: Experience[] = [
   {
     company: 'inQuba',
     role: 'Business Analyst',
-    period: 'July 2021 - Aug 2023',
+    period: 'Jul 2021 - Aug 2023',
     description: [
-      'Designed and implemented enterprise CX programmes for banking, insurance, health, and leisure clients, including Discovery Vitality and Virgin Active.',
-      'Facilitated Agile sprints, translating business requirements into the product roadmap and user journey optimisation.',
-      'Managed implementation of WhatsApp CX projects for Discovery Vitality.'
+      'Designed and implemented enterprise CX programmes for African Bank, Virgin Active, Discovery Vitality, and Peermont.',
+      'Facilitated Agile sprints, translating business requirements into the product roadmap and user journey optimisation.'
     ]
   },
   {
     company: 'inQuba',
     role: 'Service Delivery Manager',
-    period: 'Nov 2018 - July 2021',
+    period: 'Nov 2018 - Jul 2021',
     description: [
       'Led a multicultural service team supporting clients across South Africa, Australia, the USA, and the UK.',
-      'Owned service delivery and post-implementation CX support for enterprise clients in insurance, retail, and hospitality, including TFG.',
+      'Owned service delivery and post-implementation CX support for CapGemini, Suncorp Insurance, TFG, Goodyear Beaurepaires, Sun International, and Peermont.',
       'Translated user feedback into product enhancements.'
     ]
   }
@@ -253,7 +252,7 @@ export const EARLIER_CAREER: EarlierRole[] = [
     role: 'Operations Analyst',
     period: 'Mar 2012 - Feb 2017',
     summary:
-      'Operations Analyst from Jul 2013: software and data operations on Oracle Flexcube for major South African unit trusts and ETFs (ABSA, Satrix, iTransact), with gap analysis and process documentation in a regulated environment. Earlier roles: Change Management Operator; IS Operator.',
+      'Operations Analyst from Jul 2013: software and data operations on Oracle Flexcube for South Africa\'s largest unit trusts and ETFs (ABSA, Satrix, iTransact), with gap analysis and process documentation in a regulated environment. Earlier roles: Change Management Operator; IS Operator.',
   },
 ];
 
@@ -265,14 +264,24 @@ export const EDUCATION: Education[] = [
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     name: 'Pre-sales & solutioning',
-    skills: ['Pre-sales & solution design', 'Solutions architecture', 'Architecture discovery', 'Objection handling', 'Stakeholder advisory'],
+    skills: [
+      'Technical discovery',
+      'Solution architecture',
+      'PoC & PoV delivery',
+      'Enterprise demonstrations',
+      'RFP & security questionnaires',
+      'C-suite stakeholder engagement',
+    ],
   },
   {
     name: 'Customer data & engagement',
     skills: [
       'Braze — 8x certified, incl. Technical Architect',
       'Amplitude — 7x certified, Certified Delivery Partner',
+      'AppsFlyer — Reseller Solution Architect',
       'CDP & identity resolution',
+      'Mobile attribution & deep linking',
+      'Campaign orchestration & segmentation',
       'OneSignal',
       'InsiderOne',
       'HubSpot',
@@ -281,23 +290,46 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     name: 'AI & automation',
-    skills: ['Claude API & MCP', 'GenAI agent design', 'Claude agent skills', 'Google Generative AI Leader certified', 'Make.com', 'n8n'],
+    skills: [
+      'Claude API & MCP',
+      'Agent design & deployment',
+      'GenAI workflow integration',
+      'Claude agent skills',
+      'Cursor',
+      'Make.com',
+      'n8n',
+    ],
   },
   {
     name: 'Data & integration',
-    skills: ['DOMO — MajorDomo certified', 'GTM & event tracking', 'Event taxonomy design', 'REST APIs & webhooks'],
+    skills: [
+      'End-to-end data pipelines',
+      'REST APIs & webhooks',
+      'GTM & event tracking architecture',
+      'Event taxonomy design',
+      'BI & executive visualisation',
+      'DOMO — MajorDomo certified',
+    ],
   },
   {
-    name: 'Languages',
-    skills: ['Python', 'JavaScript', 'TypeScript / Node.js', 'WordPress (12+ years)'],
+    name: 'Languages & runtimes',
+    skills: ['Python', 'JavaScript', 'TypeScript', 'Node.js'],
+  },
+  {
+    name: 'Web',
+    skills: ['WordPress (12+ years)', 'Divi', 'WooCommerce', 'DNS, SPF/DKIM & SSL'],
   },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { name: 'Generative AI Leader Certification', issuer: 'Google' },
   { name: '8x Certified, incl. Technical Architect', issuer: 'Braze' },
   { name: '7x Certified, Certified Delivery Partner', issuer: 'Amplitude' },
+  { name: 'Reseller Solution Architect & Essentials', issuer: 'AppsFlyer' },
+  { name: 'Insider One Foundational', issuer: 'Insider One' },
   { name: 'MajorDomo / Technical Certification', issuer: 'DOMO' },
+  { name: '5x Certified, incl. Model Context Protocol & Claude Code', issuer: 'Anthropic Academy' },
+  { name: 'Generative AI Leader Certification', issuer: 'Google' },
+  { name: 'Notion Workflows Badge', issuer: 'Notion' },
   { name: 'HubSpot Partner', issuer: 'HubSpot' },
   { name: 'Mixpanel Partner', issuer: 'Mixpanel' },
   { name: 'Agile Project Management', issuer: 'GrowthTribe' },
