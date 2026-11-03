@@ -58,6 +58,14 @@ const ExperienceTimeline: React.FC = () => {
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent block">
                   {exp.period}
                 </span>
+                {exp.logo && (
+                  <img
+                    src={exp.logo}
+                    alt={`${exp.company} logo`}
+                    loading="lazy"
+                    className="mt-5 h-8 md:h-10 w-auto max-w-[180px] object-contain object-left brightness-0 invert opacity-70"
+                  />
+                )}
               </div>
             </div>
             <div className="md:col-span-8">
@@ -83,7 +91,17 @@ const ExperienceTimeline: React.FC = () => {
           <ul>
             {EARLIER_CAREER.map((job) => (
               <li key={job.company} className="py-6 border-b border-line">
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{job.period}</p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{job.period}</p>
+                  {job.logo && (
+                    <img
+                      src={job.logo}
+                      alt={`${job.company} logo`}
+                      loading="lazy"
+                      className="h-5 w-auto max-w-[110px] object-contain object-right brightness-0 invert opacity-60"
+                    />
+                  )}
+                </div>
                 <p className="text-paper text-lg mt-2">
                   {job.role} <span className="text-muted">· {job.company}</span>
                 </p>

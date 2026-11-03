@@ -29,6 +29,8 @@ export interface Project {
 
 export interface Experience {
   company: string;
+  /** Company logo, rendered white in the timeline. */
+  logo?: string;
   role: string;
   period: string;
   description: string[];
@@ -36,6 +38,7 @@ export interface Experience {
 
 export interface EarlierRole {
   company: string;
+  logo?: string;
   role: string;
   period: string;
   summary: string;
