@@ -107,7 +107,16 @@ const ProfessionalSite: React.FC<ProfessionalSiteProps> = ({
                 >
                   {String(idx + 1).padStart(2, '0')}
                 </span>
-                <p className="mono-label text-accent relative z-10">{cert.issuer}</p>
+                <div className="relative z-10 flex flex-col items-start gap-4">
+                  {/* Brand marks are flattened to white so the grid reads as one set. */}
+                  <img
+                    src={cert.logo}
+                    alt={`${cert.issuer} logo`}
+                    loading="lazy"
+                    className="h-6 md:h-7 w-auto max-w-[150px] object-contain object-left brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <p className="mono-label text-accent">{cert.issuer}</p>
+                </div>
                 <h4 className="display-heading text-xl md:text-2xl text-paper relative z-10 mt-8">
                   {cert.name}
                 </h4>
