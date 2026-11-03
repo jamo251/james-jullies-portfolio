@@ -196,6 +196,7 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCE: Experience[] = [
   {
     company: 'YOUKNOW Technologies',
+    logo: '/assets/images/logos/youknow.svg',
     role: 'Senior Solutions Consultant',
     period: 'Oct 2024 - Present',
     description: [
@@ -210,6 +211,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     company: 'YOUKNOW Technologies',
+    logo: '/assets/images/logos/youknow.svg',
     role: 'Solutions Engineer: CX & Analytics',
     period: 'Aug 2023 - Sep 2024',
     description: [
@@ -220,6 +222,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     company: 'inQuba',
+    logo: '/assets/images/logos/inquba.png',
     role: 'Business Analyst',
     period: 'Jul 2021 - Aug 2023',
     description: [
@@ -229,6 +232,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     company: 'inQuba',
+    logo: '/assets/images/logos/inquba.png',
     role: 'Service Delivery Manager',
     period: 'Nov 2018 - Jul 2021',
     description: [
@@ -242,6 +246,7 @@ export const EXPERIENCE: Experience[] = [
 export const EARLIER_CAREER: EarlierRole[] = [
   {
     company: 'inQuba',
+    logo: '/assets/images/logos/inquba.png',
     role: 'Service & Operations Support Analyst',
     period: 'Mar 2017 - Oct 2018',
     summary:
@@ -249,6 +254,7 @@ export const EARLIER_CAREER: EarlierRole[] = [
   },
   {
     company: 'Automated Outsourcing Services',
+    logo: '/assets/images/logos/aos.png',
     role: 'Operations Analyst',
     period: 'Mar 2012 - Feb 2017',
     summary:
