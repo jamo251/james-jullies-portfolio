@@ -47,7 +47,7 @@ const HomePage: React.FC<HomePageProps> = ({ onAskAi, askAiRef }) => (
       </li>
       <li>
         <WorkLink slug="braze-implementation">OM Bank</WorkLink> – Braze architecture and identity resolution (140k
-        identities at launch, 740k+ customers by 2026)
+        identities at launch, 1M+ customers by 2026)
       </li>
       <li>
         <WorkLink slug="onesignal-migration">Banco Millennium Atlântico</WorkLink> – OneSignal migration off MS
