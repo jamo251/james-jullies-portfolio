@@ -1,6 +1,6 @@
 # James Jullies — portfolio
 
-Vite + React + Tailwind single-page site, deployed on Vercel.
+Vite + React single-page site, plain CSS, deployed on Vercel.
 
 ## Run locally
 
@@ -12,7 +12,6 @@ Vite + React + Tailwind single-page site, deployed on Vercel.
 | Variable | Where | Purpose |
 | --- | --- | --- |
 | `ANTHROPIC_API_KEY` | Vercel (server only) | Ask AI guide (`api/chat.ts`, Claude Haiku 5.5). Never prefix with `VITE_`. |
-| `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY` | Vercel | Contact form (EmailJS public identifiers). |
 
 ## Content
 
