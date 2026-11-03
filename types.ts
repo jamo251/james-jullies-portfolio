@@ -48,6 +48,7 @@ export interface Education {
   qualification: string;
   institution: string;
   year: string;
+  logo?: string;
 }
 
 export interface SkillGroup {

@@ -115,7 +115,17 @@ const ExperienceTimeline: React.FC = () => {
           <ul>
             {EDUCATION.map((ed) => (
               <li key={ed.qualification} className="py-6 border-b border-line">
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{ed.year}</p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{ed.year}</p>
+                  {ed.logo && (
+                    <img
+                      src={ed.logo}
+                      alt={`${ed.institution} logo`}
+                      loading="lazy"
+                      className="h-9 w-auto max-w-[150px] object-contain object-right brightness-0 invert opacity-70"
+                    />
+                  )}
+                </div>
                 <p className="text-paper text-lg mt-2">{ed.qualification}</p>
                 <p className="text-muted text-sm mt-1">{ed.institution}</p>
               </li>
