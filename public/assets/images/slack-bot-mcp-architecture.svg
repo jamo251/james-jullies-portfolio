@@ -1,91 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
-  <rect width="1280" height="720" fill="#0A0A0B"/>
-  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif">
+  <style>
+    :root { --bg:#FFFFFF; --box:#F7F7F7; --line:#E4E4E4; --line-strong:#CFCFCF; --heading:#111111; --text:#2B2B2B; --muted:#5F5F5F; --accent:#1F9D55; --accent-text:#1A7F46; --warn:#C2410C; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0F0F10; --box:#18181A; --line:#2C2C2E; --line-strong:#3E3E42; --heading:#FFFFFF; --text:#E6E6E6; --muted:#A3A3A3; --accent:#3FCF7F; --accent-text:#3FCF7F; --warn:#FB923C; }
+    }
+    .f-bg{fill:var(--bg)} .f-box{fill:var(--box)} .f-heading{fill:var(--heading)} .f-muted{fill:var(--muted)}
+    .f-accent{fill:var(--accent)} .f-accent-text{fill:var(--accent-text)} .f-warn{fill:var(--warn)}
+    .s-line{stroke:var(--line)} .s-line-strong{stroke:var(--line-strong)} .s-accent{stroke:var(--accent)} .s-warn{stroke:var(--warn)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+  <rect class="f-bg" width="1280" height="720" fill="#FFFFFF"/>
 
-  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">ARCHITECTURE / MODEL CONTEXT PROTOCOL</text>
-  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">One Client, Three Servers</text>
+  <text class="f-muted" x="64" y="68" fill="#5F5F5F" font-size="14" letter-spacing="1.6">ARCHITECTURE / MODEL CONTEXT PROTOCOL</text>
+  <text class="f-heading" x="64" y="110" fill="#111111" font-size="30" font-weight="600">One Client, Three Servers</text>
 
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+      <path class="f-accent" d="M0,0 L8,3 L0,6 Z" fill="#1F9D55"/>
     </marker>
   </defs>
 
   <!-- Host / client -->
-  <text x="64" y="178" fill="#86868B" font-size="13" letter-spacing="2">HOST</text>
-  <rect x="64" y="194" width="320" height="180" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
-  <text x="84" y="232" fill="#D9FF4B" font-size="18" font-weight="600">Slack Bot Host</text>
-  <text x="84" y="258" fill="#86868B" font-size="12">Claude API as the reasoning</text>
-  <text x="84" y="276" fill="#86868B" font-size="12">engine (migrated from Gemini Flash)</text>
+  <text class="f-muted" x="64" y="178" fill="#5F5F5F" font-size="13" letter-spacing="1.2">HOST</text>
+  <rect class="f-bg s-accent" rx="6" x="64" y="194" width="320" height="180" fill="#FFFFFF" stroke="#1F9D55"/>
+  <text class="f-accent-text" x="84" y="232" fill="#1A7F46" font-size="18" font-weight="600">Slack Bot Host</text>
+  <text class="f-muted" x="84" y="258" fill="#5F5F5F" font-size="12">Claude API as the reasoning</text>
+  <text class="f-muted" x="84" y="276" fill="#5F5F5F" font-size="12">engine (migrated from Gemini Flash)</text>
   <g font-size="12">
-    <rect x="84" y="292" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="98" y="308" fill="#F2F1ED">Slack Events API listener</text>
-    <rect x="84" y="320" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="98" y="336" fill="#F2F1ED">MCP client + tool router</text>
-    <rect x="84" y="348" width="280" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="98" y="364" fill="#F2F1ED">Answer composer</text>
+    <rect class="f-box s-line" rx="3" x="84" y="292" width="280" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="98" y="308" fill="#111111">Slack Events API listener</text>
+    <rect class="f-box s-line" rx="3" x="84" y="320" width="280" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="98" y="336" fill="#111111">MCP client + tool router</text>
+    <rect class="f-box s-line" rx="3" x="84" y="348" width="280" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="98" y="364" fill="#111111">Answer composer</text>
   </g>
 
   <!-- MCP transport label -->
-  <line x1="384" y1="284" x2="520" y2="284" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <text x="392" y="262" fill="#86868B" font-size="11">MCP</text>
-  <text x="392" y="276" fill="#86868B" font-size="11">tools / resources</text>
-  <line x1="520" y1="284" x2="384" y2="284" stroke="#D9FF4B" stroke-opacity="0.3" marker-end="url(#arrow)"/>
+  <line class="s-accent" x1="384" y1="284" x2="520" y2="284" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
+  <text class="f-muted" x="392" y="262" fill="#5F5F5F" font-size="11">MCP</text>
+  <text class="f-muted" x="392" y="276" fill="#5F5F5F" font-size="11">tools / resources</text>
+  <line class="s-accent" x1="520" y1="284" x2="384" y2="284" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
 
   <!-- MCP servers column -->
-  <text x="540" y="178" fill="#86868B" font-size="13" letter-spacing="2">MCP SERVERS</text>
+  <text class="f-muted" x="540" y="178" fill="#5F5F5F" font-size="13" letter-spacing="1.2">MCP SERVERS</text>
   <g font-size="13">
-    <rect x="540" y="194" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="560" y="220" fill="#F2F1ED" font-weight="600">HubSpot MCP Server</text>
-    <text x="560" y="240" fill="#86868B" font-size="11">search_contacts · get_deals · get_company</text>
+    <rect class="f-box s-line" rx="6" x="540" y="194" width="320" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="560" y="220" fill="#111111" font-weight="600">HubSpot MCP Server</text>
+    <text class="f-muted" x="560" y="240" fill="#5F5F5F" font-size="11">search_contacts · get_deals · get_company</text>
 
-    <rect x="540" y="262" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="560" y="288" fill="#F2F1ED" font-weight="600">Notion MCP Server</text>
-    <text x="560" y="308" fill="#86868B" font-size="11">search_pages · fetch_doc · query_db</text>
+    <rect class="f-box s-line" rx="6" x="540" y="262" width="320" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="560" y="288" fill="#111111" font-weight="600">Notion MCP Server</text>
+    <text class="f-muted" x="560" y="308" fill="#5F5F5F" font-size="11">search_pages · fetch_doc · query_db</text>
 
-    <rect x="540" y="330" width="320" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="560" y="356" fill="#F2F1ED" font-weight="600">Zendesk MCP Server</text>
-    <text x="560" y="376" fill="#86868B" font-size="11">list_tickets · get_ticket · get_user</text>
+    <rect class="f-box s-line" rx="6" x="540" y="330" width="320" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="560" y="356" fill="#111111" font-weight="600">Zendesk MCP Server</text>
+    <text class="f-muted" x="560" y="376" fill="#5F5F5F" font-size="11">list_tickets · get_ticket · get_user</text>
   </g>
 
-  <line x1="860" y1="222" x2="976" y2="222" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <line x1="860" y1="290" x2="976" y2="290" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <line x1="860" y1="358" x2="976" y2="358" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line class="s-accent" x1="860" y1="222" x2="976" y2="222" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
+  <line class="s-accent" x1="860" y1="290" x2="976" y2="290" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
+  <line class="s-accent" x1="860" y1="358" x2="976" y2="358" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
 
   <!-- External platforms -->
-  <text x="996" y="178" fill="#86868B" font-size="13" letter-spacing="2">PLATFORM APIS</text>
+  <text class="f-muted" x="996" y="178" fill="#5F5F5F" font-size="13" letter-spacing="1.2">PLATFORM APIS</text>
   <g font-size="13">
-    <rect x="996" y="194" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
-    <text x="1016" y="226" fill="#D9FF4B">HubSpot API</text>
-    <rect x="996" y="262" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
-    <text x="1016" y="294" fill="#D9FF4B">Notion API</text>
-    <rect x="996" y="330" width="220" height="56" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.25"/>
-    <text x="1016" y="362" fill="#D9FF4B">Zendesk API</text>
+    <rect class="f-bg s-accent" rx="6" x="996" y="194" width="220" height="56" fill="#FFFFFF" stroke="#1F9D55" stroke-opacity="0.55"/>
+    <text class="f-accent-text" x="1016" y="226" fill="#1A7F46">HubSpot API</text>
+    <rect class="f-bg s-accent" rx="6" x="996" y="262" width="220" height="56" fill="#FFFFFF" stroke="#1F9D55" stroke-opacity="0.55"/>
+    <text class="f-accent-text" x="1016" y="294" fill="#1A7F46">Notion API</text>
+    <rect class="f-bg s-accent" rx="6" x="996" y="330" width="220" height="56" fill="#FFFFFF" stroke="#1F9D55" stroke-opacity="0.55"/>
+    <text class="f-accent-text" x="1016" y="362" fill="#1A7F46">Zendesk API</text>
   </g>
 
   <!-- Why MCP band -->
-  <text x="64" y="436" fill="#86868B" font-size="13" letter-spacing="2">WHY MCP</text>
-  <rect x="64" y="452" width="1152" height="200" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text class="f-muted" x="64" y="436" fill="#5F5F5F" font-size="13" letter-spacing="1.2">WHY MCP</text>
+  <rect class="f-bg s-line" rx="6" x="64" y="452" width="1152" height="200" fill="#FFFFFF" stroke="#E4E4E4"/>
   <g font-size="13">
-    <rect x="84" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="104" y="498" fill="#D9FF4B">Uniform tool layer</text>
-    <text x="104" y="520" fill="#86868B" font-size="12">Three different APIs, one</text>
-    <text x="104" y="536" fill="#86868B" font-size="12">protocol the model calls</text>
+    <rect class="f-box s-line" rx="6" x="84" y="474" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="104" y="498" fill="#1A7F46">Uniform tool layer</text>
+    <text class="f-muted" x="104" y="520" fill="#5F5F5F" font-size="12">Three different APIs, one</text>
+    <text class="f-muted" x="104" y="536" fill="#5F5F5F" font-size="12">protocol the model calls</text>
 
-    <rect x="461" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="481" y="498" fill="#D9FF4B">Governed access</text>
-    <text x="481" y="520" fill="#86868B" font-size="12">Scoped tools &amp; credentials</text>
-    <text x="481" y="536" fill="#86868B" font-size="12">per source, server-side</text>
+    <rect class="f-box s-line" rx="6" x="461" y="474" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="481" y="498" fill="#1A7F46">Governed access</text>
+    <text class="f-muted" x="481" y="520" fill="#5F5F5F" font-size="12">Scoped tools &amp; credentials</text>
+    <text class="f-muted" x="481" y="536" fill="#5F5F5F" font-size="12">per source, server-side</text>
 
-    <rect x="838" y="474" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="858" y="498" fill="#D9FF4B">Composable</text>
-    <text x="858" y="520" fill="#86868B" font-size="12">Add a source by adding a</text>
-    <text x="858" y="536" fill="#86868B" font-size="12">server — no host rewrite</text>
+    <rect class="f-box s-line" rx="6" x="838" y="474" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="858" y="498" fill="#1A7F46">Composable</text>
+    <text class="f-muted" x="858" y="520" fill="#5F5F5F" font-size="12">Add a source by adding a</text>
+    <text class="f-muted" x="858" y="536" fill="#5F5F5F" font-size="12">server — no host rewrite</text>
 
-    <rect x="84" y="558" width="1112" height="76" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
-    <text x="104" y="590" fill="#F2F1ED" font-weight="600">The model never touches a raw API</text>
-    <text x="104" y="614" fill="#86868B" font-size="12">It calls MCP tools; each server owns its platform's auth, queries, and response shaping.</text>
+    <rect class="f-box s-accent" rx="6" x="84" y="558" width="1112" height="76" fill="#F7F7F7" stroke="#1F9D55" stroke-opacity="0.55"/>
+    <text class="f-heading" x="104" y="590" fill="#111111" font-weight="600">The model never touches a raw API</text>
+    <text class="f-muted" x="104" y="614" fill="#5F5F5F" font-size="12">It calls MCP tools; each server owns its platform's auth, queries, and response shaping.</text>
   </g>
 
-  <text x="64" y="692" fill="#86868B" font-size="12">Built with Claude Code · reasoning by the Claude API (migrated from Gemini Flash) · integration over the Model Context Protocol.</text>
+  <text class="f-muted" x="64" y="692" fill="#5F5F5F" font-size="12">Built with Claude Code · reasoning by the Claude API (migrated from Gemini Flash) · integration over the Model Context Protocol.</text>
 </svg>

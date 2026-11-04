@@ -1,60 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
-  <rect width="1280" height="720" fill="#0A0A0B"/>
-  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif">
+  <style>
+    :root { --bg:#FFFFFF; --box:#F7F7F7; --line:#E4E4E4; --line-strong:#CFCFCF; --heading:#111111; --text:#2B2B2B; --muted:#5F5F5F; --accent:#1F9D55; --accent-fill:#1F9D55; --accent-text:#1A7F46; --warn:#C2410C; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0F0F10; --box:#18181A; --line:#2C2C2E; --line-strong:#3E3E42; --heading:#FFFFFF; --text:#E6E6E6; --muted:#A3A3A3; --accent:#3FCF7F; --accent-fill:#1F9D55; --accent-text:#3FCF7F; --warn:#FB923C; }
+    }
+    .f-bg{fill:var(--bg)} .f-box{fill:var(--box)} .f-heading{fill:var(--heading)} .f-muted{fill:var(--muted)}
+    .f-accent{fill:var(--accent)} rect.f-accent{fill:var(--accent-fill)} .f-accent-text{fill:var(--accent-text)} .f-warn{fill:var(--warn)}
+    .s-line{stroke:var(--line)} .s-line-strong{stroke:var(--line-strong)} .s-accent{stroke:var(--accent)} .s-warn{stroke:var(--warn)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+  <rect class="f-bg" width="1280" height="720" fill="#FFFFFF"/>
 
   <!-- Header -->
-  <text x="64" y="74" fill="#86868B" font-size="14" letter-spacing="4">AMPLITUDE / FUNNEL ANALYSIS</text>
-  <text x="64" y="120" fill="#F2F1ED" font-size="38" font-weight="600">Checkout Conversion Funnel</text>
-  <text x="64" y="150" fill="#86868B" font-size="15">Cross-brand checkout journey · representative data · step-to-step conversion</text>
-  <line x1="64" y1="172" x2="1216" y2="172" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text class="f-muted" x="64" y="74" fill="#5F5F5F" font-size="14" letter-spacing="1.6">AMPLITUDE / FUNNEL ANALYSIS</text>
+  <text class="f-heading" x="64" y="120" fill="#111111" font-size="34" font-weight="600">Checkout Conversion Funnel</text>
+  <text class="f-muted" x="64" y="150" fill="#5F5F5F" font-size="15">Cross-brand checkout journey · representative data · step-to-step conversion</text>
+  <line class="s-line" x1="64" y1="172" x2="1216" y2="172" stroke="#E4E4E4"/>
 
   <!-- Bars: x base 64, max width 1000 -->
   <!-- Step 1: Cart Viewed 100% -->
   <g>
-    <rect x="64" y="208" width="1000" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <rect x="64" y="208" width="1000" height="56" fill="#D9FF4B" fill-opacity="0.85"/>
-    <text x="80" y="242" fill="#0A0A0B" font-size="17" font-weight="600">Cart Viewed</text>
-    <text x="1050" y="242" fill="#0A0A0B" font-size="17" font-weight="600" text-anchor="end">100%</text>
+    <rect class="f-box s-line" rx="6" x="64" y="208" width="1000" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <rect class="f-accent" rx="6" x="64" y="208" width="1000" height="56" fill="#1F9D55" fill-opacity="0.85"/>
+    <text class="f-heading" x="80" y="242" fill="#111111" font-size="17" font-weight="600">Cart Viewed</text>
+    <text class="f-heading" x="1050" y="242" fill="#111111" font-size="17" font-weight="600" text-anchor="end">100%</text>
   </g>
 
   <!-- Step 2: Checkout Started 64% -->
   <g>
-    <rect x="64" y="288" width="1000" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <rect x="64" y="288" width="640" height="56" fill="#D9FF4B" fill-opacity="0.7"/>
-    <text x="80" y="322" fill="#0A0A0B" font-size="17" font-weight="600">Checkout Started</text>
-    <text x="724" y="322" fill="#F2F1ED" font-size="17" text-anchor="start">64%</text>
-    <text x="1050" y="322" fill="#86868B" font-size="13" text-anchor="end">−36%</text>
+    <rect class="f-box s-line" rx="6" x="64" y="288" width="1000" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <rect class="f-accent" rx="6" x="64" y="288" width="640" height="56" fill="#1F9D55" fill-opacity="0.7"/>
+    <text class="f-heading" x="80" y="322" fill="#111111" font-size="17" font-weight="600">Checkout Started</text>
+    <text class="f-heading" x="724" y="322" fill="#111111" font-size="17" text-anchor="start">64%</text>
+    <text class="f-muted" x="1050" y="322" fill="#5F5F5F" font-size="13" text-anchor="end">−36%</text>
   </g>
 
   <!-- Step 3: Shipping Info Completed 51% -->
   <g>
-    <rect x="64" y="368" width="1000" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <rect x="64" y="368" width="510" height="56" fill="#D9FF4B" fill-opacity="0.55"/>
-    <text x="80" y="402" fill="#0A0A0B" font-size="17" font-weight="600">Shipping Info Completed</text>
-    <text x="594" y="402" fill="#F2F1ED" font-size="17" text-anchor="start">51%</text>
-    <text x="1050" y="402" fill="#86868B" font-size="13" text-anchor="end">−13%</text>
+    <rect class="f-box s-line" rx="6" x="64" y="368" width="1000" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <rect class="f-accent" rx="6" x="64" y="368" width="510" height="56" fill="#1F9D55" fill-opacity="0.55"/>
+    <text class="f-heading" x="80" y="402" fill="#111111" font-size="17" font-weight="600">Shipping Info Completed</text>
+    <text class="f-heading" x="594" y="402" fill="#111111" font-size="17" text-anchor="start">51%</text>
+    <text class="f-muted" x="1050" y="402" fill="#5F5F5F" font-size="13" text-anchor="end">−13%</text>
   </g>
 
   <!-- Step 4: Payment Info Entered 33% - HIGHLIGHT drop -->
   <g>
-    <rect x="64" y="448" width="1000" height="56" fill="#141416" stroke="#FF5C5C" stroke-opacity="0.5"/>
-    <rect x="64" y="448" width="330" height="56" fill="#D9FF4B" fill-opacity="0.4"/>
-    <text x="80" y="482" fill="#F2F1ED" font-size="17" font-weight="600">Payment Info Entered</text>
-    <text x="414" y="482" fill="#F2F1ED" font-size="17" text-anchor="start">33%</text>
-    <text x="1050" y="482" fill="#FF5C5C" font-size="13" font-weight="600" text-anchor="end">−18% ▼ largest drop-off</text>
+    <rect class="f-box s-warn" rx="6" x="64" y="448" width="1000" height="56" fill="#F7F7F7" stroke="#C2410C"/>
+    <rect class="f-accent" rx="6" x="64" y="448" width="330" height="56" fill="#1F9D55" fill-opacity="0.4"/>
+    <text class="f-heading" x="80" y="482" fill="#111111" font-size="17" font-weight="600">Payment Info Entered</text>
+    <text class="f-heading" x="414" y="482" fill="#111111" font-size="17" text-anchor="start">33%</text>
+    <text class="f-warn" x="1050" y="482" fill="#C2410C" font-size="13" font-weight="600" text-anchor="end">−18% ▼ largest drop-off</text>
   </g>
 
   <!-- Step 5: Order Completed 27% -->
   <g>
-    <rect x="64" y="528" width="1000" height="56" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <rect x="64" y="528" width="270" height="56" fill="#D9FF4B" fill-opacity="0.3"/>
-    <text x="80" y="562" fill="#F2F1ED" font-size="17" font-weight="600">Order Completed</text>
-    <text x="354" y="562" fill="#F2F1ED" font-size="17" text-anchor="start">27%</text>
-    <text x="1050" y="562" fill="#86868B" font-size="13" text-anchor="end">−6%</text>
+    <rect class="f-box s-line" rx="6" x="64" y="528" width="1000" height="56" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <rect class="f-accent" rx="6" x="64" y="528" width="270" height="56" fill="#1F9D55" fill-opacity="0.3"/>
+    <text class="f-heading" x="80" y="562" fill="#111111" font-size="17" font-weight="600">Order Completed</text>
+    <text class="f-heading" x="354" y="562" fill="#111111" font-size="17" text-anchor="start">27%</text>
+    <text class="f-muted" x="1050" y="562" fill="#5F5F5F" font-size="13" text-anchor="end">−6%</text>
   </g>
 
   <!-- Insight callout -->
-  <line x1="64" y1="624" x2="1216" y2="624" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <rect x="64" y="646" width="14" height="14" fill="#FF5C5C" fill-opacity="0.7"/>
-  <text x="90" y="658" fill="#86868B" font-size="14">INSIGHT — 1 in 5 shoppers abandon at payment entry. Highest-leverage step for checkout CRO across all three brands.</text>
+  <line class="s-line" x1="64" y1="624" x2="1216" y2="624" stroke="#E4E4E4"/>
+  <rect class="f-warn" x="64" y="646" width="14" height="14" fill="#C2410C" fill-opacity="0.7"/>
+  <text class="f-muted" x="90" y="658" fill="#5F5F5F" font-size="14">INSIGHT — 1 in 5 shoppers abandon at payment entry. Highest-leverage step for checkout CRO across all three brands.</text>
 </svg>

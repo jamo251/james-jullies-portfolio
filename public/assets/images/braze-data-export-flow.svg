@@ -1,78 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
-  <rect width="1280" height="720" fill="#0A0A0B"/>
-  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif">
+  <style>
+    :root { --bg:#FFFFFF; --box:#F7F7F7; --line:#E4E4E4; --line-strong:#CFCFCF; --heading:#111111; --text:#2B2B2B; --muted:#5F5F5F; --accent:#1F9D55; --accent-text:#1A7F46; --warn:#C2410C; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0F0F10; --box:#18181A; --line:#2C2C2E; --line-strong:#3E3E42; --heading:#FFFFFF; --text:#E6E6E6; --muted:#A3A3A3; --accent:#3FCF7F; --accent-text:#3FCF7F; --warn:#FB923C; }
+    }
+    .f-bg{fill:var(--bg)} .f-box{fill:var(--box)} .f-heading{fill:var(--heading)} .f-muted{fill:var(--muted)}
+    .f-accent{fill:var(--accent)} .f-accent-text{fill:var(--accent-text)} .f-warn{fill:var(--warn)}
+    .s-line{stroke:var(--line)} .s-line-strong{stroke:var(--line-strong)} .s-accent{stroke:var(--accent)} .s-warn{stroke:var(--warn)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+  <rect class="f-bg" width="1280" height="720" fill="#FFFFFF"/>
 
-  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">DATA EXPORTS / CURRENTS</text>
-  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Streaming Engagement Data Out</text>
+  <text class="f-muted" x="64" y="68" fill="#5F5F5F" font-size="14" letter-spacing="1.6">DATA EXPORTS / CURRENTS</text>
+  <text class="f-heading" x="64" y="110" fill="#111111" font-size="30" font-weight="600">Streaming Engagement Data Out</text>
 
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+      <path class="f-accent" d="M0,0 L8,3 L0,6 Z" fill="#1F9D55"/>
     </marker>
   </defs>
 
   <!-- Source -->
-  <text x="64" y="180" fill="#86868B" font-size="13" letter-spacing="2">SOURCE</text>
-  <rect x="64" y="196" width="280" height="160" fill="#0A0A0B" stroke="#D9FF4B" stroke-opacity="0.35"/>
-  <text x="84" y="234" fill="#D9FF4B" font-size="18" font-weight="600">Braze</text>
-  <text x="84" y="258" fill="#86868B" font-size="12">Message engagement &amp;</text>
-  <text x="84" y="276" fill="#86868B" font-size="12">behavioural events</text>
+  <text class="f-muted" x="64" y="180" fill="#5F5F5F" font-size="13" letter-spacing="1.2">SOURCE</text>
+  <rect class="f-bg s-accent" rx="6" x="64" y="196" width="280" height="160" fill="#FFFFFF" stroke="#1F9D55"/>
+  <text class="f-accent-text" x="84" y="234" fill="#1A7F46" font-size="18" font-weight="600">Braze</text>
+  <text class="f-muted" x="84" y="258" fill="#5F5F5F" font-size="12">Message engagement &amp;</text>
+  <text class="f-muted" x="84" y="276" fill="#5F5F5F" font-size="12">behavioural events</text>
   <g font-size="12">
-    <rect x="84" y="292" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="98" y="308" fill="#F2F1ED">sends · opens · clicks</text>
-    <rect x="84" y="320" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="98" y="336" fill="#F2F1ED">custom &amp; purchase events</text>
+    <rect class="f-box s-line" rx="3" x="84" y="292" width="240" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="98" y="308" fill="#111111">sends · opens · clicks</text>
+    <rect class="f-box s-line" rx="3" x="84" y="320" width="240" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="98" y="336" fill="#111111">custom &amp; purchase events</text>
   </g>
 
-  <line x1="344" y1="276" x2="476" y2="276" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <text x="356" y="266" fill="#86868B" font-size="11">Currents</text>
+  <line class="s-accent" x1="344" y1="276" x2="476" y2="276" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
+  <text class="f-muted" x="356" y="266" fill="#5F5F5F" font-size="11">Currents</text>
 
   <!-- Currents -->
-  <text x="484" y="180" fill="#86868B" font-size="13" letter-spacing="2">EXPORT</text>
-  <rect x="484" y="196" width="280" height="160" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <text x="504" y="234" fill="#F2F1ED" font-size="18" font-weight="600">Braze Currents</text>
-  <text x="504" y="258" fill="#86868B" font-size="12">Near real-time event</text>
-  <text x="504" y="276" fill="#86868B" font-size="12">stream · partitioned</text>
+  <text class="f-muted" x="484" y="180" fill="#5F5F5F" font-size="13" letter-spacing="1.2">EXPORT</text>
+  <rect class="f-box s-line" rx="6" x="484" y="196" width="280" height="160" fill="#F7F7F7" stroke="#E4E4E4"/>
+  <text class="f-heading" x="504" y="234" fill="#111111" font-size="18" font-weight="600">Braze Currents</text>
+  <text class="f-muted" x="504" y="258" fill="#5F5F5F" font-size="12">Near real-time event</text>
+  <text class="f-muted" x="504" y="276" fill="#5F5F5F" font-size="12">stream · partitioned</text>
   <g font-size="12">
-    <rect x="504" y="292" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="518" y="308" fill="#F2F1ED">stable Avro/JSON schema</text>
-    <rect x="504" y="320" width="240" height="22" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="518" y="336" fill="#F2F1ED">event-type contracts</text>
+    <rect class="f-box s-line" rx="3" x="504" y="292" width="240" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="518" y="308" fill="#111111">stable Avro/JSON schema</text>
+    <rect class="f-box s-line" rx="3" x="504" y="320" width="240" height="22" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="518" y="336" fill="#111111">event-type contracts</text>
   </g>
 
-  <line x1="764" y1="276" x2="896" y2="276" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line class="s-accent" x1="764" y1="276" x2="896" y2="276" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
 
   <!-- Sinks -->
-  <text x="916" y="180" fill="#86868B" font-size="13" letter-spacing="2">SINKS</text>
+  <text class="f-muted" x="916" y="180" fill="#5F5F5F" font-size="13" letter-spacing="1.2">SINKS</text>
   <g font-size="13">
-    <rect x="916" y="196" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="936" y="224" fill="#F2F1ED">Cloud Storage / Lake</text>
-    <rect x="916" y="252" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="936" y="280" fill="#F2F1ED">Warehouse &amp; BI</text>
-    <rect x="916" y="308" width="300" height="46" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="936" y="336" fill="#F2F1ED">CDP / mParticle</text>
+    <rect class="f-box s-line" rx="6" x="916" y="196" width="300" height="46" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="936" y="224" fill="#111111">Cloud Storage / Lake</text>
+    <rect class="f-box s-line" rx="6" x="916" y="252" width="300" height="46" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="936" y="280" fill="#111111">Warehouse &amp; BI</text>
+    <rect class="f-box s-line" rx="6" x="916" y="308" width="300" height="46" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-heading" x="936" y="336" fill="#111111">CDP / mParticle</text>
   </g>
 
   <!-- bottom: troubleshooting band -->
-  <text x="64" y="420" fill="#86868B" font-size="13" letter-spacing="2">WHAT THE ARCHITECT ROLE COVERED</text>
-  <rect x="64" y="436" width="1152" height="210" fill="#0A0A0B" stroke="#F2F1ED" stroke-opacity="0.12"/>
+  <text class="f-muted" x="64" y="420" fill="#5F5F5F" font-size="13" letter-spacing="1.2">WHAT THE ARCHITECT ROLE COVERED</text>
+  <rect class="f-bg s-line" rx="6" x="64" y="436" width="1152" height="210" fill="#FFFFFF" stroke="#E4E4E4"/>
   <g font-size="13">
-    <rect x="84" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="104" y="490" fill="#D9FF4B">Schema &amp; contracts</text>
-    <text x="104" y="514" fill="#86868B" font-size="12">Mapped Currents event types to sink schemas</text>
+    <rect class="f-box s-line" rx="6" x="84" y="458" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="104" y="490" fill="#1A7F46">Schema &amp; contracts</text>
+    <text class="f-muted" x="104" y="514" fill="#5F5F5F" font-size="12">Mapped Currents event types to sink schemas</text>
 
-    <rect x="461" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="481" y="490" fill="#D9FF4B">Reconciliation</text>
-    <text x="481" y="514" fill="#86868B" font-size="12">Export counts vs. in-platform engagement</text>
+    <rect class="f-box s-line" rx="6" x="461" y="458" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="481" y="490" fill="#1A7F46">Reconciliation</text>
+    <text class="f-muted" x="481" y="514" fill="#5F5F5F" font-size="12">Export counts vs. in-platform engagement</text>
 
-    <rect x="838" y="458" width="358" height="76" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-    <text x="858" y="490" fill="#D9FF4B">Troubleshooting</text>
-    <text x="858" y="514" fill="#86868B" font-size="12">Gaps, lag, and delivery issues across the stream</text>
+    <rect class="f-box s-line" rx="6" x="838" y="458" width="358" height="76" fill="#F7F7F7" stroke="#E4E4E4"/>
+    <text class="f-accent-text" x="858" y="490" fill="#1A7F46">Troubleshooting</text>
+    <text class="f-muted" x="858" y="514" fill="#5F5F5F" font-size="12">Gaps, lag, and delivery issues across the stream</text>
 
-    <rect x="84" y="550" width="1112" height="76" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.25"/>
-    <text x="104" y="582" fill="#F2F1ED" font-weight="600">Outcome</text>
-    <text x="104" y="606" fill="#86868B" font-size="12">A trustworthy export pipeline Wonga's team could build reporting and downstream activation on.</text>
+    <rect class="f-box s-accent" rx="6" x="84" y="550" width="1112" height="76" fill="#F7F7F7" stroke="#1F9D55" stroke-opacity="0.55"/>
+    <text class="f-heading" x="104" y="582" fill="#111111" font-weight="600">Outcome</text>
+    <text class="f-muted" x="104" y="606" fill="#5F5F5F" font-size="12">A trustworthy export pipeline Wonga's team could build reporting and downstream activation on.</text>
   </g>
 
-  <text x="64" y="692" fill="#86868B" font-size="12">Advised the client team on data exports and general troubleshooting throughout the implementation.</text>
+  <text class="f-muted" x="64" y="692" fill="#5F5F5F" font-size="12">Advised the client team on data exports and general troubleshooting throughout the implementation.</text>
 </svg>
