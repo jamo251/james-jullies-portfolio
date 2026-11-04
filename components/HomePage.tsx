@@ -78,7 +78,11 @@ const HomePage: React.FC<HomePageProps> = ({ onAskAi, askAiRef }) => (
       UK.
     </p>
 
-    <p>In my spare time I run trails and roads and play piano.</p>
+    <p>
+      In my spare time I mostly run on roads and cross-train. The aim is to stay ready for whatever comes up, like
+      entering a 10k on a whim and running it comfortably. I also make music as{' '}
+      <a href="https://beacons.ai/jamo251">Jamo Music</a>.
+    </p>
 
     <p>
       You can find me on <a href={contactHref('LinkedIn')}>LinkedIn</a> and{' '}
