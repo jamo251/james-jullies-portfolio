@@ -1,58 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
-  <rect width="1280" height="720" fill="#0A0A0B"/>
-  <rect x="0.5" y="0.5" width="1279" height="719" fill="none" stroke="#D9FF4B" stroke-opacity="0.12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif">
+  <style>
+    :root { --bg:#FFFFFF; --box:#F7F7F7; --line:#E4E4E4; --line-strong:#CFCFCF; --heading:#111111; --text:#2B2B2B; --muted:#5F5F5F; --accent:#1F9D55; --accent-text:#1A7F46; --warn:#C2410C; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0F0F10; --box:#18181A; --line:#2C2C2E; --line-strong:#3E3E42; --heading:#FFFFFF; --text:#E6E6E6; --muted:#A3A3A3; --accent:#3FCF7F; --accent-text:#3FCF7F; --warn:#FB923C; }
+    }
+    .f-bg{fill:var(--bg)} .f-box{fill:var(--box)} .f-heading{fill:var(--heading)} .f-muted{fill:var(--muted)}
+    .f-accent{fill:var(--accent)} .f-accent-text{fill:var(--accent-text)} .f-warn{fill:var(--warn)}
+    .s-line{stroke:var(--line)} .s-line-strong{stroke:var(--line-strong)} .s-accent{stroke:var(--accent)} .s-warn{stroke:var(--warn)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+  <rect class="f-bg" width="1280" height="720" fill="#FFFFFF"/>
 
-  <text x="64" y="68" fill="#86868B" font-size="14" letter-spacing="4">DELIVERY / PHASED ROLLOUT</text>
-  <text x="64" y="110" fill="#F2F1ED" font-size="34" font-weight="600">Foundation First, Live on Time</text>
+  <text class="f-muted" x="64" y="68" fill="#5F5F5F" font-size="14" letter-spacing="1.6">DELIVERY / PHASED ROLLOUT</text>
+  <text class="f-heading" x="64" y="110" fill="#111111" font-size="30" font-weight="600">Foundation First, Live on Time</text>
 
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#D9FF4B" fill-opacity="0.7"/>
+      <path class="f-accent" d="M0,0 L8,3 L0,6 Z" fill="#1F9D55"/>
     </marker>
   </defs>
 
-  <text x="64" y="170" fill="#86868B" font-size="13" letter-spacing="2">SCOPED WITH MELON MOBILE AND ITS MARKETING AGENCY</text>
+  <text class="f-muted" x="64" y="170" fill="#5F5F5F" font-size="13" letter-spacing="1.2">SCOPED WITH MELON MOBILE AND ITS MARKETING AGENCY</text>
 
   <!-- phase 1 -->
-  <rect x="64" y="190" width="360" height="250" fill="#141416" stroke="#D9FF4B" stroke-opacity="0.35"/>
-  <text x="88" y="230" fill="#D9FF4B" font-size="13" letter-spacing="2">PHASE 01</text>
-  <text x="88" y="266" fill="#F2F1ED" font-size="22" font-weight="600">Foundation</text>
-  <line x1="88" y1="286" x2="400" y2="286" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <g font-size="13" fill="#F2F1ED">
-    <rect x="88" y="311" width="6" height="6" fill="#D9FF4B"/><text x="106" y="320">Event taxonomy agreed</text>
-    <rect x="88" y="351" width="6" height="6" fill="#D9FF4B"/><text x="106" y="360">SDK firing order + identity</text>
-    <rect x="88" y="391" width="6" height="6" fill="#D9FF4B"/><text x="106" y="400">Core events on all 4 platforms</text>
+  <rect class="f-box s-accent" rx="6" x="64" y="190" width="360" height="250" fill="#F7F7F7" stroke="#1F9D55"/>
+  <text class="f-accent-text" x="88" y="230" fill="#1A7F46" font-size="13" letter-spacing="1.2">PHASE 01</text>
+  <text class="f-heading" x="88" y="266" fill="#111111" font-size="22" font-weight="600">Foundation</text>
+  <line class="s-line" x1="88" y1="286" x2="400" y2="286" stroke="#E4E4E4"/>
+  <g class="f-heading" font-size="13" fill="#111111">
+    <rect class="f-accent" x="88" y="311" width="6" height="6" fill="#1F9D55"/><text x="106" y="320">Event taxonomy agreed</text>
+    <rect class="f-accent" x="88" y="351" width="6" height="6" fill="#1F9D55"/><text x="106" y="360">SDK firing order + identity</text>
+    <rect class="f-accent" x="88" y="391" width="6" height="6" fill="#1F9D55"/><text x="106" y="400">Core events on all 4 platforms</text>
   </g>
 
   <!-- phase 2 -->
-  <rect x="460" y="190" width="360" height="250" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <text x="484" y="230" fill="#D9FF4B" font-size="13" letter-spacing="2">PHASE 02</text>
-  <text x="484" y="266" fill="#F2F1ED" font-size="22" font-weight="600">Build out</text>
-  <line x1="484" y1="286" x2="796" y2="286" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <g font-size="13" fill="#F2F1ED">
-    <rect x="484" y="311" width="6" height="6" fill="#D9FF4B"/><text x="502" y="320">Further journeys instrumented</text>
-    <rect x="484" y="351" width="6" height="6" fill="#D9FF4B"/><text x="502" y="360">Built on the verified base</text>
-    <rect x="484" y="391" width="6" height="6" fill="#D9FF4B"/><text x="502" y="400">Validated on every platform</text>
+  <rect class="f-box s-line" rx="6" x="460" y="190" width="360" height="250" fill="#F7F7F7" stroke="#E4E4E4"/>
+  <text class="f-accent-text" x="484" y="230" fill="#1A7F46" font-size="13" letter-spacing="1.2">PHASE 02</text>
+  <text class="f-heading" x="484" y="266" fill="#111111" font-size="22" font-weight="600">Build out</text>
+  <line class="s-line" x1="484" y1="286" x2="796" y2="286" stroke="#E4E4E4"/>
+  <g class="f-heading" font-size="13" fill="#111111">
+    <rect class="f-accent" x="484" y="311" width="6" height="6" fill="#1F9D55"/><text x="502" y="320">Further journeys instrumented</text>
+    <rect class="f-accent" x="484" y="351" width="6" height="6" fill="#1F9D55"/><text x="502" y="360">Built on the verified base</text>
+    <rect class="f-accent" x="484" y="391" width="6" height="6" fill="#1F9D55"/><text x="502" y="400">Validated on every platform</text>
   </g>
 
   <!-- phase 3 -->
-  <rect x="856" y="190" width="360" height="250" fill="#141416" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <text x="880" y="230" fill="#D9FF4B" font-size="13" letter-spacing="2">PHASE 03</text>
-  <text x="880" y="266" fill="#F2F1ED" font-size="22" font-weight="600">Go-live</text>
-  <line x1="880" y1="286" x2="1192" y2="286" stroke="#F2F1ED" stroke-opacity="0.12"/>
-  <g font-size="13" fill="#F2F1ED">
-    <rect x="880" y="311" width="6" height="6" fill="#D9FF4B"/><text x="898" y="320">Data checked in both tools</text>
-    <rect x="880" y="351" width="6" height="6" fill="#D9FF4B"/><text x="898" y="360">Reporting for marketing</text>
-    <rect x="880" y="391" width="6" height="6" fill="#D9FF4B"/><text x="898" y="400">Reporting for product</text>
+  <rect class="f-box s-line" rx="6" x="856" y="190" width="360" height="250" fill="#F7F7F7" stroke="#E4E4E4"/>
+  <text class="f-accent-text" x="880" y="230" fill="#1A7F46" font-size="13" letter-spacing="1.2">PHASE 03</text>
+  <text class="f-heading" x="880" y="266" fill="#111111" font-size="22" font-weight="600">Go-live</text>
+  <line class="s-line" x1="880" y1="286" x2="1192" y2="286" stroke="#E4E4E4"/>
+  <g class="f-heading" font-size="13" fill="#111111">
+    <rect class="f-accent" x="880" y="311" width="6" height="6" fill="#1F9D55"/><text x="898" y="320">Data checked in both tools</text>
+    <rect class="f-accent" x="880" y="351" width="6" height="6" fill="#1F9D55"/><text x="898" y="360">Reporting for marketing</text>
+    <rect class="f-accent" x="880" y="391" width="6" height="6" fill="#1F9D55"/><text x="898" y="400">Reporting for product</text>
   </g>
 
   <!-- timeline -->
-  <line x1="64" y1="506" x2="1206" y2="506" stroke="#D9FF4B" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-  <circle cx="244" cy="506" r="6" fill="#0A0A0B" stroke="#D9FF4B"/>
-  <circle cx="640" cy="506" r="6" fill="#0A0A0B" stroke="#D9FF4B"/>
-  <circle cx="1036" cy="506" r="6" fill="#D9FF4B"/>
-  <text x="64" y="542" fill="#86868B" font-size="12" letter-spacing="2">KICK-OFF</text>
-  <text x="1216" y="542" fill="#D9FF4B" font-size="14" letter-spacing="2" text-anchor="end">GO-LIVE — ON TIME</text>
+  <line class="s-accent" x1="64" y1="506" x2="1206" y2="506" stroke="#1F9D55" stroke-opacity="0.8" marker-end="url(#arrow)"/>
+  <circle class="f-bg s-accent" stroke-opacity="0.8" cx="244" cy="506" r="6" fill="#FFFFFF" stroke="#1F9D55"/>
+  <circle class="f-bg s-accent" stroke-opacity="0.8" cx="640" cy="506" r="6" fill="#FFFFFF" stroke="#1F9D55"/>
+  <circle class="f-accent" cx="1036" cy="506" r="6" fill="#1F9D55"/>
+  <text class="f-muted" x="64" y="542" fill="#5F5F5F" font-size="12" letter-spacing="1.2">KICK-OFF</text>
+  <text class="f-accent-text" x="1216" y="542" fill="#1A7F46" font-size="14" letter-spacing="1.2" text-anchor="end">GO-LIVE — ON TIME</text>
 
-  <text x="64" y="640" fill="#86868B" font-size="12">Identity landed first, so every later phase built on data both platforms already agreed on.</text>
+  <text class="f-muted" x="64" y="640" fill="#5F5F5F" font-size="12">Identity landed first, so every later phase built on data both platforms already agreed on.</text>
 </svg>
