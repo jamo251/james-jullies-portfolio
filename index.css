@@ -42,7 +42,8 @@ body {
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
-  font-family: "Inter", system-ui, sans-serif;
+  /* Inter has no Arabic glyphs, so Arabic text falls through to IBM Plex Sans Arabic */
+  font-family: "Inter", "IBM Plex Sans Arabic", system-ui, sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 1.7;
@@ -71,7 +72,7 @@ p {
 
 ul {
   margin: 0 0 22px;
-  padding-left: 1.25em;
+  padding-inline-start: 1.25em;
   list-style: disc;
 }
 
@@ -134,7 +135,7 @@ figure img {
 /* Ask AI panel */
 .chat {
   position: fixed;
-  right: 24px;
+  inset-inline-end: 24px;
   bottom: 24px;
   z-index: 10;
   display: flex;
@@ -152,9 +153,8 @@ figure img {
 
 @media (max-width: 480px) {
   .chat {
-    right: 16px;
+    inset-inline: 16px;
     bottom: 16px;
-    left: 16px;
     width: auto;
     max-width: none;
     height: calc(100dvh - 32px);
@@ -197,7 +197,7 @@ figure img {
 }
 
 .chat-msg.user {
-  margin-left: auto;
+  margin-inline-start: auto;
   background: none;
   border: 1px solid var(--line);
 }
@@ -242,6 +242,17 @@ figure img {
 .chat-form button:disabled {
   color: var(--muted);
   cursor: default;
+}
+
+/* Arabic (right-to-left) version, chosen from the device language */
+:lang(ar) body {
+  font-family: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+  line-height: 1.85;
+}
+
+:lang(ar) h1 {
+  /* Negative tracking breaks the joins between Arabic letters */
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

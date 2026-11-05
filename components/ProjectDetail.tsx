@@ -2,9 +2,13 @@ import React from 'react';
 import { Project } from '../types';
 import { MarkdownText } from './MarkdownText';
 import { navigate } from '../hooks/useRoute';
+import type { Locale } from '../hooks/useLocale';
+import { STRINGS } from '../data/strings';
 
 interface ProjectDetailProps {
+  /** Already localised for the visitor's language. */
   project: Project;
+  locale: Locale;
 }
 
 type Block = { kind: 'p'; text: string } | { kind: 'ul'; items: string[] };
@@ -28,7 +32,8 @@ const toBlocks = (text: string): Block[] => {
 };
 
 /** A case study, rendered as the same plain column as the home page. */
-const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
+const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, locale }) => {
+  const t = STRINGS[locale];
   const images = [project.imageUrl, ...(project.galleryImages ?? []).filter((src) => src !== project.imageUrl)];
 
   return (
@@ -42,7 +47,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             navigate('/');
           }}
         >
-          ← James Jullies
+          {t.backToHome}
         </a>
       </p>
 
@@ -70,7 +75,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
 
       {project.link && (
         <p>
-          <a href={project.link}>{project.linkLabel ?? 'View project'}</a>
+          <a href={project.link}>{project.linkLabel ?? t.viewProject}</a>
         </p>
       )}
 
@@ -78,7 +83,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
         <figure key={src}>
           <img
             src={src}
-            alt={`${project.title}, image ${i + 1} of ${images.length}`}
+            alt={t.imageAlt(project.title, i + 1, images.length)}
             loading={i === 0 ? 'eager' : 'lazy'}
             decoding="async"
           />
