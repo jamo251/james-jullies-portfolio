@@ -15,6 +15,11 @@ const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 const SYSTEM_PROMPT = buildSystemPrompt();
 
+// Sent as a separate, uncached system block so the main prompt's cache is
+// shared between English and Arabic visitors.
+const ARABIC_NOTE =
+  'The visitor is reading the Arabic version of the site. Reply in Modern Standard Arabic unless they write to you in another language. Keep product, company, client and technology names in their original Latin spelling.';
+
 // Best-effort, per-instance limiter. Good enough to blunt casual abuse on a
 // portfolio; a shared store (e.g. Upstash) would be needed for a hard limit.
 const hits = new Map<string, number[]>();
@@ -64,7 +69,7 @@ export async function POST(request: Request) {
     return json({ error: "You've asked a lot of questions in a short time. Please try again in a few minutes." }, 429);
   }
 
-  let body: { messages?: unknown };
+  let body: { messages?: unknown; locale?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -73,6 +78,8 @@ export async function POST(request: Request) {
 
   const messages = parseMessages(body.messages);
   if (typeof messages === 'string') return json({ error: messages }, 400);
+
+  const arabic = body.locale === 'ar';
 
   if (!process.env.ANTHROPIC_API_KEY) {
     console.error('chat: ANTHROPIC_API_KEY is not set');
@@ -86,12 +93,19 @@ export async function POST(request: Request) {
       max_tokens: MAX_TOKENS,
       thinking: { type: 'disabled' },
       output_config: { effort: 'low' },
-      system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }],
+      system: [
+        { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
+        ...(arabic ? [{ type: 'text' as const, text: ARABIC_NOTE }] : []),
+      ],
       messages,
     });
 
     if (response.stop_reason === 'refusal') {
-      return json({ reply: "I can't help with that one. Feel free to ask about James's projects, experience or certifications." });
+      return json({
+        reply: arabic
+          ? 'لا يمكنني المساعدة في هذا الطلب. يسعدني الإجابة عن أسئلتك حول مشاريع جيمس أو خبراته أو شهاداته.'
+          : "I can't help with that one. Feel free to ask about James's projects, experience or certifications.",
+      });
     }
 
     const reply = response.content
@@ -100,7 +114,10 @@ export async function POST(request: Request) {
       .join('')
       .trim();
 
-    return json({ reply: reply || "Sorry, I couldn't put an answer together. Please try rephrasing." });
+    const fallback = arabic
+      ? 'عذرًا، لم أتمكّن من صياغة إجابة. يُرجى إعادة صياغة السؤال.'
+      : "Sorry, I couldn't put an answer together. Please try rephrasing.";
+    return json({ reply: reply || fallback });
   } catch (error) {
     if (error instanceof Anthropic.RateLimitError) {
       return json({ error: 'The guide is busy right now. Please try again shortly.' }, 503);

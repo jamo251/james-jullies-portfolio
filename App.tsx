@@ -4,9 +4,10 @@ import ProjectDetail from './components/ProjectDetail';
 import AiAssistant from './components/AiAssistant';
 import { Project } from './types';
 import { PROJECTS } from './data/content';
+import { localizeProject } from './data/content.ar';
+import { STRINGS } from './data/strings';
 import { usePathname, navigate } from './hooks/useRoute';
-
-const HOME_TITLE = 'James Jullies | Martech & AI Architect';
+import { useLocale } from './hooks/useLocale';
 
 const projectFromPath = (pathname: string): Project | null => {
   const match = pathname.match(/^\/work\/([^/]+)\/?$/);
@@ -15,7 +16,11 @@ const projectFromPath = (pathname: string): Project | null => {
 
 const App: React.FC = () => {
   const pathname = usePathname();
+  const locale = useLocale();
+  const t = STRINGS[locale];
   const selectedProject = projectFromPath(pathname);
+  const project = selectedProject && localizeProject(selectedProject, locale);
+  const projectTitle = project?.title;
   const [aiOpen, setAiOpen] = useState(false);
   const askAiRef = useRef<HTMLButtonElement>(null);
 
@@ -25,9 +30,12 @@ const App: React.FC = () => {
   }, [pathname, selectedProject]);
 
   useEffect(() => {
-    document.title = selectedProject ? `${selectedProject.title} | James Jullies` : HOME_TITLE;
     window.scrollTo(0, 0);
   }, [selectedProject]);
+
+  useEffect(() => {
+    document.title = projectTitle ? `${projectTitle}${t.projectTitleSuffix}` : t.homeTitle;
+  }, [projectTitle, t]);
 
   const closeAi = useCallback(() => {
     setAiOpen(false);
@@ -36,12 +44,12 @@ const App: React.FC = () => {
 
   return (
     <>
-      {selectedProject ? (
-        <ProjectDetail project={selectedProject} />
+      {project ? (
+        <ProjectDetail project={project} locale={locale} />
       ) : (
-        <HomePage onAskAi={() => setAiOpen(true)} askAiRef={askAiRef} />
+        <HomePage locale={locale} onAskAi={() => setAiOpen(true)} askAiRef={askAiRef} />
       )}
-      <AiAssistant open={aiOpen} onClose={closeAi} />
+      <AiAssistant locale={locale} open={aiOpen} onClose={closeAi} />
     </>
   );
 };
